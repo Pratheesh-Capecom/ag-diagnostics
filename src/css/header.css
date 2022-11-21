@@ -1,0 +1,77 @@
+header {
+    background: linear-gradient(to right, #603085 70%, #ffffff 70%);
+}
+
+header .top-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+header .top-header .logo1,
+header .top-header .logo2{
+    margin-right: auto;
+}
+
+header .top-header .header-doctor {
+    color: #FFF;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    margin-bottom: 0px;
+}
+
+header .top-header .header-doctor small {
+    display: block;
+    font-weight: 300;
+    font-size: 11px;
+}
+
+header .top-header .header-bg {
+    background: url(../images/header-bg.png) left top no-repeat #FFF;
+    background-size: cover;
+    padding: 10px 0px 10px 90px;
+}
+
+header .top-header .top-phone {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+header .top-header .top-phone p {
+    margin-bottom: 0px;
+    text-align: right;
+    font-size: 14px;
+    color: #692D97;
+    padding-right: 10px;
+}
+
+header .top-header .top-phone p strong {
+    display: block;
+    font-size: 18px;
+    color: #692D97;
+    font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+    header {
+        background: linear-gradient(to right, #603085 80%, #ffffff 80%);
+    }
+}
+
+@media (max-width: 1199px) {
+    header {
+        padding: 10px 0px;
+        background: #603085;
+    }
+}
+
+@media (max-width: 760px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+}
