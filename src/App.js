@@ -28,6 +28,7 @@ import Media from './pages/media';
 import News from './pages/news';
 import Specialities from './pages/specialities';
 import NewsDetails from './pages/news-details';
+import TechnicalCapabilities from './pages/technical-capabilities';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
           <Route path='/news/' exact element={<News />} />
           <Route path='/news-details/' exact element={<NewsDetails />} />
           <Route path='/contact-us/' exact element={<ContactUs />} />
+          <Route path='/technical-capabilities/' exact element={<TechnicalCapabilities />} />
         </Routes>
           <Footer />
 	  </BrowserRouter>

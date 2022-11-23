@@ -69,10 +69,9 @@ class Menubar extends Component {
                                         </NavDropdown>
                                         <Nav.Link to="/home-visit/" as={Link} >Home Visit</Nav.Link>
                                         <Nav.Link to="/services/" as={Link} >Services</Nav.Link>
-                                        <Nav.Link to="/specialities/" as={Link} >Specialities</Nav.Link>
+                                        <Nav.Link to="/technical-capabilities/" as={Link} >Technical Capabilities</Nav.Link>
                                         <Nav.Link to="/find-a-lab/" as={Link} >Find a Lab</Nav.Link>
                                         <Nav.Link to="/careers/" as={Link} >Careers</Nav.Link>
-                                        <Nav.Link to="/contact-us/" as={Link} >Contact Us</Nav.Link>
                                         <Nav.Link to="/brochures/" as={Link} >Brochures</Nav.Link>
                                         <Nav.Link to="/" as={Link} ><FiDownload /> Download Report</Nav.Link>
                                     </Nav>
