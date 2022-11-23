@@ -86,6 +86,7 @@ class Footer extends Component {
                                         <li><Link to="/brochures/" >Package Booklets</Link></li>
                                         <li><Link to="/brochures/" >Technical Leaflets</Link></li>
                                         <li><Link to="/privacy-policy/" >Privacy Policy</Link></li>
+                                        <li><Link to="/csr-policy/" >CSR Policy</Link></li>
                                         <li><Link to="/terms-conditions/" >Terms & Conditions</Link></li>
                                         <li><Link to="/disclaimer/" >Disclaimer</Link></li>
                                     </ul>

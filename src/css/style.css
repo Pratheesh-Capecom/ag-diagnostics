@@ -2008,6 +2008,7 @@ section.home-slider-bg .carousel .carousel-indicators button.active {
     margin-bottom: 40px;
 }
 
+
 .sticky-img {
     position: sticky;
     top: 100px;
@@ -2055,7 +2056,7 @@ section.home-slider-bg .carousel .carousel-indicators button.active {
 
 .our-values .our-values-content {
     position: absolute;
-    top: 73%;
+    top: 76%;
     left: 5%;
     width: 88%;
     height: 85%;
@@ -2149,7 +2150,7 @@ textarea.form-control {
 .booklet-download span {
     position: absolute;
     right: -10px;
-    bottom: 0px;
+    bottom: -20px;
     width: 45px;
     height: 45px;
     display: flex;
@@ -2175,7 +2176,7 @@ textarea.form-control {
 }
 
 .booklet-download:hover span {
-    bottom: -20px;
+    bottom: -40px;
     background: var(--color-purple);
     transition: all 0.3s ease;
 }
@@ -2356,7 +2357,7 @@ textarea.form-control {
     transition: all 0.6s ease;
 }
 
-.btn-close svg path{
+.btn-close svg path {
     stroke: var(--color-white);
 }
 
@@ -2588,5 +2589,9 @@ textarea.form-control {
     .package-slides .slick-prev::before {
         width: 30px;
         height: 30px;
+    }
+
+    .teams .about-image {
+        margin: 20px 20px 40px 20px;
     }
 }

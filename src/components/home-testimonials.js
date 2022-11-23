@@ -48,7 +48,7 @@ class testimonials extends Component {
                     <Row>
                         <Col>
                             <h2 className="text-center">Testimonials</h2>
-                            <h3 className="text-center">What our customers are saying</h3>
+                            <h3 className="text-center">What our patient’s are saying</h3>
 
                         </Col>
                     </Row>

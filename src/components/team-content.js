@@ -3,13 +3,18 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AwantiGolwilkar from '../images/awanti-golwilkar.jpg';
+import DummyDoctor from '../images/dummy-doctor.jpg';
 import VinantiGolwilkar from '../images/vinanti-golwilkar.jpg';
 import ManishaPatwardhan from '../images/manisha-patwardhan.jpg';
 import MadhuwantiAbhyankar from '../images/madhuwanti-abhyankar.jpg';
 import VenkateshKeralapurkar from '../images/venkatesh-keralapurkar.jpg';
 import BhavanaJadhav from '../images/bhavana-jadhav.jpg';
-import NitinSalve from '../images/nitin-salve.jpg';
 import NeetiJalnapurkar from '../images/neeti-jalnapurkar.jpg';
+import GirishSolanke from '../images/girish-solanke.jpg';
+import MilindMirashi from '../images/milind-mirashi.jpg';
+import VaishaliGokhale from '../images/vaishali-gokhale.jpg';
+import ParagRatnakar from '../images/parag-ratnakar.jpg';
+import ShantanuRoy from '../images/shantanu-roy.jpg';
 
 class TeamContent extends Component {
 
@@ -26,9 +31,9 @@ class TeamContent extends Component {
                         </Row>
                     </Container>
                 </section>
-                <section className="gray-bg-light">
+                <section className="gray-bg-light teams">
                     <Container>
-                        <Row className="justify-content-between flex-column-reverse flex-md-row flex-lg-row">
+                        <Row className="justify-content-between align-items-center flex-column-reverse flex-md-row flex-lg-row">
                             <Col xs={12} sm={12} md={8} lg={7}>
                                 <h4 className="mb-2 pb-0">Dr. Awanti Golwilkar - <small className="text-purple">Mehendale</small></h4>
                                 <h6 className="mb-4">MD <small>(Path)</small></h6>
@@ -46,7 +51,7 @@ class TeamContent extends Component {
                                 <div className="divider">&nbsp;</div>
                             </Col>
                         </Row>
-                        <Row className="justify-content-between">
+                        <Row className="justify-content-between align-items-center">
                             <Col xs={12} sm={12} md={4} lg={4}>
                                 <div className="about-image">
                                     <img src={VinantiGolwilkar} alt="" className="img-fluid" />
@@ -64,7 +69,7 @@ class TeamContent extends Component {
                                 <div className="divider">&nbsp;</div>
                             </Col>
                         </Row>
-                        <Row className="justify-content-between flex-column-reverse flex-md-row flex-lg-row">
+                        <Row className="justify-content-between align-items-center flex-column-reverse flex-md-row flex-lg-row">
                             <Col xs={12} sm={12} md={8} lg={7}>
                                 <h4 className="mb-2 pb-0">Dr. Manisha Patwardhan</h4>
                                 <h6 className="mb-4">MD <small>(Path)</small>, DPB</h6>
@@ -82,7 +87,7 @@ class TeamContent extends Component {
                                 <div className="divider">&nbsp;</div>
                             </Col>
                         </Row>
-                        <Row className="justify-content-between">
+                        <Row className="justify-content-between align-items-center">
                             <Col xs={12} sm={12} md={4} lg={4}>
                                 <div className="about-image">
                                     <img src={MadhuwantiAbhyankar} alt="" className="img-fluid" />
@@ -100,7 +105,7 @@ class TeamContent extends Component {
                                 <div className="divider">&nbsp;</div>
                             </Col>
                         </Row>
-                        <Row className="justify-content-between flex-column-reverse flex-md-row flex-lg-row">
+                        <Row className="justify-content-between align-items-center flex-column-reverse flex-md-row flex-lg-row">
                             <Col xs={12} sm={12} md={8} lg={7}>
                                 <h4 className="mb-2 pb-0">Dr. Venkatesh Keralapurkar</h4>
                                 <h6 className="mb-4">DNB <small>(Path)</small></h6>
@@ -118,7 +123,7 @@ class TeamContent extends Component {
                                 <div className="divider">&nbsp;</div>
                             </Col>
                         </Row>
-                        <Row className="justify-content-between">
+                        <Row className="justify-content-between align-items-center">
                             <Col xs={12} sm={12} md={4} lg={4}>
                                 <div className="about-image">
                                     <img src={BhavanaJadhav} alt="" className="img-fluid" />
@@ -136,16 +141,16 @@ class TeamContent extends Component {
                                 <div className="divider">&nbsp;</div>
                             </Col>
                         </Row>
-                        <Row className="justify-content-between flex-column-reverse flex-md-row flex-lg-row">
+                        <Row className="justify-content-between align-items-center flex-column-reverse flex-md-row flex-lg-row">
                             <Col xs={12} sm={12} md={8} lg={7}>
-                                <h4 className="mb-2 pb-0">Dr. Nitin Salve - <small className="text-purple">MBBS</small></h4>
-                                <h6 className="mb-4">DPB</h6>
-                                <h5 className="text-dark">Dr.Salve has done his MBBS and DPB from Pune.With an experience of more than 19 years, he is an asset to any large busy laboratory as he is adept at handling all aspects of reporting in hematology, clinical pathology, histopathology, and cytopathology departments. </h5>
-                                <p className="text-dark">He has an astute acumen in interpretation of pathology findings. He is always available for patients and to handle their queries.</p>
+                                <h4 className="mb-2 pb-0">Dr. Neeti Jalnapurkar</h4>
+                                <h6 className="mb-4">MD <small>(Path)</small></h6>
+                                <h5 className="text-dark">Dr. Neeti has completed her MBBS and MD Pathology from M.S. University, Vadodara, Gujarat. Histopathology and Cytopathology are her areas of interest and expertise.</h5>
+                                <p className="text-dark">With an experience of around 24 years, Dr. Neeti has crafted an excellent reputation in the field of pathology for herself. Her effortless rapport with patients, dedication to her work and high standards of ethics and principles has made her shine brilliantly in her profession.</p>
                             </Col>
                             <Col xs={12} sm={12} md={4} lg={4}>
                                 <div className="about-image">
-                                    <img src={NitinSalve} alt="" className="img-fluid" />
+                                    <img src={NeetiJalnapurkar} alt="" className="img-fluid" />
                                 </div>
                             </Col>
                         </Row>
@@ -154,17 +159,107 @@ class TeamContent extends Component {
                                 <div className="divider">&nbsp;</div>
                             </Col>
                         </Row>
-                        <Row className="justify-content-between">
+                        <Row className="justify-content-between align-items-center">
                             <Col xs={12} sm={12} md={4} lg={4}>
                                 <div className="about-image">
-                                    <img src={NeetiJalnapurkar} alt="" className="img-fluid" />
+                                    <img src={MilindMirashi} alt="" className="img-fluid" />
                                 </div>
                             </Col>
                             <Col xs={12} sm={12} md={8} lg={7}>
-                                <h4 className="mb-2 pb-0">Dr. Neeti Jalnapurkar</h4>
+                                <h4 className="mb-2 pb-0">Dr. Milind Mirashi</h4>
                                 <h6 className="mb-4">MD <small>(Path)</small></h6>
-                                <h5 className="text-dark">Dr. Neeti has completed her MBBS and MD Pathology from M.S. University, Vadodara, Gujarat. Histopathology and Cytopathology are her areas of interest and expertise.</h5>
-                                <p className="text-dark">With an experience of around 24 years, Dr. Neeti has crafted an excellent reputation in the field of pathology for herself. Her effortless rapport with patients, dedication to her work and high standards of ethics and principles has made her shine brilliantly in her profession.</p>
+                                <h5 className="text-dark">Dr. Mirashi has done his MD from B.J Medical College, Pune. With over 32 years of an astute experience, he is an asset to company.</h5>
+                                <p className="text-dark">He has expertise in handling interpretation of numerous pathology findings with a special interest in Histopathology. </p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className="divider">&nbsp;</div>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-between align-items-center flex-column-reverse flex-md-row flex-lg-row">
+                            <Col xs={12} sm={12} md={8} lg={7}>
+                                <h4 className="mb-2 pb-0">Dr. Ashok Bhandare</h4>
+                                <h6 className="mb-4">MD <small>(Path)</small></h6>
+                                <h5 className="text-dark">Dr. Ratnakar has done his MD from Mumbai University. His 17+ years’ experience is backed-up with a strong academic record and excellent communication skills.</h5>
+                                <p className="text-dark">With his proactive & motivated team player ability, he is also instrumental in handling Hospital Lab Management in our labs across India. He is actively engaged in managing multiple aspects of routine Lab operations &amp; outsourced laboratory platform management.</p>
+                            </Col>
+                            <Col xs={12} sm={12} md={4} lg={4}>
+                                <div className="about-image">
+                                    <img src={ParagRatnakar} alt="" className="img-fluid" />
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className="divider">&nbsp;</div>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-between align-items-center">
+                            <Col xs={12} sm={12} md={4} lg={4}>
+                                <div className="about-image">
+                                    <img src={DummyDoctor} alt="" className="img-fluid" />
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={12} md={8} lg={7}>
+                                <h4 className="mb-2 pb-0">Dr. Parag Ratnakar</h4>
+                                <h6 className="mb-4">MD <small>(Path)</small></h6>
+                                <h5 className="text-dark"></h5>
+                                <p className="text-dark"></p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className="divider">&nbsp;</div>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-between align-items-center flex-column-reverse flex-md-row flex-lg-row">
+                            <Col xs={12} sm={12} md={8} lg={7}>
+                                <h4 className="mb-2 pb-0">Dr. Girish Solanke</h4>
+                                <h6 className="mb-4">MD <small>(Path)</small></h6>
+                                <h5 className="text-dark">Dr. Solanke has completed MD Pathology from Kasturba Medical College, Manipal University, Karnataka.</h5>
+                                <p className="text-dark">He holds a strong experience of 7+ years in handling all aspects of routine pathology reporting with a special interest in Hematology and Coagulation. Dr. Solanke is a disciplined, effective team player with his analytical and communicative skills.</p>
+                            </Col>
+                            <Col xs={12} sm={12} md={4} lg={4}>
+                                <div className="about-image">
+                                    <img src={GirishSolanke} alt="" className="img-fluid" />
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className="divider">&nbsp;</div>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-between align-items-center">
+                            <Col xs={12} sm={12} md={4} lg={4}>
+                                <div className="about-image">
+                                    <img src={ShantanuRoy} alt="" className="img-fluid" />
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={12} md={8} lg={7}>
+                                <h4 className="mb-2 pb-0">Dr. Shantanu Roy</h4>
+                                <h6 className="mb-4">DCP, DNB <small>(Path)</small></h6>
+                                <h5 className="text-dark">Dr. Roy has done his DCP from GMC, Aurangabad and passed DNB from Jehangir Hospital, Pune.</h5>
+                                <p className="text-dark">His potential experience of over 2 years is an advantage for A.G Diagnostics to oversee the end-to-end management of associated hospital labs. Dr. Roy is very much proficient in handling routine reporting at main laboratory.</p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className="divider">&nbsp;</div>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-between align-items-center flex-column-reverse flex-md-row flex-lg-row">                            
+                            <Col xs={12} sm={12} md={8} lg={7}>
+                                <h4 className="mb-2 pb-0">Dr. Vaishali Gokhale</h4>
+                                <h6 className="mb-4">MD, DNB <small>(Microbiology)</small></h6>
+                                <h5 className="text-dark">Dr. Gokhale has done her MD in Microbiology from B.J Govt Medical College, Pune and pursued DNB from National Board Examination, New Delhi.</h5>
+                                <p className="text-dark">Dr. Gokhale holds experience of 6+ years in the field of Microbiology. She has keen interest in Molecular Microbiology, Mycology and Virology. She has done research work in Syphilis-Reverse Algorithm, Bacterial Meningitis and HIV in ANC females. She has presented her dissertation work at ID week 2018 at San Francisco for which she had been awarded scholarship by JHU.</p>
+                            </Col>
+                            <Col xs={12} sm={12} md={4} lg={4}>
+                                <div className="about-image">
+                                    <img src={VaishaliGokhale} alt="" className="img-fluid" />
+                                </div>
                             </Col>
                         </Row>
                     </Container>

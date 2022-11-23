@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import videoImage from '../images/video-image.jpg';
-import video from '../images/video.mp4';
+import video from '../images/home-video.mp4';
 import { Link } from 'react-router-dom';
 
 class homeWhoWeAre extends Component {
