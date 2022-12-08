@@ -403,7 +403,8 @@ section.home-slider-bg .carousel-fade .carousel-item.active {
     opacity: 1;
 }
 
-section.home-slider-bg .carousel .carousel-item.carousel-item-start {
+section.home-slider-bg .carousel .carousel-item.carousel-item-start,
+section.home-slider-bg .carousel .carousel-item.carousel-item-end {
     opacity: 0 !important;
     transition: all 0s ease;
 }
@@ -518,6 +519,7 @@ section.home-slider-bg .carousel .carousel-indicators button.active {
 .orange-btn {
     color: var(--color-white);
     padding: 15px 30px;
+    border: none;
     border-radius: 4px;
     display: inline-block;
     margin-top: 20px;
@@ -1414,15 +1416,14 @@ section.home-slider-bg .carousel .carousel-indicators button.active {
 
 .exper-txt {
     position: absolute;
-    background: #FFF;
-    padding: 10px;
-    bottom: 0px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 15px 15px 15px;
+    bottom: -5px;
     right: 0px;
-    clip-path: polygon(0 1%, 82% 0, 100% 42%, 99% 100%, 41% 99%, 0 100%);
+    clip-path: polygon(0 0%, 85% 0, 100% 40%, 100% 100%, 50% 100%, 0 100%);
     border-radius: 0px 10px 10px 10px;
     z-index: 20;
 }
-
 
 .exper-txt img {
     display: inline-block;
@@ -2367,6 +2368,121 @@ textarea.form-control {
     transition: all 0.6s ease;
 }
 
+.modal .modal-body {
+    padding: 20px;
+}
+
+.modal-backdrop {
+    z-index: 9992;
+}
+
+.modal {
+    z-index: 9999;
+}
+
+.modal .modal-content {
+    border: none;
+}
+
+.modal .modal-header h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.modal .modal-header h4 small {
+    color: var(--color-gray);
+    font-size: 16px;
+    font-weight: 300;
+    display: block;
+}
+
+.modal .modal-header .btn-close {
+    right: -10px;
+    top: -10px;
+}
+
+.modal .modal-header .btn-close:before {
+    content: "x";
+    font-size: 30px;
+    width: 50px;
+    height: 26px;
+    line-height: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: var(--color-white);
+}
+
+section.teams {
+    padding-bottom: 60px;
+}
+
+.teams-card {
+    background: var(--color-white);
+    padding: 15px 15px 40px 15px;
+    border-radius: 10px;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.teams-card:before {
+    content: "+";
+    font-size: 26px;
+    font-family: "Arial";
+    font-weight: 300;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(0, 0, 0, 0.07);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-orange);
+    transition: all 0.3s ease;
+}
+
+.teams-card:hover:before {
+    transition: all 0.3s ease;
+    color: var(--color-white);
+    background: var(--color-purple);
+}
+
+.teams-card:hover {
+    box-shadow: 10px 10px 0px var(--color-orange);
+    transition: all 0.3s ease;
+}
+
+.teams-card h4 {
+    font-size: 22px;
+    line-height: 30px;
+    position: relative;
+    padding: 10px 0px;
+    margin: 15px 0px 0px 0px;
+    color: var(--color-purple);
+}
+
+.teams-card h4:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 3px;
+    content: "";
+    background: var(--color-orange);
+}
+
+.teams-card h6 {
+    color: var(--color-gray);
+    font-size: 14px;
+}
+
 @media (min-width: 1400px) {
     .container {
         max-width: 1200px;
@@ -2495,6 +2611,14 @@ textarea.form-control {
 
 
 @media (max-width:767px) {
+    section {
+        padding: 50px 0px;
+    }
+
+    section.home-slider-bg {
+        padding-top: 0px;
+    }
+
     section.home-slider-bg .carousel .carousel-item .carousel-caption {
         position: relative;
         max-width: 100%;
@@ -2552,6 +2676,7 @@ textarea.form-control {
         display: none;
     }
 
+
     h3 {
         font-size: 30px;
         line-height: 46px;
@@ -2593,5 +2718,36 @@ textarea.form-control {
 
     .teams .about-image {
         margin: 20px 20px 40px 20px;
+    }
+
+
+
+    .teams-card h4 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .modal .modal-title h4 {
+        font-size: 20px;
+        padding-right: 50px;
+    }
+
+    .modal .modal-header .btn-close {
+        right: 10px;
+        top: 10px;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+    }
+
+    .modal .modal-header .btn-close:before {
+        width: 30px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 575px) {
+    .teams-card {
+        margin: 20px;
     }
 }

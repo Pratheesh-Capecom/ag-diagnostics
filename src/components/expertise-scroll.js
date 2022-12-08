@@ -9,7 +9,10 @@ import expertiseImage1 from '../images/expertice1.png';
 import expertiseImage2 from '../images/expertice2.png';
 import expertiseImage3 from '../images/expertice3.png';
 import expertiseImage4 from '../images/expertice4.png';
+import expertiseImage5 from '../images/expertice5.png';
+import expertiseImage6 from '../images/expertice6.png';
 import { BsArrowRight } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 class expertiseScroll extends Component {
 
@@ -55,47 +58,11 @@ class expertiseScroll extends Component {
                                 <div>
                                     <div className="expertise-txt">
                                         <div className="expertise_inner">
-                                            <img src={expertiseImage1} alt="" />
-                                            <div className="exper-txt">
-                                                <h3>Hematology</h3>
-                                                <p>These tests are for detecting and evaluating a variety infections.</p>
-                                                <a href="#" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="expertise-txt">
-                                        <div className="expertise_inner">
                                             <img src={expertiseImage2} alt="" />
                                             <div className="exper-txt">
                                                 <h3>Microbiology</h3>
-                                                <p>Microbiological analysis helps with the  detection of unwanted microorganisms.</p>
-                                                <a href="#" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="expertise-txt">
-                                        <div className="expertise_inner">
-                                            <img src={expertiseImage3} alt="" />
-                                            <div className="exper-txt">
-                                                <h3>Clinical Pathology</h3>
-                                                <p>Clinical Pathology is used to help diagnose diseases such as diabetes.</p>
-                                                <a href="#" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="expertise-txt">
-                                        <div className="expertise_inner">
-                                            <img src={expertiseImage4} alt="" />
-                                            <div className="exper-txt">
-                                                <h3>Clinical Biochemistry</h3>
-                                                <p>These tests are useful for determining prognosis and guiding the therapy.</p>
-                                                <a href="#" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></a>
+                                                <p>In Microbiology, excellent quality controls ensure the best quality...</p>
+                                                <Link to="/technical-capabilities/" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></Link>
                                             </div>
                                         </div>
                                     </div>
@@ -106,20 +73,8 @@ class expertiseScroll extends Component {
                                             <img src={expertiseImage1} alt="" />
                                             <div className="exper-txt">
                                                 <h3>Hematology</h3>
-                                                <p>These tests are for detecting and evaluating a variety infections.</p>
-                                                <a href="#" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="expertise-txt">
-                                        <div className="expertise_inner">
-                                            <img src={expertiseImage2} alt="" />
-                                            <div className="exper-txt">
-                                                <h3>Microbiology</h3>
-                                                <p>Microbiological analysis helps with the  detection of unwanted microorganisms.</p>
-                                                <a href="#" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></a>
+                                                <p>Our hematology & special hematology section offers state-of-the-art testing...</p>
+                                                <Link to="/technical-capabilities/" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></Link>
                                             </div>
                                         </div>
                                     </div>
@@ -130,8 +85,32 @@ class expertiseScroll extends Component {
                                             <img src={expertiseImage3} alt="" />
                                             <div className="exper-txt">
                                                 <h3>Clinical Pathology</h3>
-                                                <p>Clinical Pathology is used to help diagnose diseases such as diabetes.</p>
-                                                <a href="#" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></a>
+                                                <p>Clinical Pathology includes examination of urine, stool, semen, body fluids etc..</p>
+                                                <Link to="/technical-capabilities/" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="expertise-txt">
+                                        <div className="expertise_inner">
+                                            <img src={expertiseImage5} alt="" />
+                                            <div className="exper-txt">
+                                                <h3>Quality Assurance</h3>
+                                                <p>A.G Diagnostics Pvt. Ltd. is committed to getting every test right the first time,...</p>
+                                                <Link to="/technical-capabilities/" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="expertise-txt">
+                                        <div className="expertise_inner">
+                                            <img src={expertiseImage6} alt="" />
+                                            <div className="exper-txt">
+                                                <h3>Histo & Cytopathology</h3>
+                                                <p>A.G Diagnostics has a team of histopathologists with over 40 years...</p>
+                                                <Link to="/technical-capabilities/" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></Link>
                                             </div>
                                         </div>
                                     </div>
@@ -142,15 +121,15 @@ class expertiseScroll extends Component {
                                             <img src={expertiseImage4} alt="" />
                                             <div className="exper-txt">
                                                 <h3>Clinical Biochemistry</h3>
-                                                <p>These tests are useful for determining prognosis and guiding the therapy.</p>
-                                                <a href="#" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></a>
+                                                <p>Clinical Biochemistry department can be considered as the care department...</p>
+                                                <Link to="/technical-capabilities/" className="mr-2 readmore">Read More <BsArrowRight className="text-orange" /></Link>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </Slider>
                             <p className="text-center">
-                                <a href="#" className="purple-btn">View All Facilities</a>
+                                <Link to="/technical-capabilities/" className="purple-btn">View All Capabilities</Link>
                             </p>
                         </Col>
                     </Row>

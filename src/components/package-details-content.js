@@ -107,7 +107,7 @@ class PackageDetails extends Component {
                                 <div className="pckge_price_details text-center">
                                     <h5>&#8377;6620/-</h5>
                                     <h3>&#8377;4750/-</h3>
-                                    <button onClick={this.toggleClass} className="btn1 d-block w-100">Enquire Now</button>
+                                    <Button onClick={this.toggleClass} className="btn1 d-block w-100">Enquire Now</Button>
                                     <Link to="/home-visit#home-visit-form" className="btn2 d-block">Book Home Collection</Link>
                                 </div>
                             </Col>

@@ -27,7 +27,7 @@ class HomeVisitContent extends Component {
                                 <div className="img-div text-center f-text-sm-left">
                                     <div className="sm-center-img">
                                         <img src={step1} className="number-img animate-lef-rig" alt="" />
-                                        <img src={stepimage1} className="img-round" alt="" />
+                                        <img src={stepimage2} className="img-round" alt="" />
                                     </div>
                                 </div>
                                 <div className="text-div text-center">
@@ -39,7 +39,7 @@ class HomeVisitContent extends Component {
                                 <div className="img-div text-center order-sm-1 d-sm-block d-block d-md-none">
                                     <div className="center-img">
                                         <img src={step2} className="number-img animate-top-bot" alt="" />
-                                        <img src={stepimage2} className="img-round" alt="" />
+                                        <img src={stepimage1} className="img-round" alt="" />
                                     </div>
                                 </div>
                                 <div className="text-div text-center pad-top-70">
@@ -49,7 +49,7 @@ class HomeVisitContent extends Component {
                                 <div className="img-div text-center order-sm-2 d-none d-md-block">
                                     <div className="sm-center-img">
                                         <img src={step2} className="number-img animate-top-bot" alt="" />
-                                        <img src={stepimage2} className="img-round" alt="" />
+                                        <img src={stepimage1} className="img-round" alt="" />
                                     </div>
                                 </div>
                             </Col>

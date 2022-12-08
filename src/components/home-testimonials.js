@@ -57,49 +57,64 @@ class testimonials extends Component {
                             <Slider {...settings} className="package-slides testimonials">
                                 <div>
                                     <div className="testimonials-list">
-                                        <p>"I have been testing with A.G Diagnostics Pvt. Ltd. for many years. It has been found that your reports are quite reliable and consistent. Your constant updates about technology, equipment, and infrastructure, from time to time, have helped us to make the best use of your services. Your NABL accreditation speaks of your quality consciousness"</p>
+                                        <p>Excellent assistance by customer care person and phlebotomist! They are very polite, soft spoken & co-operative. You all deserve 5 stars!!​</p>
                                         <div className="user-details">
                                             <img src={DummyUser} alt="" className="img-round" />
                                             <span className="quotes-icon">
                                                 <img src={testimonialQuote} alt="" />
                                             </span>
-                                            <h3>AYISHA UMMER</h3>
+                                            <h3>Prajakta Shiledar​</h3>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="testimonials-list">
-                                        <p>"It was a great experience at A.G Diagnostics Pvt. Ltd. Very much impressed at the enterance.Reception and other staff gave a good welcome. The lab is very clean and arrangements are excellent.Courtious staff is a big highlight and modern equipments and sterile environment. Keep it up in future also."</p>
+                                        <p><strong>Namaste,</strong><br /><br />
+                                            Lab reports we get on time. A.G Diagnostics is excellent service giving lab. For pregnant and handicapped patients home service is beneficial. Thank you for your great service! Staff is very loyal and disciplined technicians.</p>
                                         <div className="user-details">
                                             <img src={DummyUser} alt="" className="img-round" />
                                             <span className="quotes-icon">
                                                 <img src={testimonialQuote} alt="" />
                                             </span>
-                                            <h3>Aishwarya Barvadekar</h3>
+                                            <h3>Dr. Mrs. Lochan Bendre Damale</h3>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="testimonials-list">
-                                        <p>"A.G Diagnostics Pvt. Ltd. is a well equipped facility for all types of diagnostic tests at Pune.Latest testing equipments and friendly staff with great emphasis on quality and hygiene."</p>
+                                        <p>ए.जी डायग्नोस्टिक्स चा एकूणच अनुभव छान आहे. लॅबची स्वच्छता आणि कर्मचाऱ्यांची वागणूक छान आहे. सर्वच उत्तम नेहमीप्रमाणे!!​</p>
                                         <div className="user-details">
                                             <img src={DummyUser} alt="" className="img-round" />
                                             <span className="quotes-icon">
                                                 <img src={testimonialQuote} alt="" />
                                             </span>
-                                            <h3>Ganesh Sanyal</h3>
+                                            <h3>Anuja Jadhav</h3>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="testimonials-list">
-                                        <p>"It was a great experience at A.G Diagnostics Pvt. Ltd. Very much impressed at the enterance.Reception and other staff gave a good welcome. The lab is very clean and arrangements are excellent.Courtious staff is a big highlight and modern equipments and sterile environment. Keep it up in future also."</p>
+                                        <p>Thank you, A.G Diagnostics! The front desk of Khadki collection centre is managed well by a customer care person and phlebotomist. They have been very helpful and prompt in giving good information and blood test related services. A deserving brand and staff indeed!​</p>
                                         <div className="user-details">
                                             <img src={DummyUser} alt="" className="img-round" />
                                             <span className="quotes-icon">
                                                 <img src={testimonialQuote} alt="" />
                                             </span>
-                                            <h3>AYISHA UMMER</h3>
+                                            <h3>Hrishikesh Chithade</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="testimonials-list">
+                                        <p>I would like to share my first-hand experience about the timely advice given by sincere home visit representative of A.G Diagnostics who is giving us home visit service for 20 years.<br /><br />
+                                        He has been of great help in collecting samples and providing excellent service to the patients during Covid also.
+                                        ​</p>
+                                        <div className="user-details">
+                                            <img src={DummyUser} alt="" className="img-round" />
+                                            <span className="quotes-icon">
+                                                <img src={testimonialQuote} alt="" />
+                                            </span>
+                                            <h3>Shreeram Mone</h3>
                                         </div>
                                     </div>
                                 </div>

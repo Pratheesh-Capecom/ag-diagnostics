@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "image": "../images/awanti-golwilkar.jpg",
+        "name": "Dr. Awanti Golwilkar - Mehendale",
+        "department": "MD (Path)",
+        "headText": "Dr. Awanti is a postgraduate in Pathology from the prestigious B.J. Medical College in Pune. She has been working with her father Dr. Ajit Golwilkar since 2004. Since then, she has carried forward his legacy excellently.",
+        "paratext": "It is said that Pathology runs in her blood and this fact is amply proved by her expertise in the field. Histopathology and Immunology is her forte. She will be instrumental in setting the company’s direction through strategic planning and implementation of the Golwilkar culture through the practice of highest ethical values. She is a dynamic and bold leader always providing all opportunities to the team, to develop and contribute towards the company."
+    },
+    {
+        "id": 2,
+        "image": "../images/vinanti-golwilkar.jpg",
+        "name": "Dr. Vinanti Golwilkar - Patankar",
+        "department": "MD (Path)",
+        "headText": "Dr. Vinanti Golwilkar-Patankar has had a highly meritorious career throughout her school and medical education.",
+        "paratext": "She chose to follow the footsteps of her father and elder sister and completed MD Pathology from the prestigious B.J. Medical College, Pune in 2011. Armed with experience from the world-renowned Tata Memorial Hospital, Mumbai, she returned to 'her hometown to join her father’s laboratory and has been a pillar of strength for her father and sister. She has been the driving force behind developing new assays and introducing new tests and technologies ever since. Her special interest is in the field of Hematopathology and Molecular Diagnostics. "
+    },
+    {
+        "id": 3,
+        "image": "../images/manisha-patwardhan.jpg",
+        "name": "Dr. Manisha Patwardhan",
+        "department": "MD (Path), DPB",
+        "headText": "Dr. Manisha S. Patwardhan is an alumnus of the Seth G.S. Medical College & KEM Hospital, Mumbai. She has worked with the organisation since April 1996.",
+        "paratext": "She has driven excellence in technical operations through numerous process flow improvements. Autoimmunity, Endocrinology & Allergy testing are her special interests. She is working in the field of Quality Management System & Accreditation in Clinical Laboratories since 2003 & is a NABL assessor.  She is at the forefront of the teaching and training activities of the laboratory, and at state and national conferences."
+    },
+    {
+        "id": 3,
+        "image": "../images/madhuwanti-abhyankar.jpg",
+        "name": "Dr. Madhuwanti Abhyankar",
+        "department": "MD (Micro)",
+        "headText": "Dr. Madhuwanti. N. Abhyankar is a microbiologist of great repute. She has done her MD Microbiology from B.J. Medical College, Pune.",
+        "paratext": "Her expertise in Microbiology, Mycobacteriology, Mycology and Molecular Diagnostics is unmatched in the city of Pune. She is a pioneer in establishing the PCR technique in a private laboratory set-up in Pune city. She is a lead assessor with the NABL and is highly respected in that sphere. Under her leadership, the Microbiology and Molecular Diagnostics department at A.G Diagnostics is at par with international standards."
+    },
+    {
+        "id": 4,
+        "image": "../images/venkatesh-keralapurkar.jpg",
+        "name": "Dr. Venkatesh Keralapurkar",
+        "department": "DNB (Path)",
+        "headText": "Dr. Venkatesh Keralapurkar is a postgraduate in Pathology from KEM hospital Pune.",
+        "paratext": "He has an experience of over 23 years in Pathology and Diagnostics, particularly with respect to handling the day-to-day work of a large busy laboratory. He is considered as the pillar of the Biochemistry and Immunoassay Departments and is an expert in patient consultations and handling patient queries. He has handled Quality and Accreditation in his previous association which has added to the quality of his repertoire."
+    },
+    {
+        "id": 5,
+        "image": "../images/bhavana-jadhav.jpg",
+        "name": "Dr. Bhavana Jadhav",
+        "department": "MD (Path)",
+        "headText": "Dr. Bhavana Jadhav is a postgraduate from the B.J. Medical College Pune and has a fellowship from the Tata Medical Centre, Kolkata under her belt.",
+        "paratext": "She has been interested in Hematology from her postgraduate days. She has built an excellent reputation in the field with her work experience of more than 20 years. She has a meticulous approach towards each patient or case and has spoken on various forums on the topics of Immunohematology, Coagulation and Hemoglobinopathies."
+    },
+    {
+        "id": 6,
+        "image": "../images/neeti-jalnapurkar.jpg",
+        "name": "Dr. Neeti Jalnapurkar",
+        "department": "MD (Path)",
+        "headText": "Dr. Neeti has completed her MBBS and MD Pathology from M.S. University, Vadodara, Gujarat. Histopathology and Cytopathology are her areas of interest and expertise.",
+        "paratext": "With an experience of around 24 years, Dr. Neeti has crafted an excellent reputation in the field of pathology for herself. Her effortless rapport with patients, dedication to her work and high standards of ethics and principles has made her shine brilliantly in her profession."
+    },
+    {
+        "id": 7,
+        "image": "../images/milind-mirashi.jpg",
+        "name": "Dr. Milind Mirashi",
+        "department": "MD (Path)",
+        "headText": "Dr. Mirashi has done his MD from B.J Medical College, Pune.",
+        "paratext": "With 32+ years of an astute experience, he is an asset to company. He has expertise in handling interpretation of numerous pathology findings with a special interest in Histopathology."
+    },
+    {
+        "id": 8,
+        "image": "../images/parag-ratnakar.jpg",
+        "name": "Dr. Parag Ratnakar",
+        "department": "MD (Path)",
+        "headText": "Dr. Ratnakar has done his MD from Mumbai University. His 17+ years’ experience is backed-up with a strong academic record and excellent communication skills.",
+        "paratext": "With his proactive & motivated team player ability, he is also instrumental in handling Hospital Lab Management in our labs across India. He is actively engaged in managing multiple aspects of routine lab operations & outsourced laboratory platform management."
+    },
+    {
+        "id": 9,
+        "image": "../images/dummy-doctor.jpg",
+        "name": "Dr. Ashok Bhandare",
+        "department": "DCP, DNB",
+        "headText": "Dr. Bhandare has done his MBBS from SRTR Medical College, Ambajogai & passed DNB from National Board of Examinations, New Delhi.",
+        "paratext": "He has worked as a lecturer in Kashibai Navale Medical College, Pune and presently in-charge of one of the hospital lab ventures of A.G Diagnostics at Ahmednagar. With his extensive experience of 14+ years, Dr. Bhandare is leading the end-to-end administration and laboratory management efficiently."
+    },
+    {
+        "id": 10,
+        "image": "../images/girish-solanke.jpg",
+        "name": "Dr. Girish Solanke",
+        "department": "MD (Path)",
+        "headText": "Dr. Solanke has completed MD Pathology from Kasturba Medical College, Manipal University, Karnataka.",
+        "paratext": "He holds a strong experience of 7+ years in handling all aspects of routine pathology reporting with a special interest in Hematology and Coagulation. Dr. Solanke is a disciplined, effective team player with his analytical and communicative skills."
+    },
+    {
+        "id": 11,
+        "image": "../images/shantanu-roy.jpg",
+        "name": "Dr. Shantanu Roy",
+        "department": "DCP, DNB (Path)",
+        "headText": "Dr. Roy has done his DCP from GMC, Aurangabad and passed DNB from Jehangir Hospital, Pune.",
+        "paratext": "His potential experience of 2+ years is an advantage for A.G Diagnostics to oversee the end-to-end management of associated hospital labs. Dr. Roy is very much proficient in handling routine reporting at main laboratory."
+    },
+    {
+        "id": 12,
+        "image": "../images/vaishali-gokhale.jpg",
+        "name": "Dr. Vaishali Gokhale",
+        "department": "MD, DNB (Microbiology)",
+        "headText": "Dr. Gokhale has done her MD in Microbiology from B.J Govt Medical College, Pune and pursued DNB from National Board Examination, New Delhi.",
+        "paratext": "Dr. Gokhale holds experience of 6+ years in the field of Microbiology. She has keen interest in Molecular Microbiology, Mycology and Virology. She has done research work in Syphilis-Reverse Algorithm, Bacterial Meningitis and HIV in ANC females. She has presented her dissertation work at ID week 2018 at San Francisco for which she had been awarded scholarship by JHU."
+    }
+]
