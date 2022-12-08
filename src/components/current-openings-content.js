@@ -7,7 +7,6 @@ import { BiCategory } from 'react-icons/bi';
 import { GrLocation } from 'react-icons/gr';
 import { FaRegUser } from 'react-icons/fa';
 import { BsArrowRightCircle } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
 import { GrClose } from 'react-icons/gr';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
