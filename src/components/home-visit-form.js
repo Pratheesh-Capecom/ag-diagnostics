@@ -31,10 +31,18 @@ class HomeVisitForm extends Component {
                                         <option value="2">Package Two</option>
                                         <option value="3">Package Three</option>
                                     </Form.Select>
+                                    <p className="selected-package">
+                                        Selected Package: <span><strong>Package One</strong>
+                                            <strong className="text-orange">₹ 1500</strong></span>
+                                    </p>
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Search by Test Title</p>
                                     <Form.Control type="text" placeholder="Search by Test Title" />
+                                    <p className="selected-package">
+                                        Selected Test: <span><strong>Test One</strong>
+                                            <strong className="text-orange">₹ 1500</strong></span>
+                                    </p>
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12}>
                                     <h4 className="mb-3 mt-3 pb-0">Patient Details</h4>

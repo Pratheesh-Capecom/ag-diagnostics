@@ -40,8 +40,29 @@ section.menu-bar.fixed {
     }
 }
 
+section.menu-bar .col {
+    padding-right: 100px;
+    position: relative;
+}
+
+section.menu-bar .col button.location {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px 0px;
+    background: transparent !important;
+    border: none !important;
+}
+
+
+section.menu-bar .col button.location svg {
+    font-size: 24px;
+    margin-top: -4px;
+}
+
 .navbar {
     padding: 0px;
+    width: 100%;
 }
 
 .navbar .navbar-nav {
@@ -168,6 +189,17 @@ section.menu-bar.fixed {
 }
 
 @media (max-width: 991px) {
+
+    section.menu-bar .col {
+        padding-right: 0px;
+    }
+
+    section.menu-bar .col button.location {
+        right: inherit;
+        left: 0;
+        padding: 10px;
+    }
+
     .navbar {
         padding: 10px 0px;
     }
@@ -257,6 +289,13 @@ section.menu-bar.fixed {
         padding: 0px 0px;
         max-height: 300px;
         overflow-y: auto;
+    }
+
+    section.menu-bar .col button.location {
+        right: 50px;
+        left: inherit;
+        padding: 10px;
+        top: -50px;
     }
 
     .navbar .navbar-collapse {

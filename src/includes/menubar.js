@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -22,12 +22,20 @@ import packageIcon16 from '../images/packages/icon16.png';
 import packageIcon17 from '../images/packages/icon17.png';
 import packageIcon18 from '../images/packages/icon18.png';
 import packageIcon19 from '../images/packages/icon19.png';
-import { FiDownload } from 'react-icons/fi';
+import { FiDownload, FiMapPin } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import { FaPaperPlane } from 'react-icons/fa';
 
-class Menubar extends Component {
+export default function Menubar() {
+
+    const[show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     
-    render() {
         return (
             <section className="menu-bar">
                 <Container className="p-0">
@@ -72,17 +80,32 @@ class Menubar extends Component {
                                         <Nav.Link to="/technical-capabilities/" as={Link} >Technical Capabilities</Nav.Link>
                                         <Nav.Link to="/find-a-lab/" as={Link} >Find a Lab</Nav.Link>
                                         <Nav.Link to="/careers/" as={Link} >Careers</Nav.Link>
-                                        <Nav.Link to="/brochures/" as={Link} >Brochures</Nav.Link>
-                                        <Nav.Link to="/" as={Link} ><FiDownload /> Download Report</Nav.Link>
+                                        <Nav.Link to="/brochures/" as={Link} >Brochures</Nav.Link>                                        
+                                        <Nav.Link to="/" as={Link} ><FiDownload /> Reports</Nav.Link>
                                     </Nav>
                                 </Navbar.Collapse>
-                            </Navbar>           
+                            </Navbar>  
+                            <Button onClick={handleShow} className="location" ><FiMapPin /> Location</Button>         
                         </Col>
                     </Row>
                 </Container>
+                <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title><h4>Select Location</h4></Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form.Select aria-label="Default select example">
+                            <option>- Select Location -</option>
+                            <option value="1">Chennai</option>
+                            <option value="2">Mumbai</option>
+                            <option value="3">Delhi</option>
+                        </Form.Select>
+                        <p className="text-center pad-top-20">
+                            <Button className="btn1 mb-0"><FaPaperPlane /> &nbsp; SUBMIT</Button>
+                        </p>
+                    </Modal.Body>
+                </Modal>
             </section>
         );
-    }
-}
 
-export default Menubar;
+}
