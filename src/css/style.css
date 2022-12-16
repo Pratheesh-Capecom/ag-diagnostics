@@ -385,11 +385,7 @@ section {
 }
 
 section.home-slider-bg {
-    background-image: url(../images/bannerleft.png), url(../images/bannerright.png);
-    background-position: left bottom, top right;
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.03);
-    padding: 50px 0px;
+    padding:0px;
 }
 
 section.home-slider-bg .carousel .carousel-item {
@@ -2644,10 +2640,6 @@ section.teams {
         padding: 50px 0px;
     }
 
-    section.home-slider-bg {
-        padding-top: 0px;
-    }
-
     section.home-slider-bg .carousel .carousel-item .carousel-caption {
         position: relative;
         max-width: 100%;
@@ -2657,11 +2649,6 @@ section.teams {
 
     section.home-slider-bg .carousel .carousel-item .carousel-caption h3 {
         text-align: center;
-    }
-
-    section.home-slider-bg .carousel .carousel-item img {
-        max-width: 350px;
-        margin: 0 auto;
     }
 
     section.home-slider-bg .carousel .carousel-indicators {
