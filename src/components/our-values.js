@@ -19,7 +19,7 @@ class OurValues extends Component {
                         <Row className="justify-content-center">
                             <Col xs={12} sm={12} md={12} lg={8} className="mb-5">
                                 <h2 className="text-center">Our Values</h2>
-                                <h3 className="text-center">Our values guide us on a journey full of purpose &amp; perseverance</h3>
+                                <h3 className="text-center">Our Values Guide us Through the Journey of Purpose &amp; Perseverance</h3>
                             </Col>
                         </Row>
                         <Row className="justify-content-center">
@@ -28,7 +28,7 @@ class OurValues extends Component {
                                     <img src={OurValuesImg1} alt="" className="img-fluid" />
                                     <div className="our-values-content">
                                         <h3 className="d-flex align-items-center justify-content-between">Trust & Transparency <FiArrowRightCircle className="text-orange" /></h3>
-                                        <p>40 years of a trusted legacy has ensured that families spanning across four or more generations have chosen us. Our belief is that total transparency is the key to nurturing strong relationships with every patient. Place your trust in us and be assured of the transparency of our services always.</p>
+                                        <p>Our 40 years of trusted legacy have ensured that families spanning across four or more generations have chosen us. We believe that transparency is the key to nurturing strong relationships and ensuring trust.</p>
                                     </div>
                                 </div>
                             </Col>
@@ -37,7 +37,7 @@ class OurValues extends Component {
                                     <img src={OurValuesImg2} alt="" className="img-fluid" />
                                     <div className="our-values-content">
                                         <h3 className="d-flex align-items-center justify-content-between">Our People, Our Family <FiArrowRightCircle className="text-orange" /></h3>
-                                        <p>Providing excellent services perpetually has helped us create bonds with people. Open lines of communication with our patients have helped these bonds strengthen and we consider those who choose our services our family. At A.G Diagnostics our staff is more family than employees therefore we pride ourselves on having a strong and healthy workspace.</p>
+                                        <p>Transparent and perpetual services have enabled us to create bonds that have strengthened over time. At A.G. Diagnostics, we serve people as a family and take pride in having a workspace that treats everyone as a member of their own.</p>
                                     </div>
                                 </div>
                             </Col>
@@ -54,8 +54,8 @@ class OurValues extends Component {
                                 <div className="our-values">
                                     <img src={OurValuesImg4} alt="" className="img-fluid" />
                                     <div className="our-values-content">
-                                        <h3 className="d-flex align-items-center justify-content-between">Customer Before Self <FiArrowRightCircle className="text-orange" /></h3>
-                                        <p>We deeply value those who choose us and therefore our aim is to always put the customer before self. Our services have been founded on this very value.</p>
+                                        <h3 className="d-flex align-items-center justify-content-between">Customer Comes First <FiArrowRightCircle className="text-orange" /></h3>
+                                        <p>We deeply value those who choose us and therefore our aim is to always put our customers first. Our services have been founded on this very value.</p>
                                     </div>
                                 </div>
                             </Col>
@@ -64,7 +64,7 @@ class OurValues extends Component {
                                     <img src={OurValuesImg5} alt="" className="img-fluid" />
                                     <div className="our-values-content">
                                         <h3 className="d-flex align-items-center justify-content-between">Excellence Is Our Pride <FiArrowRightCircle className="text-orange" /></h3>
-                                        <p>We strive at providing quality work to those who seek our services. Excellence has and will always be a virtue we imbibe in our team and services. Delivering accurate results in the shortest time possible is our main objective at A.G Diagnostics. Ensuring that we get accurate results the first time, every time in the shortest possible time is our constant aim.</p>
+                                        <p>We strive at providing quality work to those who seek our services. Excellence has been and will always be a virtue we imbibe in our team and services. Delivering accurate results in the shortest time possible is our main objective. Ensuring that we get accurate results the first time and every time is our constant aim.</p>
                                     </div>
                                 </div>
                             </Col>

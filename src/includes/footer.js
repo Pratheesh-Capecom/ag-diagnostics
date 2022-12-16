@@ -21,10 +21,11 @@ class Footer extends Component {
             <>            
                 <footer>
                     <Container>
-                        <Row>
-                            <Col xs={12} sm={6} md={6} lg={3}>
+                        <Row className="justify-content-between">
+                            <Col xs={12} sm={6} md={6} lg={4} xl={4}>
                                 <img src={logo} alt="logo" className="img-fluid mb-3" />
-                                <p>If you have any questions or need help, feel free to contact with our team.</p>
+                                <p><small>Since 1978, the journey of AG Diagnostics as a diagnostic company has been inspiring and incredible. The four-decade legacy organization is changing lives with its dedicated and timely services.</small></p>
+                                <p><small>In case of any queries or help, contact our team at</small></p>
                                 <p className="icons"><Icon.GeoAlt />Nayantara, Bhandarkar Road, Pune 411004</p>
                                 <p className="icons">
                                     <Icon.Telephone />020 6763 6763
@@ -51,7 +52,7 @@ class Footer extends Component {
 
                                 </ul>						
                             </Col>
-                            <Col xs={12} sm={6} md={6} lg={3}>
+                            <Col xs={12} sm={6} md={6} lg={2} xl={2}>
                                 <h5>Quick Links</h5>
                                 <div className="footer-column">
                                     <ul>
@@ -59,13 +60,13 @@ class Footer extends Component {
                                         <li><Link to="/about-us/" >About Us</Link></li>
                                         <li><Link to="/our-team/" >Our Team</Link></li>
                                         <li><Link to="/services/" >Services</Link></li>
-                                        <li><Link to="/specialities/" >Specialties</Link></li>
+                                        <li><Link to="/specialities/" >Specialities</Link></li>
                                         <li><Link to="/careers/" >Careers</Link></li>
                                         <li><Link to="/contact-us/" >Contact Us</Link></li>
                                     </ul>
                                 </div>		
                             </Col>
-                            <Col xs={12} sm={6} md={6} lg={3}>
+                            <Col xs={12} sm={6} md={6} lg={2} xl={2}>
                                 <h5>Patients</h5>
                                 <div className="footer-column">
                                     <ul>
@@ -73,14 +74,14 @@ class Footer extends Component {
                                         <li><Link to="/home-visit/" >Home Visit</Link></li>
                                         <li><Link to="/find-a-lab/" >Find A Lab</Link></li>
                                         <li><Link to="/" >Download Reports</Link></li>
-                                        <li><Link to="/covid-pcr/" >Covid 19 PCR</Link></li>
+                                        <li><Link to="/covid-pcr/" >COVID-19 PCR</Link></li>
                                         <li><Link to="/media/" >Media</Link></li>
                                         <li><Link to="/news/" >News</Link></li>
                                     </ul>
                                 </div>
                             </Col>
-                            <Col xs={12} sm={6} md={6} lg={3}>
-                                <h5>Brochure and Literature</h5>
+                            <Col xs={12} sm={6} md={6} lg={3} xl={3}>
+                                <h5>Corporate Literature & Brochure</h5>
                                 <div className="footer-column">
                                     <ul>
                                         <li><Link to="/brochures/" >Package Booklets</Link></li>

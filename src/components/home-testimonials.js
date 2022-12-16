@@ -29,7 +29,7 @@ class testimonials extends Component {
                 }
             },
             {
-                breakpoint: 760,
+                breakpoint: 1090,
                 settings: {
                     slidesToShow: 2,
                 }
@@ -48,7 +48,7 @@ class testimonials extends Component {
                     <Row>
                         <Col>
                             <h2 className="text-center">Testimonials</h2>
-                            <h3 className="text-center">What our patient’s are saying</h3>
+                            <h3 className="text-center">What Our Customers Say</h3>
 
                         </Col>
                     </Row>
@@ -57,7 +57,7 @@ class testimonials extends Component {
                             <Slider {...settings} className="package-slides testimonials">
                                 <div>
                                     <div className="testimonials-list">
-                                        <p>Excellent assistance by customer care person and phlebotomist! They are very polite, soft spoken & co-operative. You all deserve 5 stars!!​</p>
+                                        <p>Excellent support and assistance by the Customer Care person and Phlebotomist. Very polite, soft-spoken and everyone deserves 5 stars.​</p>
                                         <div className="user-details">
                                             <img src={DummyUser} alt="" className="img-round" />
                                             <span className="quotes-icon">
@@ -70,13 +70,13 @@ class testimonials extends Component {
                                 <div>
                                     <div className="testimonials-list">
                                         <p><strong>Namaste,</strong><br /><br />
-                                            Lab reports we get on time. A.G Diagnostics is excellent service giving lab. For pregnant and handicapped patients home service is beneficial. Thank you for your great service! Staff is very loyal and disciplined technicians.</p>
+                                            We received the lab reports on time. With loyal staff and disciplined technicians, AG Diagnostics is providing excellent lab services and the home sample collection service is beneficial for pregnant women and physically-challenged people. Thank you for your service!</p>
                                         <div className="user-details">
                                             <img src={DummyUser} alt="" className="img-round" />
                                             <span className="quotes-icon">
                                                 <img src={testimonialQuote} alt="" />
                                             </span>
-                                            <h3>Dr. Mrs. Lochan Bendre Damale</h3>
+                                            <h3>Dr Lochan Bendre Damale</h3>
                                         </div>
                                     </div>
                                 </div>

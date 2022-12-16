@@ -16,9 +16,8 @@ class HomeWhyUs extends Component {
                 <Container>
                     <Row>
                         <Col>
-                            <h2 className="text-center">Why Us?</h2>
-                            <h3 className="text-center">Why Should A.G Diagnostics Pvt. Ltd.<br/>
-                                Be Your Preferred Healthcare Partner?</h3>
+                            <h2 className="text-center">Reasons to Choose AG as</h2>
+                            <h3 className="text-center">Your Preferred Healthcare Partner</h3>
                             <ul>
                                 <li>
                                     <div className="why-choose-icons">
@@ -36,7 +35,7 @@ class HomeWhyUs extends Component {
                                     </div>
                                     <div className="why-choose-text">
                                         <div className="inner-box">
-                                            <p>40 Years Trusted Legacy of Dr. Ajit Golwilkar</p>
+                                            <p>4 Decades of Trusted Legacy by Dr Ajit Golwilkar</p>
                                         </div>
                                     </div>
                                 </li>
@@ -46,7 +45,7 @@ class HomeWhyUs extends Component {
                                     </div>
                                     <div className="why-choose-text">
                                         <div className="inner-box">
-                                            <p>State-Of-The-Art Pathology Laboratory & Diagnostic Centre Spread Across 16000 sq. ft</p>
+                                            <p>State-of-Art Pathology Laboratory & Diagnostic Centre on a 16000 sq. ft area</p>
                                         </div>
                                     </div>
                                 </li>
@@ -56,7 +55,7 @@ class HomeWhyUs extends Component {
                                     </div>
                                     <div className="why-choose-text">
                                         <div className="inner-box">
-                                            <p>Bringing Trust to Your Doorstep Through Home Visit Services</p>
+                                            <p>Home Sample Collection Services at your doorstep</p>
                                         </div>
                                     </div>
                                 </li>

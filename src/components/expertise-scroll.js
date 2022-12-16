@@ -53,7 +53,7 @@ class expertiseScroll extends Component {
                     <Row>
                         <Col>
                             <h2 className="text-center">Our Expertise</h2>
-                            <h3 className="text-center">Our State-Of-The-Art Facilities</h3>
+                            <h3 className="text-center">Our State-of-Art Facilities</h3>
                             <Slider {...settings} className="package-slides expertise">
                                 <div>
                                     <div className="expertise-txt">
@@ -129,7 +129,7 @@ class expertiseScroll extends Component {
                                 </div>
                             </Slider>
                             <p className="text-center">
-                                <Link to="/technical-capabilities/" className="purple-btn">View All Capabilities</Link>
+                                <Link to="/technical-capabilities/" className="purple-btn">View all the Technical Capabilities</Link>
                             </p>
                         </Col>
                     </Row>

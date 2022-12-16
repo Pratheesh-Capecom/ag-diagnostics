@@ -16,8 +16,8 @@ class HomeVisitForm extends Component {
                 <Container>
                     <Row className="mb-4">
                         <Col>
-                            <h2 className="text-center">Fill this below Form and</h2>
-                            <h3 className="text-center">Get tested at the comfort of your home</h3>
+                            <h2 className="text-center">Fill out this below Form and</h2>
+                            <h3 className="text-center">Get tested in the comfort of your home</h3>
                         </Col>
                     </Row>
                     <Row className="justify-content-center">

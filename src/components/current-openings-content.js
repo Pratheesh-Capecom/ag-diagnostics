@@ -98,7 +98,7 @@ class CurrentOpeningsContent extends Component {
                                     <div className="experience">
                                         <FaRegUser />  &nbsp;
                                     </div>
-                                    <div className="experience"><SlBriefcase /> Experience of use of vacutainer, able to draw blood of babies, must have own vehicle. </div>
+                                    <div className="experience"><SlBriefcase />Experience with the use of a vacutainer, being able to draw the blood of babies, and possession of own vehicle. </div>
                                     <Button onClick={this.toggleClass} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
                                 </div>
                             </Col>

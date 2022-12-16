@@ -14,9 +14,9 @@ class findCenter extends Component {
                 <Container>
                     <Row className="align-items-center">
                         <Col xs={12} sm={12} md={6} lg={4} className="findnearest">
-                            <h3 className="text-white text-start pad-top-30">Find the Nearest <span className="text-uppercase">di<b>ag</b>nostics</span> for You</h3>
+                            <h3 className="text-white text-start pad-top-30">Find the Nearest <span className="text-uppercase">Diagnostics Centre</span></h3>
                             <p className="pad-bot-10 pad-top-10">We are focused on uniting borders across geographies to make better diagnosis a reality</p>
-                            <Link to="/find-a-lab/" className="orange-btn hover-white">Find Collection Center</Link>
+                            <Link to="/find-a-lab/" className="orange-btn hover-white">Locate Your Collection Centre</Link>
                         </Col>
                         <Col xs={12} sm={12} md={6} lg={4}>
                             <img src={mapImage} alt="" className="mar-top-30 mar-bot-30 img-fluid" />

@@ -23,8 +23,8 @@ export default function TeamContent() {
                     <Container>
                         <Row className="justify-content-center">
                             <Col xs={12} sm={12} md={12} lg={10}>
-                                <h5 className="text-dark text-center">We take great pride in the efficiency and ethics practised by our technical team with over 20 years of collective experience. The technical team not only uses technology but practically lives technology. Their knowledge of technology used and the constant thirst to adapt to new, innovative practises helps us remain at the top of our game.</h5>
-                                <p className="text-dark text-center">Each of them is heading the various departments and are responsible for operational excellence within the department and delivery of accurate reports in the shortest possible time.</p>
+                                <h5 className="text-dark text-center">We take great pride in the efficiency and ethics practised by our technical team with over 20 years of collective experience. The technical team not only uses technology but practically lives with technology. Our knowledge of the technology used and the constant thirst to adapt to new, innovative practices help us remain at the top of our game.</h5>
+                                <p className="text-dark text-center">Each of them is heading the various departments and is responsible for operational excellence within the department and delivery of accurate reports in the shortest possible time.</p>
                             </Col>
                         </Row>
                     </Container>

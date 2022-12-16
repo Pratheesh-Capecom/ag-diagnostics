@@ -18,7 +18,7 @@ class HomeVisitContent extends Component {
                     <Row className="justify-content-center">
                         <Col xs={12} sm={12} md={10} lg={8}>
                             <h2 className="text-center">Home Sample Collection</h2>
-                            <h3 className="text-center">3 Simple Steps To Get A Lab Test Done From The Comfort Of Your Home.</h3>
+                            <h3 className="text-center">3 Simple Steps to get a Lab Test Done from the Comfort of Your Home</h3>
                         </Col>
                     </Row>
                     <div className="bg-dot">
@@ -32,7 +32,7 @@ class HomeVisitContent extends Component {
                                 </div>
                                 <div className="text-div text-center">
                                     <h3>Book Online</h3>
-                                    <p>Book your home collection service from our website by submitting the form</p>
+                                    <p>Book your home sample collection test online by filling and submitting the form</p>
                                 </div>
                             </Col>
                             <Col xs={12} sm={12} md={4} lg={4}>
@@ -43,8 +43,8 @@ class HomeVisitContent extends Component {
                                     </div>
                                 </div>
                                 <div className="text-div text-center pad-top-70">
-                                    <h3>Home Sample Collection</h3>
-                                    <p>Our skilled phlebotomist visits your home for sample collection at selected slot time</p>
+                                    <h3>Collection of the Sample</h3>
+                                    <p>Our Phlebotomist will visit your home to collect the sample at your preferred slot time.</p>
                                 </div>
                                 <div className="img-div text-center order-sm-2 d-none d-md-block">
                                     <div className="sm-center-img">
@@ -62,7 +62,7 @@ class HomeVisitContent extends Component {
                                 </div>
                                 <div className="text-div text-center">
                                     <h3>Fast &amp; Accurate Reports</h3>
-                                    <p>View or download your report anytime.</p>
+                                    <p>You can view or download your reports online at any time.</p>
                                 </div>
                             </Col>
                         </Row>
