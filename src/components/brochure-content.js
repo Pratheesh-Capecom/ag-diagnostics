@@ -59,55 +59,31 @@ export default function PackagesBookletContent() {
                         <Tabs
                             defaultActiveKey="package-booklets">
                             <Tab eventKey="package-booklets" title="Package Booklets">
-                                <Row className="justify-content-center">                                    
-                                    {brochures.map(brochure => {
-                                        return (
-                                        <Col xs={12} sm={6} md={6} lg={4} xl={3}>
-                                            <div key={brochure.id} className="package-slide">
-                                                <Link to={brochure.file} target="_blank" className="booklet-download">
-                                                <img src={brochure.image} alt="" className="img-fluid" />   
+                                <Row className="justify-content-center">     
+                                    <Col xs={12} sm={6} md={6} lg={4} xl={3}>
+                                        <div className="package-slide">
+                                            <Link to={Pdf} target="_blank" className="booklet-download">
+                                                <img src={PackagesBooket} alt="" className="img-fluid" />
                                                 <span><FiDownload /></span>
-                                                </Link>                       
-                                            </div>                                                
-                                        </Col>
-                                        );
-                                    })}
+                                            </Link>
+                                        </div>
+                                    </Col>
                                 </Row>
                             </Tab>
                             <Tab eventKey="technical-leaflets" title="Technical Leaflets">
                                 <Row className="justify-content-center">
-                                    <Col xs={12} sm={6} md={6} lg={4} xl={3}>
-                                        <div className="package-slide">
-                                            <Link to={Pdf} target="_blank" className="booklet-download">
-                                                <img src={PackagesBooket} alt="" className="img-fluid" />
-                                                <span><FiDownload /></span>
-                                            </Link>
-                                        </div>
-                                    </Col>
-                                    <Col xs={12} sm={6} md={6} lg={4} xl={3}>
-                                        <div className="package-slide">
-                                            <Link to={Pdf} target="_blank" className="booklet-download">
-                                                <img src={PackagesBooket} alt="" className="img-fluid" />
-                                                <span><FiDownload /></span>
-                                            </Link>
-                                        </div>
-                                    </Col>
-                                    <Col xs={12} sm={6} md={6} lg={4} xl={3}>
-                                        <div className="package-slide">
-                                            <Link to={Pdf} target="_blank" className="booklet-download">
-                                                <img src={PackagesBooket} alt="" className="img-fluid" />
-                                                <span><FiDownload /></span>
-                                            </Link>
-                                        </div>
-                                    </Col>
-                                    <Col xs={12} sm={6} md={6} lg={4} xl={3}>
-                                        <div className="package-slide">
-                                            <Link to={Pdf} target="_blank" className="booklet-download">
-                                                <img src={PackagesBooket} alt="" className="img-fluid" />
-                                                <span><FiDownload /></span>
-                                            </Link>
-                                        </div>
-                                    </Col>
+                                    {brochures.map(brochure => {
+                                        return (
+                                            <Col xs={12} sm={6} md={6} lg={4} xl={3}>
+                                                <div key={brochure.id} className="package-slide">
+                                                    <Link to={brochure.file} target="_blank" className="booklet-download">
+                                                        <img src={brochure.image} alt="" className="img-fluid" />
+                                                        <span><FiDownload /></span>
+                                                    </Link>
+                                                </div>
+                                            </Col>
+                                        );
+                                    })}
                                 </Row>
                             </Tab>
                         </Tabs>

@@ -18,7 +18,7 @@ class FounderContent extends Component {
                                 </div>
                             </Col>
                             <Col xs={12} sm={12} md={12} lg={6}>
-                                <h3 className="text-start mb-4">About Our Founder</h3>
+                                <h3 className="text-start mb-4">Our Inspiration</h3>
                                 <h5 className="text-dark">In the year 1978, <strong className="text-orange">Dr Ajit Golwilkar</strong> dreamt of bringing world-class pathology services to the city of Pune and brought his pathology laboratory on Karve Road, called Golwilkar Laboratories to life. His name has been considered synonymous with quality laboratory services in Pune & the country for over four decades.</h5>
                                 <p className="text-dark">To begin with, the samples used to test with the then available basic diagnostic techniques, nonetheless maintaining the highest accuracy and reliability. His endeavour had been to deliver results in the shortest possible time yet, at an affordable price.</p>
                                 <p className="text-dark">There have been many firsts to the credit of Dr Golwilkar, who provided automation and a diverse tests facility for radioimmunoassay and other immunoassay techniques, immunophenotyping, immunohistochemistry &amp; flow cytometry, molecular diagnostic techniques, polymerase chain reaction, automated microbiology techniques, quality system, accreditation, and laboratory information system (LIS).</p>

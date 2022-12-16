@@ -96,9 +96,9 @@ export default function Menubar() {
                     <Modal.Body>
                         <Form.Select aria-label="Default select example">
                             <option>- Select Location -</option>
-                            <option value="1">Chennai</option>
-                            <option value="2">Mumbai</option>
-                            <option value="3">Delhi</option>
+                            <option value="1">Pune</option>
+                            <option value="2">Lonavala</option>
+                            <option value="3">Ahmednagar</option>
                         </Form.Select>
                         <p className="text-center pad-top-20">
                             <Button className="btn1 mb-0"><FaPaperPlane /> &nbsp; SUBMIT</Button>

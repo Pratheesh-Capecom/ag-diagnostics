@@ -111,7 +111,7 @@ class TechnicalCapabilitiesContent extends Component {
                             </Col>
                             <Col xs={12} sm={12} md={8} lg={6}>
                                 <h4 className="mb-2 pb-3">Clinical Biochemistry</h4>
-                                <h5 className="text-dark">Clinical Biochemistry department can be considered the care department of the laboratory.</h5>
+                                <h5 className="text-dark">Clinical Biochemistry department can be considered the core department of the laboratory.</h5>
                                 <p className="text-dark">Numerous biochemistry parameters, hormones and infectious markers are processed in this department using various techniques & methods such as Nephelometry, CMIA, CLIA, ELISA, HPLC etc. The department is equipped with state-of-art instrumentation and a very experienced clinical team. Antenatal screening, allergy testing, food intolerance testing, lead toxicity testing, therapeutic drug monitoring, and autoimmune disease diagnosis are the very important areas covered in the Clinical Biochemistry department. </p>
                             </Col>
                         </Row>
