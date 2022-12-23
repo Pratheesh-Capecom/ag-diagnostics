@@ -6,11 +6,11 @@ export const AppViews = () => {
     <Suspense fallback={""}>
       <Switch>
         <Route exact path="/" component={lazy(() => import(`./pages/home`))} />
-        <Route exact path="/about-us" component={lazy(() => import(`./pages/about-us`))} />
-        <Route exact path="/about-founder" component={lazy(() => import(`./pages/about-founder`))} />
-        <Route exact path="/our-team" component={lazy(() => import(`./pages/our-team`))} />
-        <Route exact path="/awards" component={lazy(() => import(`./pages/awards`))} />
-        <Route exact path="/csr-policy" component={lazy(() => import(`./pages/csr-policy`))} />
+        <Route exact path="/about-us/ag-diagnostics" component={lazy(() => import(`./pages/about-us/ag-diagnostics`))} />
+        <Route exact path="/about-us/about-founder" component={lazy(() => import(`./pages/about-us/about-founder`))} />
+        <Route exact path="/about-us/our-team" component={lazy(() => import(`./pages/about-us/our-team`))} />
+        <Route exact path="/about-us/awards" component={lazy(() => import(`./pages/about-us/awards`))} />
+        <Route exact path="/about-us/csr-policy" component={lazy(() => import(`./pages/about-us/csr-policy`))} />
         <Route exact path="/home-visit" component={lazy(() => import(`./pages/home-visit`))} />
         <Route exact path="/services" component={lazy(() => import(`./pages/services`))} />
         <Route exact path="/specialities" component={lazy(() => import(`./pages/specialities`))} />

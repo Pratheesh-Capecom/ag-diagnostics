@@ -5,13 +5,13 @@ import ExpertiseScroll from "views/app/components/expertise-scroll";
 
 
 const AboutFounder = () => {
-  return (
-    <>
-      <FounderBanner />
-      <FounderContent />
-      <ExpertiseScroll />
-    </>
-  );
+    return (
+        <>
+            <FounderBanner />
+            <FounderContent />
+            <ExpertiseScroll />
+        </>
+    );
 }
 
 

@@ -6,13 +6,13 @@ import OurValues from "views/app/components/our-values";
 
 
 const AboutUs = () => {
-  return (
-    <>
-      <AboutUsBanner />
-      <AboutContent />
-      <HomeWhyUs />
-      <OurValues />
-    </>
-  );
+    return (
+        <>
+            <AboutUsBanner />
+            <AboutContent />
+            <HomeWhyUs />
+            <OurValues />
+        </>
+    );
 }
 export default AboutUs;

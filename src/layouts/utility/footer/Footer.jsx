@@ -92,7 +92,7 @@ class Footer extends Component {
                       <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <Link to="/about-us">About Us</Link>
+                      <Link to="/about-us/ag-diagnostics">About Us</Link>
                     </li>
                     <li>
                       <Link to="/our-team">Our Team</Link>

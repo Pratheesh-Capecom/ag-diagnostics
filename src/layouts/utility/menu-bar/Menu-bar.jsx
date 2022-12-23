@@ -47,19 +47,19 @@ export default function Menubar(props) {
                     Home
                   </Nav.Link>
                   <NavDropdown title="About Us" renderMenuOnMount={true}>
-                    <NavDropdown.Item to="/about-us" as={Link}>
+                    <NavDropdown.Item to="/about-us/ag-diagnostics" as={Link}>
                       AG Diagnostics
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/about-founder" as={Link}>
+                    <NavDropdown.Item to="/about-us/about-founder" as={Link}>
                       About Founder
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/our-team" as={Link}>
+                    <NavDropdown.Item to="/about-us/our-team" as={Link}>
                       Our Team
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/awards" as={Link}>
+                    <NavDropdown.Item to="/about-us/awards" as={Link}>
                       Awards
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/csr-policy" as={Link}>
+                    <NavDropdown.Item to="/about-us/csr-policy" as={Link}>
                       CSR Policy
                     </NavDropdown.Item>
                   </NavDropdown>
