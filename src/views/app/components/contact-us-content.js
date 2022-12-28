@@ -2,6 +2,7 @@ import React from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { message } from "antd";
 import { GrLocation } from 'react-icons/gr';
 import { BsEnvelopeOpen } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
@@ -9,9 +10,34 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FaPaperPlane } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import { useContact } from "hooks/contact";
 
 
 const ContactUsContent = () => {
+
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+    const { mutate: contact, isLoading: loading } = useContact()
+
+    const submitHandler = (e) => {
+        contact(e, {
+            onSuccess: (item) => {
+                if (item?.Status === 200) {
+                    message.success(item?.Message)
+                    reset();
+                }
+                else {
+                    message.success(item?.Message)
+                    reset();
+                }
+            },
+            onError: (error) => {
+                console.log(error)
+            }
+        });
+    }
+
     return (
         <>
             <section className="apply-now-form position-relative">
@@ -41,13 +67,20 @@ const ContactUsContent = () => {
                             <div className="apply-now-form-bg">
                                 <h3 className="text-start text-purple pb-0">Drop us a message!</h3>
                                 <h5>We'd love to hear from you, please drop us a line if you've any query.</h5>
-                                <Form.Control type="text" placeholder="Name" className="mar-bot-20" />
-                                <Form.Control type="tel" minlength="10" maxlength="10" placeholder="Phone Number" className="mar-bot-20" />
-                                <Form.Control type="email" placeholder="Email ID" className="mar-bot-20" />
-                                <Form.Control as="textarea" rows={3} placeholder="Message" className="mar-bot-20" />
-                                <p className="text-center mb-0">
-                                    <Button className="btn1 mb-0"><FaPaperPlane /> &nbsp; SUBMIT</Button>
-                                </p>
+                                <form onSubmit={handleSubmit(submitHandler)} className="contact-form">
+                                    <Form.Control type="text" {...register("name", { required: true })} placeholder="Name" className="mar-bot-20" />
+                                    {errors.name && <span>This field is required</span>}
+                                    <Form.Control type="tel" {...register("phone", { required: true })} minlength="10" maxlength="10" placeholder="Phone Number" className="mar-bot-20" />
+                                    {errors.phone && <span>This field is required</span>}
+                                    <Form.Control type="email" {...register("email", { required: true })} placeholder="Email ID" className="mar-bot-20" />
+                                    {errors.email && <span>This field is required</span>}
+                                    <Form.Control as="textarea" {...register("message", { required: true })} rows={3} placeholder="Message" className="mar-bot-20" />
+                                    {errors.message && <span>This field is required</span>}
+                                    <p className="text-center mb-0">
+                                        {loading ? <Button className="btn1 mb-0" disabled><FaPaperPlane /> SUBMIT</Button> :
+                                            <Button className="btn1 mb-0" type="submit" ><FaPaperPlane /> SUBMIT</Button>}
+                                    </p>
+                                </form>
                             </div>
                         </Col>
                     </Row>

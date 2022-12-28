@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import Slider from "react-slick";
 import DummyUser from "assets/images/dummy-user.jpg";
 import testimonialQuote from "assets/images/testimonial-quote.png";
-import { useTestimonial } from "hooks/homeHooks";
+import { useTestimonial } from "hooks/home";
 
 
 const Testimonials = () => {
@@ -71,7 +71,7 @@ const Testimonials = () => {
         </Row>
         <Row className="justify-content-center">
           <Col xs={12} sm={12} md={12} lg={10}>
-            <Slider {...settings} className="package-slides testimonials">
+            <Slider {...settings} className={testData === undefined || testData === null || testData?.length === 0 ? 'package-slides testimonials empty-packages' : 'package-slides testimonials'}>
               {loading ? <h1>Loading.....</h1> : testData === undefined || testData === null || testData?.length === 0 ? (
                 <div>
                   <h3 className="no-data">No Data Found</h3>
@@ -80,12 +80,10 @@ const Testimonials = () => {
                 <div key={a}>
                   <div className="testimonials-list">
                     <p>
-                      Excellent support and assistance by the Customer Care
-                      person and Phlebotomist. Very polite, soft-spoken and
-                      everyone deserves 5 stars.
+                      {common?.description}
                     </p>
                     <div className="user-details">
-                      <img src={DummyUser} alt="" className="img-round" />
+                      {common?.photo ? <img src={common?.photo} alt="" className="img-round" /> : <img src={DummyUser} alt="" className="img-round" />}
                       <span className="quotes-icon">
                         <img src={testimonialQuote} alt="" />
                       </span>

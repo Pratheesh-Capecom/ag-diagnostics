@@ -34,6 +34,11 @@ export default function Menubar(props) {
   const { defaultCity, cityData, cityChangeHandler, cityModal, modalHandler } = props;
   const { register, handleSubmit } = useForm();
 
+  const getData = (e) => {
+    let data = cityData.filter(stu => stu.cityId === e.target.value)
+    localStorage.setItem("city_name", data?.[0]?.city)
+  }
+
   return (
     <section className="menu-bar">
       <Container className="p-0">
@@ -68,83 +73,83 @@ export default function Menubar(props) {
                     renderMenuOnMount={true}
                     className="mega-menu"
                   >
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon1} alt="" />
                       AG Care Basic
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon2} alt="" />
                       AG Care Essential
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon3} alt="" />
                       AG Care Essential Extended
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon4} alt="" />
                       AG Care Master
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon5} alt="" />
                       AG Care Madam
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon6} alt="" />
                       AG Care Soulmate Individual
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon7} alt="" />
                       AG Care Soulmate Couple
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon8} alt="" />
                       AG Care Baby Plan (Male)
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon9} alt="" />
                       AG Care Baby Plan (Female)
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon10} alt="" />
                       AG Care for Cancer (Male)
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon11} alt="" />
                       AG Care for Cancer (Female)
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon12} alt="" />
                       AG Care Cheeni Kum (Mini)
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon13} alt="" />
                       AG Care Cheeni Kum (Maxi)
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon14} alt="" />
                       AG Care Dil Ki Dhadkan
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon15} alt="" />
                       AG Care Holistic Package
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon16} alt="" />
                       AG Care Master Comprehensive
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon17} alt="" />
                       AG Care Master Comprehensive Advance
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon18} alt="" />
                       AG Care Madam Comprehensive
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon19} alt="" />
                       AG Care Madam Comprehensive Advance
                     </NavDropdown.Item>
-                    <NavDropdown.Item to="/package-details" as={Link}>
+                    <NavDropdown.Item to="/packages" as={Link}>
                       <img src={packageIcon14} alt="" />
                       AG Care Dil Ki Dhadkan Advance
                     </NavDropdown.Item>
@@ -174,7 +179,7 @@ export default function Menubar(props) {
               </Navbar.Collapse>
             </Navbar>
             <Button onClick={() => modalHandler(true)} className="location">
-              <FiMapPin /> Location
+              <FiMapPin /> {localStorage.getItem("city_name") || "Pune"}
             </Button>
           </Col>
         </Row>
@@ -192,7 +197,7 @@ export default function Menubar(props) {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit(cityChangeHandler)} className="form-location">
-            <select {...register("cityId")}>
+            <select {...register("cityId")} onChange={getData}>
               {cityData && cityData.map((common, a) => (
                 <option key={a} selected={defaultCity === common?.cityId ? true : false} value={common?.cityId}>{common?.city}</option>
               ))}

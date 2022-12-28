@@ -4,6 +4,7 @@ import InnerBanner from "views/app/components/inner-banner";
 import PackageDetailsContent from "views/app/components/package-details-content";
 
 
+
 const PackageDetails = () => {
   return (
     <>

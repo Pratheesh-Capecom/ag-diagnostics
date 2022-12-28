@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route, useHistory, } from "react-router-dom";
 import Views from "views";
+import 'antd/dist/antd.min.css';
 import "./App.css";
 import "../src/assets/css/style.css";
 

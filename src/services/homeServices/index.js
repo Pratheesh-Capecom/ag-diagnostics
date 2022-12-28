@@ -17,6 +17,7 @@ const client = axios.create({
 client.interceptors.request.use(function (config) {
     return config;
 });
+
 client.interceptors.response.use(
     (response) => response,
     (error) => Promise.reject(error)
@@ -33,7 +34,7 @@ const city = async () => {
 }
 
 const packages = async (formData) => {
-    const { data } = await client.post(`packages`, formData);
+    const { data } = await client.get(`selected-packages`, formData);
     return data;
 }
 

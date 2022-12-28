@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,126 +11,138 @@ import { GrClose } from 'react-icons/gr';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FaPaperPlane } from 'react-icons/fa';
+import { useForm } from "react-hook-form";
+import { useCurrentOpenings } from "hooks/currentOpening";
+import { message } from "antd";
+import { useApplyNow } from "hooks/currentOpening";
 
-class CurrentOpeningsContent extends Component {
+const CurrentOpeningsContent = () => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isClassActive: false,
-        };
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const [isEnabled, setIsEnabled] = useState(false);
+    const [singleData, setSingleData] = useState("");
+
+    const toggleSwitch = (values) => {
+        setSingleData(values)
+        localStorage.setItem("apply_id", values.id)
+        setIsEnabled(previousState => !previousState);
+        reset();
     }
 
-    toggleClass = () => {
-        this.setState({
-            isClassActive:
-                !this.state.isClassActive
+    const { data: openings, isLoading: loading } = useCurrentOpenings();
+    const [openingsData, setOpeningsData] = useState([]);
+
+    const { mutate: apply, isLoading: applyloading } = useApplyNow();
+
+    const submitHandler = (e) => {
+        const formData = new FormData();
+        formData.append("file", e.file[0])
+        formData.append("job_id", localStorage.getItem("apply_id"))
+        formData.append("name", e.name)
+        formData.append("email", e.email)
+        formData.append("phone", e.phone)
+        formData.append("cover_letter", e.cover_letter)
+        formData.append("address", e.address)
+        apply(formData, {
+            onSuccess: (item) => {
+                if (item?.Status === 200) {
+                    message.success(item?.Message)
+                    reset();
+                    setIsEnabled(previousState => !previousState);
+                }
+                else {
+                    message.error(item?.Message)
+                    reset();
+                    setIsEnabled(previousState => !previousState);
+                }
+            },
+            onError: (error) => {
+                console.log(error)
+            }
         });
     }
 
-    render() {
+    useEffect(() => {
+        if (openings) {
+            setOpeningsData(openings?.currentOpening)
+        }
+    }, [openings]);
+
+    useEffect(() => {
+        if (isEnabled === false) {
+            localStorage.removeItem("apply_id")
+        }
+    }, [isEnabled]);
 
 
-        return (
-            <>
 
-                <section className="bg-light-orange">
-                    <Container>
-                        <Row>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-                                <div className="package-slide">
-                                    <h5 className="text-purple">Consultant Pathologist<span><GrLocation /> Pune, Maharashtra</span></h5>
-                                    <div className="experience">
-                                        <BiCategory /> MD Pathology
-                                    </div>
-                                    <div className="experience">
-                                        <FaRegUser /> 1 Post
-                                    </div>
-                                    <div className="experience"><SlBriefcase /> &nbsp; </div>
-                                    <Button onClick={this.toggleClass} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
+    return (
+        <>
+            <section className="bg-light-orange">
+                <Container>
+                    <Row className={openingsData === undefined || openingsData === null || openingsData?.length === 0 ? 'empty-pack' : null}>
+                        <>
+                            {loading ? <h1>Loading.....</h1> : openingsData === undefined || openingsData === null || openingsData?.length === 0 ? (
+                                <div>
+                                    <h3 className="no-data">No Data Found</h3>
                                 </div>
-                            </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-                                <div className="package-slide">
-                                    <h5 className="text-purple">Technicians for Night Shift<span><GrLocation /> Pune, Maharashtra</span></h5>
-                                    <div className="experience">
-                                        <BiCategory /> HSC, BSc and/or MSc
+                            ) : openingsData?.map((common, a) => (
+                                <Col xs={12} sm={12} md={6} lg={6} xl={4} key={a}>
+                                    <div className="package-slide" >
+                                        <h5 className="text-purple">{common?.job_title}<span><GrLocation />
+                                            &nbsp; Pune Dummy Text
+                                        </span></h5>
+                                        <div className="experience">
+                                            <BiCategory />{common?.department_name}
+                                        </div>
+                                        <div className="experience">
+                                            <FaRegUser /> 1 Post
+                                        </div>
+                                        <div className="experience"><SlBriefcase /> &nbsp;{common?.experience} </div>
+                                        <Button onClick={() => toggleSwitch(common)} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
                                     </div>
-                                    <div className="experience">
-                                        <FaRegUser /> 2 Posts
-                                    </div>
-                                    <div className="experience"><SlBriefcase /> 3 - 4 years of experience working on semi or fully automated machines.</div>
-                                    <Button onClick={this.toggleClass} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
-                                </div>
-                            </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-                                <div className="package-slide">
-                                    <h5 className="text-purple">Sales Executive/ Managers<span><GrLocation /> Pune, Maharashtra</span></h5>
-                                    <div className="experience">
-                                        <BiCategory /> &nbsp;
-                                    </div>
-                                    <div className="experience">
-                                        <FaRegUser />  &nbsp;
-                                    </div>
-                                    <div className="experience"><SlBriefcase /> 2+ years of experience </div>
-                                    <Button onClick={this.toggleClass} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
-                                </div>
-                            </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-                                <div className="package-slide">
-                                    <h5 className="text-purple">Collection Centre Manager<span><GrLocation /> Pune, Maharashtra</span></h5>
-                                    <div className="experience">
-                                        <BiCategory /> Science Graduate
-                                    </div>
-                                    <div className="experience">
-                                        <FaRegUser />  &nbsp;
-                                    </div>
-                                    <div className="experience"><SlBriefcase /> 5 years of experience in relevant field and possessing own vehicle.</div>
-                                    <Button onClick={this.toggleClass} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
-                                </div>
-                            </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-                                <div className="package-slide">
-                                    <h5 className="text-purple">Phlebotomists<span><GrLocation /> Pune, Maharashtra</span></h5>
-                                    <div className="experience">
-                                        <BiCategory /> HSC/ DMLT or BSc/DMLT
-                                    </div>
-                                    <div className="experience">
-                                        <FaRegUser />  &nbsp;
-                                    </div>
-                                    <div className="experience"><SlBriefcase />Experience with the use of a vacutainer, being able to draw the blood of babies, and possession of own vehicle. </div>
-                                    <Button onClick={this.toggleClass} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                </section>
-                <section className={this.state.isClassActive ?
-                    'package-details-form active' : 'package-details-form'}>
-                    <Container>
-                        <Row>
-                            <Col>
-                                <button onClick={this.toggleClass} className="btn-close"><GrClose /></button>
-                                <h3 className="text-purple text-start mar-bot-20">Apply Now!</h3>
-                                <Form.Control type="text" placeholder="Consultant Pathologist" className="mar-bot-20" disabled />
-                                <Form.Control type="text" placeholder="Name" className="mar-bot-20" />
-                                <Form.Control type="tel" minlength="10" maxlength="10" placeholder="Phone Number" className="mar-bot-20" />
-                                <Form.Control type="email" placeholder="Email ID" className="mar-bot-20" />
-                                <Form.Control type="text" placeholder="Location" className="mar-bot-20" />
-                                <Form.Control type="text" placeholder="Total Experience" className="mar-bot-20" />
-                                <Form.Control as="textarea" rows={3} placeholder="Cover Letter" className="mar-bot-20" />
-                                <Form.Control type="file" accept=".doc,.docx,.pdf" />
-                                <small>Only (.doc, .docx, .pdf) accepted</small>
+                                </Col>
+                            ))}
+                        </>
+                    </Row>
+                </Container>
+            </section>
+            <section className={isEnabled ? 'package-details-form active' : 'package-details-form'}>
+                <Container>
+                    <Row>
+                        <Col>
+                            <button onClick={toggleSwitch} className="btn-close"><GrClose /></button>
+                            <h3 className="text-purple text-start mar-bot-20">Apply Now!</h3>
+                            <form onSubmit={handleSubmit(submitHandler)} className="contact-form">
+                                <Form.Control type="text" value={singleData?.job_title} className="mar-bot-20" disabled />
+                                <Form.Control type="text" {...register("job_id")} value={singleData?.id} hidden={true} className="mar-bot-20" disabled />
+                                <Form.Control type="text" {...register("name", { required: true })} placeholder="Name" className="mar-bot-20" />
+                                {errors.name && <span>This field is required</span>}
+                                <Form.Control type="tel" {...register("phone", { required: true })} minlength="10" maxlength="10" placeholder="Phone Number" className="mar-bot-20" />
+                                {errors.name && <span>This field is required</span>}
+                                <Form.Control type="email" {...register("email", { required: true })} placeholder="Email ID" className="mar-bot-20" />
+                                {errors.name && <span>This field is required</span>}
+                                <Form.Control type="text" {...register("address", { required: true })} placeholder="Location" className="mar-bot-20" />
+                                {errors.name && <span>This field is required</span>}
+                                {/*   <Form.Control type="text" {...register("name", { required: true })} placeholder="Total Experience" className="mar-bot-20" />
+                                {errors.name && <span>This field is required</span>} */}
+                                <Form.Control as="textarea" {...register("cover_letter", { required: true })} rows={3} placeholder="Cover Letter" className="mar-bot-20" />
+                                {errors.name && <span>This field is required</span>}
+                                <Form.Control type="file" {...register("file", { required: true })} accept=".doc,.docx,.pdf" />
+                                {errors.name ? null : <small>Only (.doc, .docx, .pdf) accepted</small>}<br></br>
+                                <small>{errors.name && <span>This field is required</span>}</small>
                                 <p className="text-center pad-top-20">
-                                    <Button className="btn1 mb-0"><FaPaperPlane /> &nbsp; SUBMIT</Button>
+                                    {applyloading ? <Button className="btn1 mb-0" disabled><FaPaperPlane /> &nbsp; SUBMIT</Button> :
+                                        <Button className="btn1 mb-0" type="submit"><FaPaperPlane /> &nbsp; SUBMIT</Button>}
                                 </p>
-                            </Col>
-                        </Row>
-                    </Container>
-                </section>
-            </>
-        );
-    }
+                            </form>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+        </>
+    );
 }
+
 
 export default CurrentOpeningsContent;

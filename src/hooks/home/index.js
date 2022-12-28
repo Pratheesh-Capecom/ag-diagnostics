@@ -1,8 +1,12 @@
-import { useMutation, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import * as home from "services/homeServices";
 
+
 export const usePackages = () => {
-    return useMutation((formData) => home.packages(formData));
+    return useQuery("Packages", () => home.packages(), {
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: true,
+    });
 }
 
 export const useBanner = () => {

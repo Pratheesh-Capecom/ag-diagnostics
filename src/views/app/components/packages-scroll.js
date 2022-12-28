@@ -7,36 +7,19 @@ import packageIcon1 from "assets/images/packages/icon1.png";
 import flask from "assets/images/flask.png";
 import { Link } from "react-router-dom";
 import { BsArrowRightShort } from "react-icons/bs";
-import { usePackages } from "hooks/homeHooks";
-
-const Packagesscroll = (props) => {
-
-  const { defaultCity } = props;
-
-  const [packageData, setPackageData] = useState(null);
-  const { mutate: packages, isLoading: loading } = usePackages();
+import { usePackages } from "hooks/home";
 
 
-  const onFetchPackages = (searchParams) => {
-    const nformData = JSON.stringify(searchParams);
-    packages(nformData, {
-      onSuccess: (data) => {
-        setPackageData(data?.packages)
-      }
-    });
-  }
+const Packagesscroll = () => {
+
+  const { data: packages, isLoading: loading } = usePackages()
+  const [packageData, setPackageData] = useState([]);
 
   useEffect(() => {
-    if (defaultCity) {
-      const params = {
-        "cityId": defaultCity,
-        "package_name": null,
-      }
-      onFetchPackages(params);
+    if (packages) {
+      setPackageData(packages?.selectedPackages)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [defaultCity]);
-
+  }, [packages]);
 
   const settings = {
     dots: false,
@@ -74,7 +57,7 @@ const Packagesscroll = (props) => {
             <h2 className="text-center">Our Packages</h2>
             <h3 className="text-center">Preventive Health Packages</h3>
             <Slider {...settings} className={packageData === undefined || packageData === null || packageData?.length === 0 ? 'package-slides empty-packages' : 'package-slides'}>
-              {loading ? <h1>Loading.....</h1> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
+              {loading ? <h1>Loading... </h1> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
                 <div className="d-flex">
                   <h3 className="no-data">No Data Found</h3>
                 </div>
@@ -92,8 +75,8 @@ const Packagesscroll = (props) => {
                       {common?.testLists}
                     </p>
                     <div className="pckge_price">
-                      <span>₹{common?.discountFees}/-</span> ₹{common?.fees}/-
-                      <Link to="/package-details" className="viewbtn">
+                      <span>{common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span> ₹{common?.fees}/-
+                      <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="viewbtn">
                         <BsArrowRightShort className="text-white" />
                       </Link>
                     </div>

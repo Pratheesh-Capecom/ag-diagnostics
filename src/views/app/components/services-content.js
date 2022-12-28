@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
+import { useService } from "hooks/service";
 
 const ServicesContent = () => {
+
+    const { data: table, isLoading: loading } = useService();
+
+    const [tableData, setTableData] = useState([]);
+
+    useEffect(() => {
+        if (table) {
+            setTableData(table?.test)
+        }
+    }, [table]);
+
     return (
         <>
             <section>
@@ -21,24 +33,18 @@ const ServicesContent = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Test Code 1</td>
-                                        <td>Test Name 1</td>
-                                        <td>₹ 1500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Test Code 2</td>
-                                        <td>Test Name 3</td>
-                                        <td>₹ 3500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Test Code 3</td>
-                                        <td>Test Name 3</td>
-                                        <td>₹ 7500</td>
-                                    </tr>
+                                    {loading ? <h1>Loading... </h1> : tableData === undefined || tableData === null || tableData?.length === 0 ? (
+                                        <div className="d-flex">
+                                            <h3 className="no-data">No Data Found</h3>
+                                        </div>
+                                    ) : tableData?.map((common, a) => (
+                                        <tr key={a}>
+                                            <td>{common?.id}</td>
+                                            <td>{common?.testCode}</td>
+                                            <td>{common?.testName}</td>
+                                            <td>₹ {common?.fees}</td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </Table>
                         </Col>

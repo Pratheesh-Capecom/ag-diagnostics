@@ -215,7 +215,7 @@ const CovidPcrContent = () => {
                 <div className="pckge_price mar-bot-20 pad-top-20">
                   Special Price: ₹2299/- &nbsp; <span>MRP: ₹2980/-</span>
                 </div>
-                <Link to="/package-details" className="orange-btn">
+                <Link to="/package-details/:discountfee/:fee" className="orange-btn">
                   Book Now <BsArrowRightShort className="text-white" />
                 </Link>
               </div>
@@ -233,7 +233,7 @@ const CovidPcrContent = () => {
                 <div className="pckge_price mar-bot-20">
                   Special Price: ₹4800/- &nbsp; <span>MRP: ₹6180/-</span>
                 </div>
-                <Link to="/package-details" className="orange-btn">
+                <Link to="/package-details/discountfee/:fee" className="orange-btn">
                   Book Now <BsArrowRightShort className="text-white" />
                 </Link>
               </div>
@@ -251,7 +251,7 @@ const CovidPcrContent = () => {
                 <div className="pckge_price mar-bot-20">
                   Special Price: ₹8250/- &nbsp; <span>MRP: ₹10750/-</span>
                 </div>
-                <Link to="/package-details" className="orange-btn">
+                <Link to="/package-details/discountfee/:fee" className="orange-btn">
                   Book Now <BsArrowRightShort className="text-white" />
                 </Link>
               </div>
