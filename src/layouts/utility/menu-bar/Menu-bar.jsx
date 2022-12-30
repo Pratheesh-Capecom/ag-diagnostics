@@ -88,7 +88,7 @@ export default function Menubar(props) {
                         </NavDropdown.Item>
                       ))}
                       <NavDropdown.Item to="/packages" as={Link} className="line">
-                        <img src={packageIcon1} alt="" /> View more
+                        View more
                       </NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link to="/home-visit" as={Link}>

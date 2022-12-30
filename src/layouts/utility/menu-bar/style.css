@@ -280,7 +280,7 @@ section.menu-bar .col button.location svg {
     opacity: 1;
     visibility: visible;
     top: 0px !important;
-    height: 200px;
+    /* height: 200px; */
     overflow-y: auto;
   }
 

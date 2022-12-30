@@ -2797,8 +2797,9 @@ section.teams {
 }
 
 .line {
-  background-color: #ee7427;
-  color: #fff !important;
+  color: #ee7427 !important;
+  padding-left: 65px !important;
+  padding-top: 15px !important;
 }
 
 .line:hover {
