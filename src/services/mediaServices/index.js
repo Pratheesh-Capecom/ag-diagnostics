@@ -5,29 +5,26 @@ const SECONDS = 30;
 const MILISECONDS = 1000;
 const TIMEOUT = SECONDS * MILISECONDS;
 
-
 const client = axios.create({
-    baseURL: "http://google-apps.co.in/ag_diagnostics/api/",
-    timeout: TIMEOUT,
-    headers: {
-        "content-type": "application/json",
-    }
+  baseURL: "https://pixel-studios.net/admin-ag-diagnostics/api/",
+  timeout: TIMEOUT,
+  headers: {
+    "content-type": "application/json",
+  },
 });
 
 client.interceptors.request.use(function (config) {
-    return config;
+  return config;
 });
 
 client.interceptors.response.use(
-    (response) => response,
-    (error) => Promise.reject(error)
-)
+  (response) => response,
+  (error) => Promise.reject(error)
+);
 
 const media = async () => {
-    const { data } = await client.get(`media`);
-    return data;
-}
-
-export {
-    media
+  const { data } = await client.get(`media`);
+  return data;
 };
+
+export { media };
