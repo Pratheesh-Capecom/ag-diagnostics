@@ -2749,33 +2749,24 @@ section.teams {
   }
 }
 
-.empty-packages .slick-track,
-.empty-packages .slick-track .slick-slide,
-.empty-packages .slick-track .slick-slide>div,
-.empty-packages .slick-track .slick-slide>div>.d-flex,
-.empty-packages .slick-track .slick-slide>div>.d-flex>h3 {
-  width: 100% !important;
-  text-align: center;
-}
 
-.empty-pack .d-flex {
-  display: flex !important;
-  flex-direction: row;
-  justify-content: space-around;
+
+/*  Dev css start */
+
+.common-loading {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .empty-pack {
   width: 100% !important;
   text-align: center;
-  padding: 250px;
+  padding: 150px;
 }
 
 .banner-img {
   max-height: 600px;
-}
-
-.top-pack {
-  padding-top: 120px;
 }
 
 .ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector {
@@ -2800,3 +2791,32 @@ section.teams {
 .ant-message {
   z-index: 9999 !important;
 }
+
+.txt-center {
+  text-align: center;
+}
+
+.line {
+  background-color: #ee7427;
+  color: #fff !important;
+}
+
+.line:hover {
+  color: #000 !important;
+}
+
+.ant-message {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+  padding-right: 10px !important;
+}
+
+.table-center {
+  text-align: center;
+  padding-top: 140px;
+  padding-bottom: 140px;
+}
+
+
+/*  Dev css end */

@@ -6,6 +6,7 @@ import { FiDownload } from "react-icons/fi";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { useBrochure } from "hooks/brochure";
+import Loader from "./loader";
 
 export default function PackagesBookletContent() {
 
@@ -42,56 +43,60 @@ export default function PackagesBookletContent() {
           <Col>
             <Tabs defaultActiveKey="package_booklets" onSelect={handleSelect}>
               <Tab eventKey="package_booklets" title="Package Booklets">
-                <Row className={brochureDatas === undefined || brochureDatas === null || brochureDatas?.length === 0 ? ' justify-content-center empty-pack' : 'justify-content-center'}>
-                  <>
-                    {loading ? <h1>Loading.... </h1> : brochureDatas === undefined || brochureDatas === null || brochureDatas?.length === 0 ? (
-                      <div className="d-flex">
-                        <h3 className="no-data">No Data Found</h3>
-                      </div>
-                    ) : brochureDatas?.map((common, a) => (
-                      <Col xs={12} sm={6} md={6} lg={4} xl={3} key={a}>
-                        <div className="package-slide">
-                          <a href={common?.brochure} className="booklet-download" target="_blank" rel="noreferrer">
-                            <img
-                              src={common?.image}
-                              alt=""
-                              className="img-fluid"
-                            />
-                            <span>
-                              <FiDownload />
-                            </span>
-                          </a>
-                        </div>
-                      </Col>
-                    ))}
-                  </>
-                </Row>
+                {loading ? <div className="common-loading"><Loader /></div> : brochureDatas === undefined || brochureDatas === null || brochureDatas?.length === 0 ? (
+                  <div className="common-loading">
+                    <h3 className="no-data">No Data Found</h3>
+                  </div>
+                ) : (
+                  <Row className="justify-content-center top-pack">
+                    <>
+                      {brochureDatas?.map((common, a) => (
+                        <Col xs={12} sm={6} md={6} lg={4} xl={3} key={a}>
+                          <div className="package-slide">
+                            <a href={common?.brochure} className="booklet-download" target="_blank" rel="noreferrer">
+                              <img
+                                src={common?.image}
+                                alt=""
+                                className="img-fluid"
+                              />
+                              <span>
+                                <FiDownload />
+                              </span>
+                            </a>
+                          </div>
+                        </Col>
+                      ))}
+                    </>
+                  </Row>
+                )}
               </Tab>
               <Tab eventKey="technical_leaflets" title="Technical Leaflets">
-                <Row className={brochureDatas === undefined || brochureDatas === null || brochureDatas?.length === 0 ? ' justify-content-center empty-pack' : 'justify-content-center'}>
-                  <>
-                    {loading ? <h1>Loading.... </h1> : brochureDatas === undefined || brochureDatas === null || brochureDatas?.length === 0 ? (
-                      <div className="d-flex">
-                        <h3 className="no-data">No Data Found</h3>
-                      </div>
-                    ) : brochureDatas?.map((common, a) => (
-                      <Col xs={12} sm={6} md={6} lg={4} xl={3} key={a}>
-                        <div className="package-slide">
-                          <a href={common?.brochure} className="booklet-download" target="_blank" rel="noreferrer">
-                            <img
-                              src={common?.image}
-                              alt=""
-                              className="img-fluid"
-                            />
-                            <span>
-                              <FiDownload />
-                            </span>
-                          </a>
-                        </div>
-                      </Col>
-                    ))}
-                  </>
-                </Row>
+                {loading ? <div className="common-loading"><Loader /></div> : brochureDatas === undefined || brochureDatas === null || brochureDatas?.length === 0 ? (
+                  <div className="common-loading">
+                    <h3 className="no-data">No Data Found</h3>
+                  </div>
+                ) : (
+                  <Row className="justify-content-center">
+                    <>
+                      {brochureDatas?.map((common, a) => (
+                        <Col xs={12} sm={6} md={6} lg={4} xl={3} key={a}>
+                          <div className="package-slide">
+                            <a href={common?.brochure} className="booklet-download" target="_blank" rel="noreferrer">
+                              <img
+                                src={common?.image}
+                                alt=""
+                                className="img-fluid"
+                              />
+                              <span>
+                                <FiDownload />
+                              </span>
+                            </a>
+                          </div>
+                        </Col>
+                      ))}
+                    </>
+                  </Row>)}
+
               </Tab>
             </Tabs>
           </Col>

@@ -4,8 +4,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const FounderBanner = () => {
-
-
     return (
         <section className="inner-banner about-founder">
             <Container>

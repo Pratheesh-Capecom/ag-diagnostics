@@ -9,6 +9,7 @@ import { FiPhoneCall } from 'react-icons/fi';
 import { TbMap2 } from 'react-icons/tb';
 import { useFindLab } from "hooks/findLab";
 import { useCity } from "hooks/home";
+import Loader from "./loader";
 
 
 const FindALabContent = () => {
@@ -20,7 +21,6 @@ const FindALabContent = () => {
     const [cityId, setCityId] = useState(localStorage.getItem("city_id") || "490");
     const [searchKey, setSearchKey] = useState("");
     const [initValues, setInitValues] = useState({ "cityId": cityId, "search": searchKey, });
-
 
     const cityChangeHandler = (e) => {
         initValues.cityId = e.target.value;
@@ -53,7 +53,6 @@ const FindALabContent = () => {
         }
     }, [city]);
 
-
     useEffect(() => {
         onFetchPackages(initValues);
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -83,13 +82,13 @@ const FindALabContent = () => {
             </section>
             <section className="bg-light-orange pt-0">
                 <Container>
-                    <Row className={findData === undefined || findData === null || findData?.length === 0 ? 'empty-pack top-pack' : null}>
-                        <>
-                            {loading ? <h1>Loading.....</h1> : findData === undefined || findData === null || findData?.length === 0 ? (
-                                <div className="d-flex">
-                                    <h3 className="no-data">No Data Found</h3>
-                                </div>
-                            ) : findData?.map((common, a) => (
+                    {loading ? <div className="common-loading"><Loader /></div> : findData === undefined || findData === null || findData?.length === 0 ? (
+                        <div className="common-loading">
+                            <h3 className="no">No Data Found</h3>
+                        </div>
+                    ) : (
+                        <Row>
+                            {findData?.map((common, a) => (
                                 <Col xs={12} sm={12} md={6} lg={6} xl={4} key={a}>
                                     <div className="package-slide">
                                         <h5 className="text-purple">{common?.location}<span>{common?.city}, {common?.state}</span></h5>
@@ -109,8 +108,8 @@ const FindALabContent = () => {
                                     </div>
                                 </Col>
                             ))}
-                        </>
-                    </Row>
+                        </Row>
+                    )}
                 </Container>
             </section>
         </>

@@ -9,20 +9,80 @@ import { useForm } from "react-hook-form";
 import { useHomeVisitPackageDropDown, useHomeVisit } from "hooks/homeVisit";
 import { useService } from "hooks/service";
 import { Select, message } from "antd";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const { Option } = Select;
 
-const HomeVisitForm = () => {
+const HomeVisitForm = (props) => {
+    const { defaultCity } = props;
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var id = url.searchParams.get("id");
+    var packagename = url.searchParams.get("packagename");
+    var amount = url.searchParams.get("amount");
 
     let history = useHistory();
-    const { id, packagename, amount } = useParams();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const [defaultCity, setDefaultCity] = useState(localStorage.getItem("city_id") || "490"); //Default pune
-    const [packageData, setPackageData] = useState(null);
+
+
     const { mutate: packages } = useHomeVisitPackageDropDown();
-    const { mutate: addVisit, isLoading: btnloading } = useHomeVisit();
-    const { data: testdata, isLoading: loading } = useService();
+    const [packageData, setPackageData] = useState(null);
+
+    const onFetchPackages = (searchParams) => {
+        const nformData = JSON.stringify(searchParams);
+        packages(nformData, {
+            onSuccess: (data) => {
+                setPackageData(data?.packages)
+            }
+        });
+    }
+
+    useEffect(() => {
+        if (defaultCity) {
+            const params = {
+                "cityId": defaultCity,
+                "package_name": null,
+            }
+            onFetchPackages(params);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [defaultCity]);
+
+    useEffect(() => {
+        if (packagename) {
+            document.getElementById('home-visit-form').scrollIntoView({ behavior: 'smooth', block: "start" });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [packagename]);
+
+
+
+    const [testDropDown, setTestDropDown] = useState(null);
+    const { mutate: testDropdown, isLoading: loading } = useService();
+
+    const onFetch = (searchParams) => {
+        const nformData = JSON.stringify(searchParams);
+        testDropdown(nformData, {
+            onSuccess: (data) => {
+                setTestDropDown(data?.test)
+            }
+        });
+    }
+
+    useEffect(() => {
+        if (defaultCity) {
+            const params = {
+                "cityId": defaultCity,
+            }
+            onFetch(params);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [defaultCity]);
+
+
+
+
     const [name, setName] = useState(null)
     const [test, setTest] = useState(null)
 
@@ -32,10 +92,12 @@ const HomeVisitForm = () => {
     }
 
     const onChangeTest = (e) => {
-        let data = testdata?.test.filter(stu => stu.id === e)
+        let data = testDropDown.filter(stu => stu.id === e)
         setTest(data?.[0])
     }
 
+
+    const { mutate: addVisit, isLoading: btnloading } = useHomeVisit();
     const submitHandler = (e) => {
         if (e?.packageId === undefined || e?.packageId === null || e?.packageId === "-- Select Package --") {
             message.error("Kindly Select Package")
@@ -63,12 +125,9 @@ const HomeVisitForm = () => {
                         reset();
                         setName(null);
                         setTest(null);
-                        if (id) {
-                            history.push("/home-visit")
-                            setTimeout(() => window.location.reload(), 1000);
-                        } else {
-                            setTimeout(() => window.location.reload(), 1000);
-                        }
+                        setTimeout(() => {
+                            history.push("/packages")
+                        }, 1000);
                     }
                     else {
                         message.error(item?.Message)
@@ -81,40 +140,6 @@ const HomeVisitForm = () => {
             });
         }
     }
-
-    const onFetchPackages = (searchParams) => {
-        const nformData = JSON.stringify(searchParams);
-        packages(nformData, {
-            onSuccess: (data) => {
-                setPackageData(data?.packages)
-            }
-        });
-    }
-
-    useEffect(() => {
-        if (defaultCity) {
-            setDefaultCity(defaultCity)
-        }
-    }, [defaultCity]);
-
-
-    useEffect(() => {
-        if (defaultCity) {
-            const params = {
-                "cityId": defaultCity,
-                "package_name": null,
-            }
-            onFetchPackages(params);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [defaultCity]);
-
-    useEffect(() => {
-        if (packagename) {
-            document.getElementById('home-visit-form').scrollIntoView({ behavior: 'smooth', block: "start" });
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [packagename]);
 
 
     return (
@@ -154,7 +179,7 @@ const HomeVisitForm = () => {
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Search by Test Title</p>
                                     <Select {...register("title")} placeholder={loading ? "Please Wait....." : "Search by Test Title"} filterOption={(input, option) => option?.children?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangeTest} showSearch>
-                                        {testdata?.test && testdata?.test?.map((common, a) => (
+                                        {testDropDown && testDropDown?.map((common, a) => (
                                             <Option key={a} value={common?.id}>{common?.testName}</Option>
                                         ))}
                                     </Select>
@@ -184,8 +209,8 @@ const HomeVisitForm = () => {
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 pb-2 text-dark">Gender</p>
-                                    <Form.Check inline label="Male" type="radio" aria-label="radio 1" value="1" {...register("gender", { required: true })} />
-                                    <Form.Check inline label="Female" type="radio" aria-label="radio 1" value="2"  {...register("gender", { required: true })} />
+                                    <Form.Check inline label="Male" type="radio" aria-label="radio 1" value="Male" {...register("gender", { required: true })} />
+                                    <Form.Check inline label="Female" type="radio" aria-label="radio 1" value="Female"  {...register("gender", { required: true })} />
                                     {errors.gender && <span>This field is required</span>}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">

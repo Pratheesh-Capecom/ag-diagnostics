@@ -7,5 +7,3 @@ export const useMedia = () => {
         refetchOnReconnect: true,
     });
 }
-
-

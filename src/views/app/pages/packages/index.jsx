@@ -27,13 +27,11 @@ const Packages = () => {
     }
   }, [defaultCity]);
 
-
   useEffect(() => {
     if (city) {
       setCityData(city?.city)
     }
   }, [city]);
-
 
   return (
     <>

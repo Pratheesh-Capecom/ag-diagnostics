@@ -12,7 +12,6 @@ import Button from 'react-bootstrap/Button';
 import { FaPaperPlane } from 'react-icons/fa';
 
 const ApplyNowContent = () => {
-
     return (
         <section className="apply-now-form position-relative">
             <Container>

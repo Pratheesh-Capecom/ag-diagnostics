@@ -34,7 +34,7 @@ const city = async () => {
 }
 
 const packages = async (formData) => {
-    const { data } = await client.get(`selected-packages`, formData);
+    const { data } = await client.post(`selected-packages`, formData);
     return data;
 }
 

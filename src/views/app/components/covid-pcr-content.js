@@ -7,8 +7,6 @@ import packageIcon1 from "assets/images/packages/icon1.png";
 import { BsArrowRightShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-
-
 const CovidPcrContent = () => {
   return (
     <>

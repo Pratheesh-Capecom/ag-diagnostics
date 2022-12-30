@@ -8,14 +8,13 @@ import { useParams } from "react-router-dom";
 
 const NewsDetailsContent = () => {
 
-
   const { id } = useParams();
   const { data: news, isLoading: loading } = useNewsId(id);
 
   return (
     <section className="bg-light-orange">
       <Container>
-        {loading ? "Loading...." :
+        {loading ? "" :
           <Row className="justify-content-center">
             <Col xs={12} sm={12} md={12} lg={10} xl={8}>
               <div className="mar-bot-30">

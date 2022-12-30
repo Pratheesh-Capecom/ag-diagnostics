@@ -10,6 +10,8 @@ import { AiOutlineFileSearch } from 'react-icons/ai';
 import { useNews } from "hooks/news";
 import { dateFormat, yearFormat } from "helpers/commonFunctions";
 import { useForm } from "react-hook-form";
+import Loader from "./loader";
+import { message } from "antd";
 
 const NewsContent = () => {
 
@@ -30,19 +32,24 @@ const NewsContent = () => {
     }
 
     const changeHandler = (e) => {
-        initValues.year = e.year;
-        initValues.month = e.month;
-        let data = { ...initValues };
-        setInitValues(data);
-        setYear(e.year)
-        setMonth(e.month)
+        if (e.year === "- Select Year -") {
+            message.error("Kindly Select a year")
+        } else if (e.month === "- Select Month -") {
+            message.error("Kindly Select a Month")
+        } else {
+            initValues.year = e.year;
+            initValues.month = e.month;
+            let data = { ...initValues };
+            setInitValues(data);
+            setYear(e.year)
+            setMonth(e.month)
+        }
     }
 
     useEffect(() => {
         onFetchNews(initValues);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [year, month]);
-
 
     return (
         <>
@@ -89,27 +96,27 @@ const NewsContent = () => {
             </section>
             <section className="bg-light-orange">
                 <Container>
-                    <Row className={newsData === undefined || newsData === null || newsData?.length === 0 ? 'empty-pack' : null}>
-                        <>
-                            {loading ? <h1>Loading.... </h1> : newsData === undefined || newsData === null || newsData?.length === 0 ? (
-                                <div className="d-flex">
-                                    <h3 className="no-data">No Data Found</h3>
-                                </div>
-                            ) : newsData?.map((common, a) => (
-                                <Col xs={12} sm={12} md={6} lg={6} xl={4} key={a}>
-                                    <div className="package-slide small-size news-content">
-                                        <Link to={`/news-details/${common?.id}`} className="booklet-download">
-                                            <div className="date"><strong>{dateFormat(common?.start)}</strong> {yearFormat(common?.start)}</div>
-                                            <h3>{common?.event_name}</h3>
-                                            <p>{common?.description}</p>
-                                            <span><HiArrowNarrowRight /></span>
-                                        </Link>
-                                    </div>
-                                </Col>
-                            ))}
-                        </>
-
-                    </Row>
+                    {loading ? <div className="common-loading"><Loader /> </div> : newsData === undefined || newsData === null || newsData?.length === 0 ? (
+                        <div className="common-loading">
+                            <h3 className="no-data">No Data Found</h3>
+                        </div>
+                    ) : (
+                        <Row>
+                            <>
+                                {newsData?.map((common, a) => (
+                                    <Col xs={12} sm={12} md={6} lg={6} xl={4} key={a}>
+                                        <div className="package-slide small-size news-content">
+                                            <Link to={`/news-details/${common?.id}`} className="booklet-download">
+                                                <div className="date"><strong>{dateFormat(common?.start)}</strong> {yearFormat(common?.start)}</div>
+                                                <h3>{common?.event_name}</h3>
+                                                <p>{common?.description}</p>
+                                                <span><HiArrowNarrowRight /></span>
+                                            </Link>
+                                        </div>
+                                    </Col>
+                                ))}
+                            </>
+                        </Row>)}
                 </Container>
             </section>
         </>

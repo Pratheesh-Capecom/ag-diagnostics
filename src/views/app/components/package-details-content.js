@@ -15,14 +15,20 @@ import { GrClose } from "react-icons/gr";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { FaPaperPlane } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useEnquiry, usePackageId } from "hooks/packages";
 import { message } from "antd"
 
 const PackageDetails = () => {
+  let history = useHistory();
 
-  const { discountFee, fee, packageId } = useParams();
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var discountFee = url.searchParams.get("discountFee");
+  var fee = url.searchParams.get("fee");
+  var packageId = url.searchParams.get("packageId");
+
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const { mutate: enquiry, isLoading: loading } = useEnquiry();
   const { data: pack } = usePackageId(packageId);
@@ -49,6 +55,9 @@ const PackageDetails = () => {
           message.success(item?.Message);
           setIsEnabled(previousState => !previousState);
           reset();
+          setTimeout(() => {
+            history.push("/packages")
+          }, 1000);
         }
         else {
           message.error(item?.Message);
@@ -157,7 +166,7 @@ const PackageDetails = () => {
                   Enquire Now
                 </Button>
                 <Link
-                  to={`/home-visit/${packData?.packageName}/${packData?.id}/${packData?.fees}`}
+                  to={`/home-visit?packagename=${packData?.packageName}&id=${packData?.id}&amount=${packData?.fees}&hide=hide`}
                   className="btn2 d-block"
                 >
                   Book Home Collection

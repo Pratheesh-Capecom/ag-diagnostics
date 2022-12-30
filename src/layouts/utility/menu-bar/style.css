@@ -51,15 +51,16 @@ section.menu-bar.fixed {
 }
 
 section.menu-bar .col {
-  padding-right: 100px;
+  /* padding-right: 100px; */
   position: relative;
 }
 
 section.menu-bar .col button.location {
-  position: absolute;
+  /* position: absolute;
   right: 0;
   top: 0;
-  padding: 15px 0px;
+  padding: 15px 0px; */
+  text-align: left;
   background: transparent !important;
   border: none !important;
 }

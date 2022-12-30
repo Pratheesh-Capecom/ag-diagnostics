@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import { useCurrentOpenings } from "hooks/currentOpening";
 import { message } from "antd";
 import { useApplyNow } from "hooks/currentOpening";
+import Loader from "./loader";
 
 const CurrentOpeningsContent = () => {
 
@@ -42,7 +43,8 @@ const CurrentOpeningsContent = () => {
         formData.append("email", e.email)
         formData.append("phone", e.phone)
         formData.append("cover_letter", e.cover_letter)
-        formData.append("address", e.address)
+        formData.append("location", e.location)
+        formData.append("total_experience", e.total_experience)
         apply(formData, {
             onSuccess: (item) => {
                 if (item?.Status === 200) {
@@ -74,37 +76,36 @@ const CurrentOpeningsContent = () => {
         }
     }, [isEnabled]);
 
-
-
     return (
         <>
             <section className="bg-light-orange">
                 <Container>
-                    <Row className={openingsData === undefined || openingsData === null || openingsData?.length === 0 ? 'empty-pack' : null}>
-                        <>
-                            {loading ? <h1>Loading.....</h1> : openingsData === undefined || openingsData === null || openingsData?.length === 0 ? (
-                                <div>
-                                    <h3 className="no-data">No Data Found</h3>
-                                </div>
-                            ) : openingsData?.map((common, a) => (
-                                <Col xs={12} sm={12} md={6} lg={6} xl={4} key={a}>
-                                    <div className="package-slide" >
-                                        <h5 className="text-purple">{common?.job_title}<span><GrLocation />
-                                            &nbsp; Pune Dummy Text
-                                        </span></h5>
-                                        <div className="experience">
-                                            <BiCategory />{common?.department_name}
+                    {loading ? <div className="common-loading"><Loader /></div> : openingsData === undefined || openingsData === null || openingsData?.length === 0 ? (
+                        <div className="common-loading">
+                            <h3 className="no-data">No Data Found</h3>
+                        </div>
+                    ) : (
+                        <Row className={openingsData === undefined || openingsData === null || openingsData?.length === 0 ? 'current-pack' : null}>
+                            <>
+                                {openingsData?.map((common, a) => (
+                                    <Col xs={12} sm={12} md={6} lg={6} xl={4} key={a}>
+                                        <div className="package-slide" >
+                                            <h5 className="text-purple">{common?.job_title}<span><GrLocation />
+                                                &nbsp; {common?.city || "-"},{common?.state || "-"}
+                                            </span></h5>
+                                            <div className="experience">
+                                                <BiCategory />{common?.department_name}
+                                            </div>
+                                            <div className="experience">
+                                                <FaRegUser /> 1 Post
+                                            </div>
+                                            <div className="experience"><SlBriefcase /> &nbsp;{common?.experience} </div>
+                                            <Button onClick={() => toggleSwitch(common)} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
                                         </div>
-                                        <div className="experience">
-                                            <FaRegUser /> 1 Post
-                                        </div>
-                                        <div className="experience"><SlBriefcase /> &nbsp;{common?.experience} </div>
-                                        <Button onClick={() => toggleSwitch(common)} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
-                                    </div>
-                                </Col>
-                            ))}
-                        </>
-                    </Row>
+                                    </Col>
+                                ))}
+                            </>
+                        </Row>)}
                 </Container>
             </section>
             <section className={isEnabled ? 'package-details-form active' : 'package-details-form'}>
@@ -119,18 +120,18 @@ const CurrentOpeningsContent = () => {
                                 <Form.Control type="text" {...register("name", { required: true })} placeholder="Name" className="mar-bot-20" />
                                 {errors.name && <span>This field is required</span>}
                                 <Form.Control type="tel" {...register("phone", { required: true })} minlength="10" maxlength="10" placeholder="Phone Number" className="mar-bot-20" />
-                                {errors.name && <span>This field is required</span>}
+                                {errors.phone && <span>This field is required</span>}
                                 <Form.Control type="email" {...register("email", { required: true })} placeholder="Email ID" className="mar-bot-20" />
-                                {errors.name && <span>This field is required</span>}
-                                <Form.Control type="text" {...register("address", { required: true })} placeholder="Location" className="mar-bot-20" />
-                                {errors.name && <span>This field is required</span>}
-                                {/*   <Form.Control type="text" {...register("name", { required: true })} placeholder="Total Experience" className="mar-bot-20" />
-                                {errors.name && <span>This field is required</span>} */}
+                                {errors.email && <span>This field is required</span>}
+                                <Form.Control type="text" {...register("location", { required: true })} placeholder="Location" className="mar-bot-20" />
+                                {errors.location && <span>This field is required</span>}
+                                <Form.Control type="text" {...register("total_experience", { required: true })} placeholder="Total Experience" className="mar-bot-20" />
+                                {errors.total_experience && <span>This field is required</span>}
                                 <Form.Control as="textarea" {...register("cover_letter", { required: true })} rows={3} placeholder="Cover Letter" className="mar-bot-20" />
-                                {errors.name && <span>This field is required</span>}
+                                {errors.cover_letter && <span>This field is required</span>}
                                 <Form.Control type="file" {...register("file", { required: true })} accept=".doc,.docx,.pdf" />
-                                {errors.name ? null : <small>Only (.doc, .docx, .pdf) accepted</small>}<br></br>
-                                <small>{errors.name && <span>This field is required</span>}</small>
+                                {errors.file ? null : <small>Only (.doc, .docx, .pdf) accepted</small>}<br></br>
+                                <small><br></br>{errors.name && <span>This field is required</span>}</small>
                                 <p className="text-center pad-top-20">
                                     {applyloading ? <Button className="btn1 mb-0" disabled><FaPaperPlane /> &nbsp; SUBMIT</Button> :
                                         <Button className="btn1 mb-0" type="submit"><FaPaperPlane /> &nbsp; SUBMIT</Button>}

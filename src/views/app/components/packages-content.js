@@ -7,6 +7,7 @@ import flask from "assets/images/flask.png";
 import { BsArrowRightShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { usePackages } from "hooks/packages";
+import Loader from "./loader";
 
 
 const PackagesContent = (props) => {
@@ -35,7 +36,6 @@ const PackagesContent = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultCity]);
 
-
   return (
     <section className="bg-light-orange">
       <Container>
@@ -45,34 +45,36 @@ const PackagesContent = (props) => {
             <h3 className="text-center">Preventive Health Packages</h3>
           </Col>
         </Row>
-        <Row className={packageData === undefined || packageData === null || packageData?.length === 0 ? 'empty-pack' : null}>
-          {loading ? <h1>Loading.... </h1> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
-            <div className="d-flex">
-              <h3 className="no-data">No Data Found</h3>
-            </div>
-          ) : packageData?.map((common, a) => (
-            <Col xs={12} sm={12} md={6} lg={4} key={a}>
-              <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="package-slide">
-                <div className="icon-img">
-                  <img src={packageIcon1} alt="" />
-                </div>
-                <h3>{common?.packageName}</h3>
-                <div className="inc-test">
-                  <img src={flask} alt="" /> Includes 8 tests
-                </div>
-                <p>
-                  {common?.testLists}
-                </p>
-                <div className="pckge_price">
-                  <span>{common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span> ₹{common?.fees}/-
-                  <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="viewbtn">
-                    <BsArrowRightShort className="text-white" />
-                  </Link>
-                </div>
-              </Link>
-            </Col>
-          ))}
-        </Row>
+        {loading ? <div className="common-loading"><Loader /></div> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
+          <div className="common-loading">
+            <h3 className="no-data">No Data Found</h3>
+          </div>
+        ) : (
+          <Row>
+            {packageData?.map((common, a) => (
+              <Col xs={12} sm={12} md={6} lg={4} key={a}>
+                <Link to={`/package-details?discountFee=${common?.discountFees}&fee=${common?.fees}&packageId=${common?.id}&hide=hide`} className="package-slide">
+                  <div className="icon-img">
+                    <img src={packageIcon1} alt="" />
+                  </div>
+                  <h3>{common?.packageName}</h3>
+                  <div className="inc-test">
+                    <img src={flask} alt="" /> Includes {common?.test_count} tests
+                  </div>
+                  <p>
+                    {common?.testLists}
+                  </p>
+                  <div className="pckge_price">
+                    <span>{common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span> ₹{common?.fees}/-
+                    <Link to={`/package-details?discountFee=${common?.discountFees}&fee=${common?.fees}&packageId=${common?.id}&hide=hide`} className="viewbtn">
+                      <BsArrowRightShort className="text-white" />
+                    </Link>
+                  </div>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+        )}
       </Container>
     </section >
   );

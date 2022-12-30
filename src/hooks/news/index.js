@@ -6,7 +6,6 @@ export const useNews = () => {
     return useMutation((formData) => news.news(formData));
 }
 
-
 export const useNewsId = (id) => {
     return useQuery(["newsId", id], () => news.newsId(id), {
         refetchOnWindowFocus: false,

@@ -23,8 +23,8 @@ client.interceptors.response.use(
     (error) => Promise.reject(error)
 )
 
-const service = async () => {
-    const { data } = await client.get(`test`);
+const service = async (formData) => {
+    const { data } = await client.post(`test`, formData);
     return data;
 }
 

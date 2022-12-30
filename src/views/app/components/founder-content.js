@@ -6,7 +6,6 @@ import aboutImage1 from "assets/images/about-1.png";
 
 
 const FounderContent = () => {
-
   return (
     <>
       <section className="bg-light-orange">

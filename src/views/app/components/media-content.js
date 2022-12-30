@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import NewsImage1 from "assets/images/dummy-pdf.jpg";
 import { useMedia } from "hooks/media";
+import Loader from "./loader";
 
 const MediaContent = () => {
 
@@ -21,7 +22,7 @@ const MediaContent = () => {
     <section className="bg-light-orange">
       <Container>
         <Row className={mediaData === undefined || mediaData === null || mediaData?.length === 0 ? ' justify-content-center empty-pack' : 'justify-content-center'}>
-          {loading ? <h1> Loading....</h1> : mediaData === undefined || mediaData === null || mediaData?.length === 0 ? (
+          {loading ? <div className="txt-center"><Loader /></div> : mediaData === undefined || mediaData === null || mediaData?.length === 0 ? (
             <div>
               <h3 className="no-data">No Data Found</h3>
             </div>

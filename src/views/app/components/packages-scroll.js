@@ -8,18 +8,34 @@ import flask from "assets/images/flask.png";
 import { Link } from "react-router-dom";
 import { BsArrowRightShort } from "react-icons/bs";
 import { usePackages } from "hooks/home";
+import Loader from "./loader";
 
 
-const Packagesscroll = () => {
+const Packagesscroll = (props) => {
 
-  const { data: packages, isLoading: loading } = usePackages()
-  const [packageData, setPackageData] = useState([]);
+  const { defaultCity } = props;
+
+  const [packageData, setPackageData] = useState(null);
+  const { mutate: packages, isLoading: loading } = usePackages();
+
+  const onFetchPackages = (searchParams) => {
+    const nformData = JSON.stringify(searchParams);
+    packages(nformData, {
+      onSuccess: (data) => {
+        setPackageData(data?.selectedPackages)
+      }
+    });
+  }
 
   useEffect(() => {
-    if (packages) {
-      setPackageData(packages?.selectedPackages)
+    if (defaultCity) {
+      const params = {
+        "cityId": defaultCity,
+      }
+      onFetchPackages(params);
     }
-  }, [packages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultCity]);
 
   const settings = {
     dots: false,
@@ -56,44 +72,46 @@ const Packagesscroll = () => {
           <Col>
             <h2 className="text-center">Our Packages</h2>
             <h3 className="text-center">Preventive Health Packages</h3>
-            <Slider {...settings} className={packageData === undefined || packageData === null || packageData?.length === 0 ? 'package-slides empty-packages' : 'package-slides'}>
-              {loading ? <h1>Loading... </h1> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
-                <div className="d-flex">
-                  <h3 className="no-data">No Data Found</h3>
-                </div>
-              ) : packageData?.map((common, a) => (
-                <div key={a}>
-                  <div className="package-slide">
-                    <div className="icon-img">
-                      <img src={packageIcon1} alt="" />
-                    </div>
-                    <h3>{common?.packageName}</h3>
-                    <div className="inc-test">
-                      <img src={flask} alt="" /> Includes 8 tests
-                    </div>
-                    <p>
-                      {common?.testLists}
-                    </p>
-                    <div className="pckge_price">
-                      <span>{common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span> ₹{common?.fees}/-
-                      <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="viewbtn">
-                        <BsArrowRightShort className="text-white" />
-                      </Link>
+            {loading ? <div className="common-loading"><Loader /></div> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
+              <div className="common-loading">
+                <h3 className="no-data">No Data Found</h3>
+              </div>
+            ) : (
+              <Slider {...settings} className="package-slides">
+                {packageData?.map((common, a) => (
+                  <div key={a}>
+                    <div className="package-slide">
+                      <div className="icon-img">
+                        <img src={packageIcon1} alt="" />
+                      </div>
+                      <h3>{common?.packageName}</h3>
+                      <div className="inc-test">
+                        <img src={flask} alt="" /> Includes {common?.test_count} tests
+                      </div>
+                      <p>
+                        {common?.testLists}
+                      </p>
+                      <div className="pckge_price">
+                        <span>{common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span> ₹{common?.fees}/-
+                        <Link to={`/package-details?discountFee=${common?.discountFees}&fee=${common?.fees}&packageId=${common?.id}&hide=hide`} className="viewbtn">
+                          <BsArrowRightShort className="text-white" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
-              }
-            </Slider>
-            <p className="text-center">
-              <Link to="/packages" className="purple-btn">
-                View All Packages
-              </Link>
-            </p>
+                ))}
+              </Slider>
+            )}
+            {loading || packageData === undefined || packageData === null || packageData?.length === 0 ?
+              null : < p className="text-center">
+                <Link to="/packages" className="purple-btn">
+                  View All Packages
+                </Link>
+              </p>}
           </Col>
         </Row>
       </Container>
-    </section>
+    </section >
   );
 }
 
