@@ -16,7 +16,7 @@ import { useCurrentOpenings } from "hooks/currentOpening";
 import { message } from "antd";
 import { useApplyNow } from "hooks/currentOpening";
 import Loader from "./loader";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const CurrentOpeningsContent = () => {
     let history = useHistory();
@@ -91,19 +91,21 @@ const CurrentOpeningsContent = () => {
                             <>
                                 {openingsData?.map((common, a) => (
                                     <Col xs={12} sm={12} md={6} lg={6} xl={4} key={a}>
-                                        <div className="package-slide" >
-                                            <h5 className="text-purple">{common?.job_title}<span><GrLocation />
-                                                &nbsp; {common?.city || "-"},{common?.state || "-"}
-                                            </span></h5>
-                                            <div className="experience">
-                                                <BiCategory />{common?.department_name}
+                                        <Link to={`/apply-now?job_id=${common?.id}`}>
+                                            <div className="package-slide" >
+                                                <h5 className="text-purple">{common?.job_title}<span><GrLocation />
+                                                    &nbsp; {common?.city || "-"},{common?.state || "-"}
+                                                </span></h5>
+                                                <div className="experience">
+                                                    <BiCategory />{common?.department_name}
+                                                </div>
+                                                <div className="experience">
+                                                    <FaRegUser /> 1 Post
+                                                </div>
+                                                <div className="experience"><SlBriefcase /> &nbsp;{common?.experience} </div>
+                                                <Button onClick={() => toggleSwitch(common)} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
                                             </div>
-                                            <div className="experience">
-                                                <FaRegUser /> 1 Post
-                                            </div>
-                                            <div className="experience"><SlBriefcase /> &nbsp;{common?.experience} </div>
-                                            <Button onClick={() => toggleSwitch(common)} className="orange-btn">Apply Now &nbsp; <BsArrowRightCircle /></Button>
-                                        </div>
+                                        </Link>
                                     </Col>
                                 ))}
                             </>

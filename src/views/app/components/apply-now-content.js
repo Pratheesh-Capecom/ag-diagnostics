@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,8 +10,24 @@ import { HiOutlineGift } from 'react-icons/hi';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FaPaperPlane } from 'react-icons/fa';
+import { useJobEdit } from "hooks/currentOpening";
 
 const ApplyNowContent = () => {
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var id = url.searchParams.get("job_id");
+
+    const [applyData, setApplyData] = useState([])
+    const { data: jobList } = useJobEdit(id)
+    console.log(applyData)
+
+    useEffect(() => {
+        if (jobList) {
+            setApplyData(jobList?.job)
+        }
+    }, [jobList]);
+
     return (
         <section className="apply-now-form position-relative">
             <Container>
@@ -19,30 +35,21 @@ const ApplyNowContent = () => {
                     <Col xs={12} sm={12} md={12} lg={6}>
                         <Row className="align-items-center">
                             <Col xs={12} sm={12} md={12} lg={10}>
-                                <h3 className="text-start">Sales Executive</h3>
-                                <h4 className="pad-bot-20"><GrLocation /> Pune, Maharashtra</h4>
+                                <h3 className="text-start">{applyData?.job_title}</h3>
+                                <h4 className="pad-bot-20"><GrLocation /> {applyData?.city} , {applyData?.state}</h4>
                                 <div className="apply-now-icons">
-                                    <BiCategory /> <strong>Department: </strong>Operations
+                                    <BiCategory /> <strong>Department: </strong>{applyData?.department_name}
                                 </div>
                                 <div className="apply-now-icons">
-                                    <FaRegUser /> <strong>Key Relationship: </strong>Functional Heads, Doctors and other internal department.
+                                    <FaRegUser /> <strong>Key Relationship: </strong>{applyData?.null || "-"}
                                 </div>
-                                <div className="apply-now-icons"><SlBriefcase /> <strong>Experience: </strong> 2 Years</div>
-                                <div className="apply-now-icons"><BiBookReader /> <strong>Education: </strong> Any Degree</div>
-                                <div className="apply-now-icons"><HiOutlineGift /> <strong>Job Purpose: </strong> This position’s main Role & Responsibility is to operate Radiology Department
-                                    and conduct tests related to X-Ray/CT/MRI/OPG/MAMMO and maintenance of
-                                    their respective Department.</div>
+                                <div className="apply-now-icons"><SlBriefcase /> <strong>Experience: </strong> {applyData?.experience}</div>
+                                <div className="apply-now-icons"><BiBookReader /> <strong>Education: </strong> {applyData?.education}</div>
+                                <div className="apply-now-icons"><HiOutlineGift /> <strong>Job Purpose: </strong> {applyData?.job_purpose}</div>
                                 <h5 className="text-dark mb-0 fw-bold">Key Responsibilities</h5>
                                 <p className="text-dark">Responsibility at various levels within the department is as follows :</p>
                                 <ul className="list-style1">
-                                    <li>Fastest TAT possible for every patient.</li>
-                                    <li>Reporting TAT (Within 2 hours)</li>
-                                    <li>Maintain Suraksha Quality in tests and procedures</li>
-                                    <li>Maintain Suraksha Standard of service. Preparing the patient for Test/
-                                        Explaining the procedure in brief</li>
-                                    <li>Ensure Departmental housekeeping and maintenance is as per
-                                        Suraksha Standards.</li>
-                                    <li>Ensure readiness of the department for tests</li>
+                                    <li>{applyData?.responsibilities}</li>
                                 </ul>
                             </Col>
                         </Row>

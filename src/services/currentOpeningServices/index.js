@@ -32,4 +32,9 @@ const applyNow = async (formData) => {
   return data;
 };
 
-export { currentOpenings, applyNow };
+const jobEdit = async (id) => {
+  const { data } = await client.get(`job-details/${id}`);
+  return data;
+};
+
+export { currentOpenings, applyNow, jobEdit };
