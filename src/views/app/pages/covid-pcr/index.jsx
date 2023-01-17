@@ -43,7 +43,7 @@ const CovidPcr = () => {
         modalHandler={modalHandler}
       />
       <CovidPcrBanner />
-      <CovidPcrContent />
+      <CovidPcrContent defaultCity={defaultCity} />
     </>
   );
 }

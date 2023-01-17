@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,8 +6,37 @@ import Accordion from "react-bootstrap/Accordion";
 import packageIcon1 from "assets/images/packages/icon1.png";
 import { BsArrowRightShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { usePackages } from "hooks/packages";
+import Loader from "./loader";
 
-const CovidPcrContent = () => {
+const CovidPcrContent = (props) => {
+
+  const { defaultCity } = props;
+
+  const [packageData, setPackageData] = useState(null);
+  const { mutate: packages, isLoading: loading } = usePackages();
+
+  const onFetchPackages = (searchParams) => {
+    const nformData = JSON.stringify(searchParams);
+    packages(nformData, {
+      onSuccess: (data) => {
+        setPackageData(data?.packages)
+      }
+    });
+  }
+
+  useEffect(() => {
+    if (defaultCity) {
+      const params = {
+        "cityId": defaultCity,
+        "package_name": "Covid"
+      }
+      onFetchPackages(params);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultCity]);
+
+
   return (
     <>
       <section className="gray-bg-light">
@@ -199,69 +228,41 @@ const CovidPcrContent = () => {
               <h3 className="text-start">COVID-19 Monitoring Packages</h3>
             </Col>
           </Row>
-          <Row>
-            <Col xs={12} sm={12} md={6} lg={4}>
-              <div className="package-slide">
-                <div className="icon-img">
-                  <img src={packageIcon1} alt="" />
-                </div>
-                <h3 className="pb-0">COVID-19 BASIC PACKAGE</h3>
-                <h6 className="mar-bot-20 fw-normal">
-                  CBC (Complete Blood Count), D-Dimer, CRP (hs), Ferritin and
-                  LDH
-                </h6>
-                <div className="pckge_price mar-bot-20 pad-top-20">
-                  Special Price: ₹2299/- &nbsp; <span>MRP: ₹2980/-</span>
-                </div>
-                <Link to="/package-details/:discountfee/:fee" className="orange-btn">
-                  Book Now <BsArrowRightShort className="text-white" />
-                </Link>
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={6} lg={4}>
-              <div className="package-slide">
-                <div className="icon-img">
-                  <img src={packageIcon1} alt="" />
-                </div>
-                <h3 className="pb-0">COVID-19 EXTENDED PACKAGE</h3>
-                <h6 className="mar-bot-20 fw-normal">
-                  CBC (Complete Blood Count), D-Dimer, CRP (hs), Ferritin, LDH
-                  and Interleukin - 6 (IL-6)
-                </h6>
-                <div className="pckge_price mar-bot-20">
-                  Special Price: ₹4800/- &nbsp; <span>MRP: ₹6180/-</span>
-                </div>
-                <Link to="/package-details/discountfee/:fee" className="orange-btn">
-                  Book Now <BsArrowRightShort className="text-white" />
-                </Link>
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={6} lg={4}>
-              <div className="package-slide">
-                <div className="icon-img">
-                  <img src={packageIcon1} alt="" />
-                </div>
-                <h3 className="pb-0">COVID-19 ADVANCED PACKAGE</h3>
-                <h6 className="mar-bot-20 fw-normal">
-                  CBC (Complete Blood Count), D-Dimer, CRP (hs), Ferritin,
-                  LDH, Interleukin - 6 (IL-6), Trop-I, CPK and Procalcitonin
-                </h6>
-                <div className="pckge_price mar-bot-20">
-                  Special Price: ₹8250/- &nbsp; <span>MRP: ₹10750/-</span>
-                </div>
-                <Link to="/package-details/discountfee/:fee" className="orange-btn">
-                  Book Now <BsArrowRightShort className="text-white" />
-                </Link>
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <p className="text-center pad-top-30">
-                <Link to="/find-a-lab" className="btn1">
-                  View Locations <BsArrowRightShort />
-                </Link>
-              </p>
-            </Col>
-          </Row>
+          {loading ? <div className="common-loading"><Loader /></div> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
+            <div className="common-loading">
+              <h3 className="no-data">No Data Found</h3>
+            </div>
+          ) : (
+            <Row>
+              <>
+                <Col xs={12} sm={12} md={6} lg={4}>
+                  <div className="package-slide">
+                    <div className="icon-img">
+                      <img src={packageIcon1} alt="" />
+                    </div>
+                    <h3 className="pb-0">COVID-19 BASIC PACKAGE</h3>
+                    <h6 className="mar-bot-20 fw-normal">
+                      CBC (Complete Blood Count), D-Dimer, CRP (hs), Ferritin and
+                      LDH
+                    </h6>
+                    <div className="pckge_price mar-bot-20 pad-top-20">
+                      Special Price: ₹2299/- &nbsp; <span>MRP: ₹2980/-</span>
+                    </div>
+                    <Link to="/package-details/:discountfee/:fee" className="orange-btn">
+                      Book Now <BsArrowRightShort className="text-white" />
+                    </Link>
+                  </div>
+                </Col>
+              </>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <p className="text-center pad-top-30">
+                  <Link to="/find-a-lab" className="btn1">
+                    View Locations <BsArrowRightShort />
+                  </Link>
+                </p>
+              </Col>
+            </Row>
+          )}
         </Container>
       </section>
     </>
