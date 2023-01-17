@@ -235,24 +235,25 @@ const CovidPcrContent = (props) => {
           ) : (
             <Row>
               <>
-                <Col xs={12} sm={12} md={6} lg={4}>
-                  <div className="package-slide">
-                    <div className="icon-img">
-                      <img src={packageIcon1} alt="" />
+                {packageData?.map((common, a) => (
+                  <Col xs={12} sm={12} md={6} lg={4} key={a}>
+                    <div className="package-slide">
+                      <div className="icon-img">
+                        <img src={packageIcon1} alt="" />
+                      </div>
+                      <h3 className="pb-0">{common?.packageName}</h3>
+                      <h6 className="mar-bot-20 fw-normal">
+                        {common?.testLists}
+                      </h6>
+                      <div className="pckge_price mar-bot-20 pad-top-20">
+                        Special Price: ₹{common?.fees}/- &nbsp; <span>MRP: {common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span>
+                      </div>
+                      <Link to="/package-details/:discountfee/:fee" className="orange-btn">
+                        Book Now <BsArrowRightShort className="text-white" />
+                      </Link>
                     </div>
-                    <h3 className="pb-0">COVID-19 BASIC PACKAGE</h3>
-                    <h6 className="mar-bot-20 fw-normal">
-                      CBC (Complete Blood Count), D-Dimer, CRP (hs), Ferritin and
-                      LDH
-                    </h6>
-                    <div className="pckge_price mar-bot-20 pad-top-20">
-                      Special Price: ₹2299/- &nbsp; <span>MRP: ₹2980/-</span>
-                    </div>
-                    <Link to="/package-details/:discountfee/:fee" className="orange-btn">
-                      Book Now <BsArrowRightShort className="text-white" />
-                    </Link>
-                  </div>
-                </Col>
+                  </Col>
+                ))}
               </>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <p className="text-center pad-top-30">
