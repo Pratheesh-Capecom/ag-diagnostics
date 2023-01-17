@@ -16,9 +16,10 @@ import { useCurrentOpenings } from "hooks/currentOpening";
 import { message } from "antd";
 import { useApplyNow } from "hooks/currentOpening";
 import Loader from "./loader";
+import { useHistory } from "react-router-dom";
 
 const CurrentOpeningsContent = () => {
-
+    let history = useHistory();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [isEnabled, setIsEnabled] = useState(false);
     const [singleData, setSingleData] = useState("");
@@ -50,6 +51,7 @@ const CurrentOpeningsContent = () => {
                 if (item?.Status === 200) {
                     message.success(item?.Message)
                     reset();
+                    history.push("/thank-you-career")
                     setIsEnabled(previousState => !previousState);
                 }
                 else {

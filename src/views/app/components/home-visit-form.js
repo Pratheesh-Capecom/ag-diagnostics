@@ -130,7 +130,7 @@ const HomeVisitForm = (props) => {
                         setName(null);
                         setTest(null);
                         setTimeout(() => {
-                            history.push("/packages")
+                            history.push("/thank-you-home-visit")
                         }, 1000);
                     }
                     else {

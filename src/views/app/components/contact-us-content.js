@@ -9,13 +9,14 @@ import { FiPhoneCall } from 'react-icons/fi';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FaPaperPlane } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useContact } from "hooks/contact";
 
 
 const ContactUsContent = () => {
 
+    const history = useHistory();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const { mutate: contact, isLoading: loading } = useContact()
@@ -25,6 +26,7 @@ const ContactUsContent = () => {
             onSuccess: (item) => {
                 if (item?.Status === 200) {
                     message.success(item?.Message)
+                    history.push("/thank-you-contact")
                     reset();
                 }
                 else {
