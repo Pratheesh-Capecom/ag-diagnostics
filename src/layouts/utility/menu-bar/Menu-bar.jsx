@@ -39,7 +39,7 @@ export default function Menubar(props) {
     if (defaultCity) {
       const params = {
         "cityId": defaultCity,
-        "package_name": null,
+        "package_name": "AG-care",
       }
       onFetchPackages(params);
     }
