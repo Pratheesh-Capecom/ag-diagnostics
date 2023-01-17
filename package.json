@@ -21,10 +21,7 @@
     "react-hook-form": "^7.41.0",
     "react-icofont": "^1.0.19",
     "react-icons": "^4.6.0",
-<<<<<<< HEAD
-=======
     "react-multiselect-dropdown-bootstrap": "^1.1.0",
->>>>>>> e67bdd49879eb561466e500526f2da8f140a90f1
     "react-query": "^3.38.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.1",
