@@ -18,7 +18,7 @@ const FindALabContent = () => {
     const { mutate: packages, isLoading: loading } = useFindLab();
     const [findData, setFindData] = useState(null);
     const [cityData, setCityData] = useState([]);
-    const [cityId, setCityId] = useState(localStorage.getItem("city_id") || "490");
+    const [cityId, setCityId] = useState(localStorage.getItem("city_id") || "");
     const [searchKey, setSearchKey] = useState("");
     const [initValues, setInitValues] = useState({ "cityId": cityId, "search": searchKey, });
 
@@ -69,8 +69,9 @@ const FindALabContent = () => {
                                 <Form.Select aria-label="select package" className="border-0" onChange={cityChangeHandler} >
                                     <option>-- Select Location --</option>
                                     {cityData && cityData.map((common, a) => (
-                                        <option key={a} selected={cityId === common?.cityId ? true : false} value={common?.cityId}>{common?.city}</option>
+                                        <option key={a} value={common?.cityId}>{common?.city}</option>
                                     ))}
+                                    {/* selected={cityId === common?.cityId ? true : false} */}
                                 </Form.Select>
                             </div>
                         </Col>

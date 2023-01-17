@@ -41,6 +41,7 @@ const FindALab = () => {
         cityChangeHandler={cityChangeHandler}
         cityModal={cityModal}
         modalHandler={modalHandler}
+        hide="hide"
       />
       <FindALabBanner />
       <FindALabContent />
