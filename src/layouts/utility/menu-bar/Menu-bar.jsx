@@ -61,16 +61,13 @@ export default function Menubar(props) {
                     </Nav.Link>
                     <NavDropdown title="About Us" renderMenuOnMount={true}>
                       <NavDropdown.Item to="/about-us/ag-diagnostics" as={Link}>
-                        AG Diagnostics
+                        A.G Diagnostics
                       </NavDropdown.Item>
                       <NavDropdown.Item to="/about-us/about-founder" as={Link}>
                         About Founder
                       </NavDropdown.Item>
                       <NavDropdown.Item to="/about-us/our-team" as={Link}>
                         Our Team
-                      </NavDropdown.Item>
-                      <NavDropdown.Item to="/about-us/awards" as={Link}>
-                        Awards
                       </NavDropdown.Item>
                       <NavDropdown.Item to="/about-us/csr-policy" as={Link}>
                         CSR Policy
@@ -92,7 +89,7 @@ export default function Menubar(props) {
                       </NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link to="/home-visit" as={Link}>
-                      Home Visit
+                      Book Home Visit
                     </Nav.Link>
                     <Nav.Link to="/services" as={Link}>
                       Services

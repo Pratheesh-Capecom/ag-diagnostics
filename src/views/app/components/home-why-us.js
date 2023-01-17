@@ -20,16 +20,6 @@ const HomeWhyUs = () => {
             <ul>
               <li>
                 <div className="why-choose-icons">
-                  <img src={award} alt="" className="img-fluid" />
-                </div>
-                <div className="why-choose-text">
-                  <div className="inner-box">
-                    <p>50+ Collection Centres Across Pune</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="why-choose-icons">
                   <img src={destination} alt="" className="img-fluid" />
                 </div>
                 <div className="why-choose-text">
@@ -48,6 +38,16 @@ const HomeWhyUs = () => {
                       State-of-Art Pathology Laboratory & Diagnostic Centre on
                       a 16000 sq. ft area
                     </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="why-choose-icons">
+                  <img src={award} alt="" className="img-fluid" />
+                </div>
+                <div className="why-choose-text">
+                  <div className="inner-box">
+                    <p>50+ Collection Centres Across Pune</p>
                   </div>
                 </div>
               </li>

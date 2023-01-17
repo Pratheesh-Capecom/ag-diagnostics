@@ -26,24 +26,11 @@ const CareersContent = () => {
                   <Col xs={12} sm={12} md={12} lg={6}>
                     <div className="career-content">
                       <h3 className="text-start mar-bot-30 fw-normal">
-                        Life @{" "}
-                        <strong className="text-white">AG Diagnostics</strong>
+                        Life @ <strong className="text-white">A.G Diagnostics</strong>
                       </h3>
                       <h5 className="text-white pb-0 fw-light">
-                        We’re inspiring a new way of working together. At AG
-                        Diagnostics, our vision is to advance scientific and
-                        clinical practice through training, research and
-                        development.
-                      </h5>
-                      <p className="pb-0">
-                        We recognise that our biggest asset is our people –
-                        behind each of our achievements lies the expertise,
-                        dedication and innovation of the individuals who work
-                        for us. This is why we ensure that those building
-                        their careers with us are rewarded with access to a
-                        variety of learning and development opportunities
-                        across our modern and diverse businesses.{" "}
-                      </p>
+                        At A.G Diagnostics, we recognise that our biggest asset is our people, and they are more like a family than employees! Behind each of our achievements, there is indeed dedication, expertise and innovation of every individual who work for us. Therefore, we ensure that those building their careers at A.G Diagnostics, are rewarded with access to a variety of learning, research and development opportunities across our diverse services.</h5>
+                      <p className="pb-0">A healthy workplace naturally increases employee engagement and when an employee is engaged, there is higher productivity rate, greater loyalty, better retention rates, and enhanced customer experiences. Thus, we always strive and inspire to build a healthy workplace.</p>
                     </div>
                   </Col>
                 </Row>
@@ -56,14 +43,8 @@ const CareersContent = () => {
         <Container>
           <Row className="align-items-center">
             <Col xs={12} sm={12} md={12} lg={7}>
-              <h3 className="text-start text-white fw-normal">
-                Become a part of a diagnostic company that’s a part of
-                everything
-              </h3>
-              <h5 className="text-white fw-normal mb-0">
-                Ready to take the first step and embark on the journey to a
-                rewarding role?
-              </h5>
+              <h3 className="text-start text-white fw-normal">Ready to take the first step and embark on the journey to a rewarding role?</h3>
+              <h5 className="text-white fw-normal mb-0">Join A.G Diagnostics Pvt. Ltd.! You’ll fit right in!</h5>
             </Col>
             <Col xs={12} sm={12} md={12} lg={5}>
               <div className="current-openings-btn">

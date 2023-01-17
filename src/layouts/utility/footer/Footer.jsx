@@ -26,7 +26,7 @@ class Footer extends Component {
                 <img src={logo} alt="logo" className="img-fluid mb-3" />
                 <p>
                   <small>
-                    Since 1978, the journey of AG Diagnostics as a diagnostic
+                    Since 1978, the journey of A.G Diagnostics as a diagnostic
                     company has been inspiring and incredible. The four-decade
                     legacy organization is changing lives with its dedicated and
                     timely services.
@@ -95,13 +95,13 @@ class Footer extends Component {
                       <Link to="/about-us/ag-diagnostics">About Us</Link>
                     </li>
                     <li>
-                      <Link to="/our-team">Our Team</Link>
+                      <Link to="/about-us/our-team">Our Team</Link>
                     </li>
                     <li>
                       <Link to="/services">Services</Link>
                     </li>
                     <li>
-                      <Link to="/specialities">Specialities</Link>
+                      <Link to="/technical-capabilities">Technical Capabilities</Link>
                     </li>
                     <li>
                       <Link to="/careers">Careers</Link>
@@ -120,7 +120,7 @@ class Footer extends Component {
                       <Link to="/packages">Packages</Link>
                     </li>
                     <li>
-                      <Link to="/home-visit">Home Visit</Link>
+                      <Link to="/home-visit">Book Home Visit</Link>
                     </li>
                     <li>
                       <Link to="/find-a-lab">Find A Lab</Link>
@@ -151,16 +151,7 @@ class Footer extends Component {
                       <Link to="/brochures">Technical Leaflets</Link>
                     </li>
                     <li>
-                      <Link to="/privacy-policy">Privacy Policy</Link>
-                    </li>
-                    <li>
                       <Link to="/csr-policy">CSR Policy</Link>
-                    </li>
-                    <li>
-                      <Link to="/terms-conditions">Terms & Conditions</Link>
-                    </li>
-                    <li>
-                      <Link to="/disclaimer">Disclaimer</Link>
                     </li>
                   </ul>
                 </div>

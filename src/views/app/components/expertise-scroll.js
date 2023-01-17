@@ -140,7 +140,7 @@ class expertiseScroll extends Component {
                     <div className="expertise_inner">
                       <img src={expertiseImage6} alt="" />
                       <div className="exper-txt">
-                        <h3>Histo & Cytopathology</h3>
+                        <h3>Histopathology & Cytopathology</h3>
                         <p>
                           A.G Diagnostics has a team of histopathologists with
                           over 40 years...

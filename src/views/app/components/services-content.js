@@ -50,26 +50,28 @@ const ServicesContent = (props) => {
                     <Container>
                         <Row className="justify-content-center">
                             <Col xs={12} sm={12} md={12} lg={10}>
-                                <Table striped hover>
-                                    <thead>
-                                        <tr>
-                                            <th>SL #</th>
-                                            <th>Test Code</th>
-                                            <th>Test Name</th>
-                                            <th>₹ Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {tableData?.map((common, a) => (
-                                            <tr key={a}>
-                                                <td>{common?.id}</td>
-                                                <td>{common?.testCode}</td>
-                                                <td>{common?.testName}</td>
-                                                <td>₹ {common?.fees}</td>
+                                <div className="services-table">
+                                    <Table striped>
+                                        <thead>
+                                            <tr>
+                                                <th>SL #</th>
+                                                <th>Test Code</th>
+                                                <th>Test Name</th>
+                                                <th width="100">₹ Price</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </Table>
+                                        </thead>
+                                        <tbody>
+                                            {tableData?.map((common, a) => (
+                                                <tr key={a}>
+                                                    <td>{common?.id}</td>
+                                                    <td>{common?.testCode}</td>
+                                                    <td>{common?.testName}</td>
+                                                    <td>₹ {common?.fees}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </Table>
+                                </div>
                             </Col>
                         </Row>
                     </Container>

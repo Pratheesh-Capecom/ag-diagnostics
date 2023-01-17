@@ -257,7 +257,7 @@ const CovidPcrContent = () => {
             <Col xs={12} sm={12} md={12} lg={12}>
               <p className="text-center pad-top-30">
                 <Link to="/find-a-lab" className="btn1">
-                  View Covid 19 Test Centers <BsArrowRightShort />
+                  View Locations <BsArrowRightShort />
                 </Link>
               </p>
             </Col>

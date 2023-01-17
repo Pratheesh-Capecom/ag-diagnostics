@@ -30,6 +30,9 @@ export const AppViews = () => {
         <Route exact path="/news-details/:id" component={lazy(() => import(`./pages/news-details`))} />
         <Route exact path="/contact-us" component={lazy(() => import(`./pages/contact-us`))} />
         <Route exact path="/technical-capabilities" component={lazy(() => import(`./pages/technical-capabilities`))} />
+        <Route exact path="/thank-you-contact" component={lazy(() => import(`./pages/thank-you-contact`))} />
+        <Route exact path="/thank-you-career" component={lazy(() => import(`./pages/thank-you-career`))} />
+        <Route exact path="/thank-you-home-visit" component={lazy(() => import(`./pages/thank-you-home-visit`))} />
         <Redirect to="/" />
       </Switch>
     </Suspense>
