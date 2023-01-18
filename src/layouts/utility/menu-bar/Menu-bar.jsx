@@ -79,7 +79,7 @@ export default function Menubar(props) {
                       className="mega-menu"
                     >
                       {packageData?.filter((item, idx) => idx < 20).map((common, a) => (
-                        <NavDropdown.Item to="/packages" as={Link} key={a}>
+                        <NavDropdown.Item to={`/package-details?discountFee=${common?.discountFees}&fee=${common?.fees}&packageId=${common?.id}&hide=hide`} as={Link} key={a}>
                           <img src={common?.icon} alt="" />
                           {common?.packageName}
                         </NavDropdown.Item>
