@@ -311,15 +311,15 @@ const HomeVisitForm = (props) => {
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Email ID</p>
-                                    <Form.Control type="email" {...register("email", { required: true })} placeholder="Enter Your Email Address" />
+                                    <Form.Control type="email" {...register("email")} placeholder="Enter Your Email Address" />
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12} className="pb-4">
                                     <p className="mb-0 text-dark">Address</p>
-                                    <Form.Control as="textarea" {...register("address", { required: true })} rows={3} />
+                                    <Form.Control as="textarea" {...register("address")} rows={3} />
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12} className="pb-4">
                                     <p className="mb-0 text-dark">Remarks</p>
-                                    <Form.Control as="textarea" {...register("remark", { required: true })} rows={3} />
+                                    <Form.Control as="textarea" {...register("remark")} rows={3} />
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12}>
                                     <p className="text-center">
