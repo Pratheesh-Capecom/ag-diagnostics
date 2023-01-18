@@ -277,13 +277,12 @@ a:hover {
   }
 }
 
-.services-table {
+.services-table{
   padding: 15px;
   background: #FFF;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
 }
-
-.services-table table thead tr th {
+.services-table table thead tr th{
   background: var(--color-purple);
   color: var(--color-white);
   white-space: nowrap;
@@ -291,19 +290,19 @@ a:hover {
   font-weight: 500;
 }
 
-.services-table table tbody tr td {
+.services-table table tbody tr td{
   padding: 15px;
 }
 
-.services-table table tbody tr:nth-of-type(odd)>* {
+.services-table table tbody tr:nth-of-type(odd)>*{
   background: #fcf8ff;
 }
 
-.text-red {
+.text-red{
   color: red;
 }
 
-.services-table table tbody tr td button.delete-btn {
+.services-table table tbody tr td button.delete-btn{
   padding: 0;
   width: 30px;
   height: 30px;
@@ -2243,11 +2242,12 @@ textarea.form-control {
 }
 
 .accordion-button {
-  padding: 20px 20px;
+  padding: 20px 20px 20px 45px;
   font-size: 20px;
   border-radius: 10px 10px 0px 0px;
   font-weight: 500;
   border-bottom: none;
+  position: relative;
   color: var(--color-black);
   box-shadow: none !important;
   background: transparent !important;
@@ -2262,8 +2262,31 @@ textarea.form-control {
   border-bottom: none;
 }
 
+
 .accordion-button::after {
-  display: none;
+  position: absolute;
+  left: 15px;
+  top: 19px;
+  width: 19px;
+  height: 19px;
+  display: block;
+  content: "";
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button:not(.collapsed)::after {
+  top: 14px;
+  left: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 0px;
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
+  background-image: url(../images/checkbox.png);
+  transform: none;
+  background-repeat: no-repeat;
 }
 
 .accordion-item {
@@ -2440,7 +2463,7 @@ textarea.form-control {
   color: var(--color-white);
 }
 
-.btn.dropdown-toggle {
+.btn.dropdown-toggle{
   background: #fff;
   padding: 10px 20px;
   font-size: 15px;
@@ -2823,7 +2846,7 @@ section.teams {
   max-height: 600px;
 }
 
-.ant-select {
+.ant-select{
   width: 100%;
 }
 
