@@ -5,13 +5,12 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FaPaperPlane } from 'react-icons/fa';
-// import { BsTrash } from 'react-icons/bs';
 import { useForm } from "react-hook-form";
-import { useHomeVisitPackageDropDown, useHomeVisit } from "hooks/homeVisit";
+import { useHomeVisitPackageDropDown, useHomeVisit, useHomeAreaList } from "hooks/homeVisit";
+import { useCity } from "hooks/home";
 import { useService } from "hooks/service";
 import { Select, message } from "antd";
 import { useHistory } from "react-router-dom";
-// import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 import Table from 'react-bootstrap/Table';
 import Accordion from "react-bootstrap/Accordion";
 
@@ -29,6 +28,8 @@ const HomeVisitForm = (props) => {
     let history = useHistory();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
+
+    //  Package Listing
 
     const { mutate: packages, isLoading: load } = useHomeVisitPackageDropDown();
     const [packageData, setPackageData] = useState(null);
@@ -62,6 +63,8 @@ const HomeVisitForm = (props) => {
 
 
 
+    // Test Listing
+
     const [testData, setTestData] = useState(null);
     const { mutate: testDropdown, isLoading: loading } = useService();
 
@@ -86,6 +89,8 @@ const HomeVisitForm = (props) => {
 
 
 
+
+    //  Table listing
 
     const [name, setName] = useState(null)
     const [test, setTest] = useState(null)
@@ -119,51 +124,7 @@ const HomeVisitForm = (props) => {
 
 
 
-
-    const { mutate: addVisit, isLoading: btnloading } = useHomeVisit();
-    const submitHandler = (e) => {
-        if (e?.packageId === undefined || e?.packageId === null || e?.packageId === "-- Select Package --") {
-            message.error("Kindly Select Package")
-        } else if (test?.testName === undefined) {
-            message.error("Kindly Select Search by Test Title")
-        } else if (e?.timing === undefined || e?.timing === "-- Select Time --") {
-            message.error("Kindly Select a timing")
-        } else {
-            const formData = new FormData();
-            formData.append("packageId", (id ? id : e.packageId))
-            formData.append("title", test?.testName)
-            formData.append("first_name", e.first_name)
-            formData.append("last_name", e.last_name)
-            formData.append("email", e.email)
-            formData.append("gender", e.gender)
-            formData.append("mobile", e.mobile)
-            formData.append("dob", e.dob)
-            formData.append("address", e.address)
-            formData.append("date", e.date)
-            formData.append("timing", e.timing)
-            addVisit(formData, {
-                onSuccess: (item) => {
-                    if (item?.Status === 200) {
-                        message.success(item?.Message)
-                        reset();
-                        setName(null);
-                        setTest(null);
-                        setTimeout(() => {
-                            history.push("/packages")
-                        }, 1000);
-                    }
-                    else {
-                        message.error(item?.Message)
-                        reset();
-                    }
-                },
-                onError: (error) => {
-                    console.log(error)
-                }
-            });
-        }
-    }
-
+    //  Add fees
 
     const packagetotal = name?.map((item) => item?.fees)?.reduce(
         (acc, cur) => Number(acc) + Number(cur),
@@ -180,6 +141,47 @@ const HomeVisitForm = (props) => {
         placeholder: 'Select Item...',
         maxTagCount: 'responsive',
     };
+
+
+    const { data: areaList } = useHomeAreaList();
+    const { data: cityList } = useCity();
+    //  Submit Form
+
+    console.log(test)
+
+    const { mutate: addVisit, isLoading: btnloading } = useHomeVisit();
+    const submitHandler = (e) => {
+        const formData = new FormData();
+        formData.append("packageId", (id ? id : e.packageId))
+        formData.append("title", test?.testName)
+        formData.append("first_name", e.first_name)
+        formData.append("email", e.email)
+        formData.append("mobile", e.mobile)
+        formData.append("address", e.address)
+        formData.append("date", e.date)
+        formData.append("cityId", e.cityId)
+        formData.append("areaId", e.areaId)
+        formData.append("remark", e.remark)
+        addVisit(formData, {
+            onSuccess: (item) => {
+                if (item?.Status === 200) {
+                    message.success(item?.Message)
+                    reset();
+                    setTimeout(() => {
+                        history.push("/packages")
+                    }, 1000);
+                }
+                else {
+                    message.error(item?.Message)
+                    reset();
+                }
+            },
+            onError: (error) => {
+                console.log(error)
+            }
+        });
+    }
+
 
     return (
         <section className="bg-light-orange" id="home-visit-form">
@@ -201,11 +203,11 @@ const HomeVisitForm = (props) => {
                                             <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                                 <p className="mb-0 text-dark">Select Package</p>
                                                 {id ?
-                                                    <Form.Control value={packagename} />
+                                                    <Form.Control value={packagename} {...register("packageId")} />
                                                     :
                                                     <Select
                                                         {...selectProps}
-                                                        {...register("title")} mode="multiple" placeholder={load ? "Please Wait....." : "Search by Package Name"} filterOption={(input, option) => option?.children?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangePackage} showSearch>
+                                                        {...register("packageId")} mode="multiple" placeholder={load ? "Please Wait....." : "Search by Package Name"} filterOption={(input, option) => option?.children?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangePackage} showSearch>
                                                         <option>-- Select Package --</option>
                                                         {packageData && packageData.map((common, a) => (
                                                             <option key={a} value={common?.id}>{common?.packageName}</option>
@@ -279,32 +281,28 @@ const HomeVisitForm = (props) => {
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">City <strong className="text-red">*</strong></p>
-                                    <Form.Select aria-label="city" {...register("city", { required: true })}>
+                                    <Form.Select aria-label="cityId" {...register("city", { required: true })}>
                                         <option>-- Select City --</option>
-                                        <option value="1">City 1</option>
-                                        <option value="2">City 2</option>
-                                        <option value="3">City 3</option>
-                                        <option value="3">City 4</option>
-                                        <option value="3">City 5</option>
+                                        {cityList?.city && cityList?.city?.map((common, a) => (
+                                            <option key={a} value={common?.cityId}>{common?.city}</option>
+                                        ))}
                                     </Form.Select>
-                                    {errors.first_name && <span>This field is required</span>}
+                                    {errors.cityId && <span>This field is required</span>}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Locality / Area <strong className="text-red">*</strong></p>
-                                    <Form.Select aria-label="area" {...register("area", { required: true })}>
+                                    <Form.Select aria-label="area" {...register("areaId", { required: true })}>
                                         <option>-- Select Locality / Area --</option>
-                                        <option value="1">Locality / Area 1</option>
-                                        <option value="2">Locality / Area 2</option>
-                                        <option value="3">Locality / Area 3</option>
-                                        <option value="3">Locality / Area 4</option>
-                                        <option value="3">Locality / Area 5</option>
+                                        {areaList?.data && areaList?.data?.map((common, a) => (
+                                            <option key={a} value={common?.areaId}>{common?.area}</option>
+                                        ))}
                                     </Form.Select>
-                                    {errors.last_name && <span>This field is required</span>}
+                                    {errors.areaId && <span>This field is required</span>}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Your Name <strong className="text-red">*</strong></p>
-                                    <Form.Control type="text" {...register("last_name", { required: true })} placeholder="Enter Your Name" />
-                                    {errors.last_name && <span>This field is required</span>}
+                                    <Form.Control type="text" {...register("first_name", { required: true })} placeholder="Enter Your Name" />
+                                    {errors.first_name && <span>This field is required</span>}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Mobile Number <strong className="text-red">*</strong></p>
@@ -314,17 +312,14 @@ const HomeVisitForm = (props) => {
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Email ID</p>
                                     <Form.Control type="email" {...register("email", { required: true })} placeholder="Enter Your Email Address" />
-                                    {errors.email && <span>This field is required</span>}
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12} className="pb-4">
                                     <p className="mb-0 text-dark">Address</p>
                                     <Form.Control as="textarea" {...register("address", { required: true })} rows={3} />
-                                    {errors.address && <span>This field is required</span>}
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12} className="pb-4">
                                     <p className="mb-0 text-dark">Remarks</p>
-                                    <Form.Control as="textarea" {...register("remarks", { required: true })} rows={3} />
-                                    {errors.address && <span>This field is required</span>}
+                                    <Form.Control as="textarea" {...register("remark", { required: true })} rows={3} />
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12}>
                                     <p className="text-center">

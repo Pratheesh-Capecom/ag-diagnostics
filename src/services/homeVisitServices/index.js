@@ -32,4 +32,10 @@ const homeVisit = async (formdata) => {
   return data;
 };
 
-export { homeVisitPackageDropDown, homeVisit };
+const homeAreaList = async () => {
+  const { data } = await client.get(`home-visit-area`);
+  return data;
+};
+
+
+export { homeVisitPackageDropDown, homeVisit, homeAreaList };

@@ -1,4 +1,4 @@
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import * as api from "services/homeVisitServices";
 
 export const useHomeVisitPackageDropDown = () => {
@@ -8,3 +8,11 @@ export const useHomeVisitPackageDropDown = () => {
 export const useHomeVisit = () => {
     return useMutation((formData) => api.homeVisit(formData));
 }
+
+export const useHomeAreaList = () => {
+    return useQuery("homeAreaList", () => api.homeAreaList(), {
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: true,
+    });
+}
+
