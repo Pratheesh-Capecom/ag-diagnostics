@@ -99,6 +99,7 @@ section.menu-bar .col button.location svg {
 
 .navbar .navbar-nav .mega-menu.dropdown .dropdown-menu .dropdown-item img {
   max-width: 45px;
+  max-height: 45px;
   margin-right: 10px;
 }
 

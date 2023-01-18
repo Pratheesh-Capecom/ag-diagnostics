@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import packageIcon1 from "assets/images/packages/icon1.png";
+// import packageIcon1 from "assets/images/packages/icon1.png";
 import flask from "assets/images/flask.png";
 import { BsArrowRightShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -55,7 +55,7 @@ const PackagesContent = (props) => {
               <Col xs={12} sm={12} md={6} lg={4} key={a}>
                 <Link to={`/package-details?discountFee=${common?.discountFees}&fee=${common?.fees}&packageId=${common?.id}&hide=hide`} className="package-slide">
                   <div className="icon-img">
-                    <img src={packageIcon1} alt="" />
+                    <img src={common?.icon} alt="" />
                   </div>
                   <h3>{common?.packageName}</h3>
                   <div className="inc-test">

@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import packageIcon1 from "assets/images/packages/icon1.png";
+// import packageIcon1 from "assets/images/packages/icon1.png";
 import { FiDownload, FiMapPin } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
@@ -80,7 +80,7 @@ export default function Menubar(props) {
                     >
                       {packageData?.filter((item, idx) => idx < 20).map((common, a) => (
                         <NavDropdown.Item to="/packages" as={Link} key={a}>
-                          <img src={packageIcon1} alt="" />
+                          <img src={common?.icon} alt="" />
                           {common?.packageName}
                         </NavDropdown.Item>
                       ))}

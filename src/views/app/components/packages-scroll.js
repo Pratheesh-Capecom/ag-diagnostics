@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Slider from "react-slick";
-import packageIcon1 from "assets/images/packages/icon1.png";
+// import packageIcon1 from "assets/images/packages/icon1.png";
 import flask from "assets/images/flask.png";
 import { Link } from "react-router-dom";
 import { BsArrowRightShort } from "react-icons/bs";
@@ -82,7 +82,7 @@ const Packagesscroll = (props) => {
                   <div key={a}>
                     <div className="package-slide">
                       <div className="icon-img">
-                        <img src={packageIcon1} alt="" />
+                        <img src={common?.icon} alt="" />
                       </div>
                       <h3>{common?.packageName}</h3>
                       <div className="inc-test">
