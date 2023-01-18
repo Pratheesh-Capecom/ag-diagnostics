@@ -159,7 +159,7 @@ const HomeVisitForm = (props) => {
                     <Col xs={12} sm={12} md={12} lg={10} xl={9}>
                         <Accordion>
                             <Accordion.Item eventKey="0">
-                                <Accordion.Header>I want to select package/ test/s.</Accordion.Header>
+                                <Accordion.Header>I want to select package/ tests.</Accordion.Header>
                                 <Accordion.Body>
                                     <form onSubmit={handleSubmit(submitHandler)}>
                                         <Row>
@@ -274,7 +274,7 @@ const HomeVisitForm = (props) => {
                                                     <option value="3">City 4</option>
                                                     <option value="3">City 5</option>
                                                 </Form.Select>
-                                                <Form.Control type="text" {...register("first_name", { required: true })} placeholder="Enter Your City" />
+                                                {/* <Form.Control type="text" {...register("first_name", { required: true })} placeholder="Enter Your City" /> */}
                                                 {errors.first_name && <span>This field is required</span>}
                                             </Col>
                                             <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
@@ -287,7 +287,7 @@ const HomeVisitForm = (props) => {
                                                     <option value="3">Locality / Area 4</option>
                                                     <option value="3">Locality / Area 5</option>
                                                 </Form.Select>
-                                                <Form.Control type="text" {...register("area", { required: true })} placeholder="Enter Your Locality / Area" />
+                                                {/* <Form.Control type="text" {...register("area", { required: true })} placeholder="Enter Your Locality / Area" /> */}
                                                 {errors.last_name && <span>This field is required</span>}
                                             </Col>
                                             <Col xs={12} sm={12} md={6} lg={6} className="pb-4">

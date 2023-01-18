@@ -18,7 +18,8 @@ const FindALabContent = () => {
     const { mutate: packages, isLoading: loading } = useFindLab();
     const [findData, setFindData] = useState(null);
     const [cityData, setCityData] = useState([]);
-    const [cityId, setCityId] = useState(localStorage.getItem("city_id") || "");
+    // const [cityId, setCityId] = useState(localStorage.getItem("city_id") || "");
+    const [cityId, setCityId] = useState("");
     const [searchKey, setSearchKey] = useState("");
     const [initValues, setInitValues] = useState({ "cityId": cityId, "search": searchKey, });
 

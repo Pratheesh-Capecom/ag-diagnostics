@@ -180,7 +180,7 @@ section.menu-bar .col button.location svg {
   display: block;
   opacity: 1;
   visibility: visible;
-  height: 245px;
+  min-height: 200px;
   transition: height 0.9s ease;
 }
 
