@@ -5,13 +5,13 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FaPaperPlane } from 'react-icons/fa';
-import { BsTrash } from 'react-icons/bs';
+// import { BsTrash } from 'react-icons/bs';
 import { useForm } from "react-hook-form";
 import { useHomeVisitPackageDropDown, useHomeVisit } from "hooks/homeVisit";
 import { useService } from "hooks/service";
 import { Select, message } from "antd";
 import { useHistory } from "react-router-dom";
-import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
+// import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 import Table from 'react-bootstrap/Table';
 import Accordion from "react-bootstrap/Accordion";
 
