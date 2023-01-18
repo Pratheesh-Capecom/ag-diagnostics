@@ -30,7 +30,7 @@ const HomeVisitForm = (props) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
 
-    const { mutate: packages } = useHomeVisitPackageDropDown();
+    const { mutate: packages, isLoading: load } = useHomeVisitPackageDropDown();
     const [packageData, setPackageData] = useState(null);
 
     const onFetchPackages = (searchParams) => {
@@ -62,14 +62,14 @@ const HomeVisitForm = (props) => {
 
 
 
-    const [testDropDown, setTestDropDown] = useState(null);
+    const [testData, setTestData] = useState(null);
     const { mutate: testDropdown, isLoading: loading } = useService();
 
     const onFetch = (searchParams) => {
         const nformData = JSON.stringify(searchParams);
         testDropdown(nformData, {
             onSuccess: (data) => {
-                setTestDropDown(data?.test)
+                setTestData(data?.test)
             }
         });
     }
@@ -90,15 +90,34 @@ const HomeVisitForm = (props) => {
     const [name, setName] = useState(null)
     const [test, setTest] = useState(null)
 
+
     const onChangePackage = (e) => {
-        let data = packageData.filter(stu => stu.id === +e.target.value)
-        setName(data?.[0])
+        let data = [];
+        packageData?.length > 0 && packageData?.map((item) => {
+            e?.forEach((val) => {
+                if (item.id === val) {
+                    data.push(item);
+                }
+            })
+            return data;
+        });
+        setName(data);
     }
 
     const onChangeTest = (e) => {
-        let data = testDropDown.filter(stu => stu.id === e)
-        setTest(data?.[0])
+        let data = [];
+        testData?.length > 0 && testData?.map((item) => {
+            e?.forEach((val) => {
+                if (item.id === val) {
+                    data.push(item);
+                }
+            })
+            return data;
+        });
+        setTest(data);
     }
+
+
 
 
     const { mutate: addVisit, isLoading: btnloading } = useHomeVisit();
@@ -146,6 +165,22 @@ const HomeVisitForm = (props) => {
     }
 
 
+    const packagetotal = name?.map((item) => item?.fees)?.reduce(
+        (acc, cur) => Number(acc) + Number(cur),
+        0) ?? 0;
+
+    const testTotal = test?.map((item) => item?.fees)?.reduce(
+        (acc, cur) => Number(acc) + Number(cur),
+        0) ?? 0;
+
+    const total = packagetotal + testTotal;
+
+    const selectProps = {
+        mode: 'multiple',
+        placeholder: 'Select Item...',
+        maxTagCount: 'responsive',
+    };
+
     return (
         <section className="bg-light-orange" id="home-visit-form">
             <Container>
@@ -158,77 +193,83 @@ const HomeVisitForm = (props) => {
                 <Row className="justify-content-center">
                     <Col xs={12} sm={12} md={12} lg={10} xl={9}>
                         <form onSubmit={handleSubmit(submitHandler)}>
-                        <Accordion>
-                        <Accordion.Item eventKey="0">
-                        <Accordion.Header>I want to select package/ test/s.</Accordion.Header>
-                        <Accordion.Body>
-                            <Row>
-                                <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
-                                    <p className="mb-0 text-dark">Select Package</p>
-                                    <DropdownMultiselect  options={["Package 1", "Package 2", "Package 3", "Package 4", "Package 5", "Package 6"]} name="packages" /><br/>
-                                    
-                                    {errors.name && <span>This field is required</span>}
-                                   
-                                </Col>
-                                <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
-                                    <p className="mb-0 text-dark">Search by Test Title</p>
-                                    <DropdownMultiselect  options={["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6"]} name="tests" /><br/>
-                                   
-                                </Col>
-                                <Col xs={12} sm={12} md={12} lg={12}>
-                                    <p className="services-table">
-                                    <Table striped className="mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Type</th>
-                                                    <th>Price</th>
-                                                    <th className="text-center">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Package 1</td>
-                                                    <td>Package</td>
-                                                    <td>₹ 1750</td>
-                                                    <td className="text-center"><Button className="delete-btn" type="submit"><BsTrash /></Button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Package 2</td>
-                                                    <td>Package</td>
-                                                    <td>₹ 1750</td>
-                                                    <td className="text-center"><Button className="delete-btn" type="submit"><BsTrash /></Button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Test 1</td>
-                                                    <td>Test</td>
-                                                    <td>₹ 1750</td>
-                                                    <td className="text-center"><Button className="delete-btn" type="submit"><BsTrash /></Button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Test 2</td>
-                                                    <td>Test</td>
-                                                    <td>₹ 1750</td>
-                                                    <td className="text-center"><Button className="delete-btn" type="submit"><BsTrash /></Button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="text-end" colSpan={2}><h5 className="mb-0"><strong className="text-dark">Total</strong></h5></td>
-                                                    <td><h5 className="mb-0"><strong className="text-dark">₹ 7750</strong></h5></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </Table>
-                                    </p>
-                                </Col>                               
-                                
-                            </Row>
-                            
-                        </Accordion.Body>
-                        </Accordion.Item>
-                        </Accordion>  
-                        <Row>
+                            <Accordion>
+                                <Accordion.Item eventKey="0">
+                                    <Accordion.Header>I want to select package/ test/s.</Accordion.Header>
+                                    <Accordion.Body>
+                                        <Row>
+                                            <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
+                                                <p className="mb-0 text-dark">Select Package</p>
+                                                {id ?
+                                                    <Form.Control value={packagename} />
+                                                    :
+                                                    <Select
+                                                        {...selectProps}
+                                                        {...register("title")} mode="multiple" placeholder={load ? "Please Wait....." : "Search by Package Name"} filterOption={(input, option) => option?.children?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangePackage} showSearch>
+                                                        <option>-- Select Package --</option>
+                                                        {packageData && packageData.map((common, a) => (
+                                                            <option key={a} value={common?.id}>{common?.packageName}</option>
+                                                        ))}
+                                                    </Select>}
+                                            </Col>
+                                            <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
+                                                <p className="mb-0 text-dark">Search by Test Title</p>
+                                                <Select
+                                                    {...selectProps}
+                                                    {...register("title")} mode="multiple" placeholder={loading ? "Please Wait....." : "Search by Test Title"} filterOption={(input, option) => option?.children?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangeTest} showSearch>
+                                                    {testData && testData?.map((common, a) => (
+                                                        <Option key={a} value={common?.id}>{common?.testName}</Option>
+                                                    ))}
+                                                </Select>
+                                            </Col>
+                                            <Col xs={12} sm={12} md={12} lg={12}>
 
-                        <Col xs={12} sm={12} md={12} lg={12}>
+                                                {name || test || id ?
+                                                    <p className="services-table">
+                                                        <Table striped className="mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Type</th>
+                                                                    <th>Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {name?.map((item, i) => (
+                                                                    <tr key={i}>
+                                                                        <td>{item?.packageName}</td>
+                                                                        <td>Package</td>
+                                                                        <td>{item?.fees}</td>
+                                                                    </tr>
+                                                                ))}
+                                                                {test?.map((item, i) => (
+                                                                    <tr key={i}>
+                                                                        <td>{item?.testName}</td>
+                                                                        <td>Test</td>
+                                                                        <td>{item?.fees}</td>
+                                                                    </tr>
+                                                                ))}
+
+                                                                {id ? <tr>
+                                                                    <td>{packagename}</td>
+                                                                    <td>Package</td>
+                                                                    <td>{amount}</td>
+                                                                </tr> : null}
+                                                                <tr>
+                                                                    <td className="text-end" colSpan={2}><h5 className="mb-0"><strong className="text-dark">Total</strong></h5></td>
+                                                                    <td><h5 className="mb-0"><strong className="text-dark">{total && `₹ ${total}`} </strong></h5></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </Table>
+                                                    </p> : null}
+                                            </Col>
+                                        </Row>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Accordion>
+                            <Row>
+
+                                <Col xs={12} sm={12} md={12} lg={12}>
                                     <h4 className="mb-3 mt-3 pb-0">Patient Details</h4>
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
@@ -290,8 +331,8 @@ const HomeVisitForm = (props) => {
                                         {btnloading ? <Button className="btn1" disabled><FaPaperPlane /> &nbsp; Book Home Visit</Button> : <Button className="btn1" type="submit"><FaPaperPlane /> &nbsp; Book Home Visit</Button>}
                                     </p>
                                 </Col>
-                        </Row>  
-                        </form>                    
+                            </Row>
+                        </form>
                     </Col>
                 </Row>
             </Container>

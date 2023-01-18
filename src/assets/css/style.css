@@ -277,12 +277,13 @@ a:hover {
   }
 }
 
-.services-table{
+.services-table {
   padding: 15px;
   background: #FFF;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
 }
-.services-table table thead tr th{
+
+.services-table table thead tr th {
   background: var(--color-purple);
   color: var(--color-white);
   white-space: nowrap;
@@ -290,19 +291,19 @@ a:hover {
   font-weight: 500;
 }
 
-.services-table table tbody tr td{
+.services-table table tbody tr td {
   padding: 15px;
 }
 
-.services-table table tbody tr:nth-of-type(odd)>*{
+.services-table table tbody tr:nth-of-type(odd)>* {
   background: #fcf8ff;
 }
 
-.text-red{
+.text-red {
   color: red;
 }
 
-.services-table table tbody tr td button.delete-btn{
+.services-table table tbody tr td button.delete-btn {
   padding: 0;
   width: 30px;
   height: 30px;
@@ -2463,7 +2464,7 @@ textarea.form-control {
   color: var(--color-white);
 }
 
-.btn.dropdown-toggle{
+.btn.dropdown-toggle {
   background: #fff;
   padding: 10px 20px;
   font-size: 15px;
@@ -2846,7 +2847,7 @@ section.teams {
   max-height: 600px;
 }
 
-.ant-select{
+.ant-select {
   width: 100%;
 }
 
@@ -2900,5 +2901,9 @@ section.teams {
   padding-bottom: 140px;
 }
 
+.ant-select-multiple .ant-select-selection-placeholder {
+  top: 15px !important;
+  left: 20px !important;
+}
 
 /*  Dev css end */
