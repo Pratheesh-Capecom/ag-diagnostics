@@ -26,7 +26,7 @@ const HomeVisitForm = (props) => {
     var amount = url.searchParams.get("amount");
 
     let history = useHistory();
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
 
     //  Package Listing
@@ -152,35 +152,53 @@ const HomeVisitForm = (props) => {
 
     const { mutate: addVisit, isLoading: btnloading } = useHomeVisit();
     const submitHandler = (e) => {
-        const formData = new FormData();
-        formData.append("packageId", (id ? id : name?.map((item) => item?.id)))
-        formData.append("title", test?.map((item) => item?.id))
-        formData.append("first_name", e.first_name)
-        formData.append("email", e.email)
-        formData.append("mobile", e.mobile)
-        formData.append("address", e.address)
-        formData.append("date", e.date)
-        formData.append("cityId", e.cityId)
-        formData.append("areaId", e.areaId)
-        formData.append("remark", e.remark)
-        addVisit(formData, {
-            onSuccess: (item) => {
-                if (item?.Status === 200) {
-                    message.success(item?.Message)
-                    reset();
-                    setTimeout(() => {
-                        history.push("thank-you-home-visit")
-                    }, 1000);
+        if (e.date === "") {
+            message.error('Visit Date is Required')
+        }
+        else if (e.cityId === "-- Select City --") {
+            message.error('City is Required')
+        }
+        else if (e.areaId === "-- Select Locality / Area --") {
+            message.error('Locality/ Area is Required')
+        }
+        else if (e.first_name === "") {
+            message.error('Your Name is Required')
+        }
+        else if (e.mobile === "") {
+            message.error('Mobile Number is Required')
+        }
+        else {
+            const formData = new FormData();
+            formData.append("packageId", (id ? id : name?.map((item) => item?.id) || ""))
+            formData.append("title", test?.map((item) => item?.id) || "")
+            formData.append("first_name", e.first_name)
+            formData.append("email", e.email)
+            formData.append("mobile", e.mobile)
+            formData.append("address", e.address)
+            formData.append("date", e.date)
+            formData.append("cityId", e.cityId)
+            formData.append("areaId", e.areaId)
+            formData.append("remark", e.remark)
+            addVisit(formData, {
+                onSuccess: (item) => {
+                    if (item?.Status === 200) {
+                        message.success(item?.Message)
+                        reset();
+                        setTimeout(() => {
+                            history.push("thank-you-home-visit")
+                        }, 1000);
+                    }
+                    else {
+                        message.error(item?.Message)
+                        reset();
+                    }
+                },
+                onError: (error) => {
+                    console.log(error)
                 }
-                else {
-                    message.error(item?.Message)
-                    reset();
-                }
-            },
-            onError: (error) => {
-                console.log(error)
-            }
-        });
+            });
+        }
+
     }
 
 
@@ -276,38 +294,38 @@ const HomeVisitForm = (props) => {
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Visit Date <strong className="text-red">*</strong></p>
-                                    <Form.Control type="date" {...register("date", { required: true })} name="date" />
-                                    {errors.date && <span>This field is required</span>}
+                                    <Form.Control type="date" {...register("date")} name="date" />
+                                    {/* {errors.date && <span>This field is required</span>} */}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">City <strong className="text-red">*</strong></p>
-                                    <Form.Select {...register("cityId", { required: true })}>
+                                    <Form.Select {...register("cityId")}>
                                         <option>-- Select City --</option>
                                         {cityList?.city && cityList?.city?.map((common, a) => (
                                             <option key={a} value={common?.cityId}>{common?.city}</option>
                                         ))}
                                     </Form.Select>
-                                    {errors.cityId && <span>This field is required</span>}
+                                    {/* {errors.cityId && <span>This field is required</span>} */}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Locality / Area <strong className="text-red">*</strong></p>
-                                    <Form.Select {...register("areaId", { required: true })}>
+                                    <Form.Select {...register("areaId")}>
                                         <option>-- Select Locality / Area --</option>
                                         {areaList?.data && areaList?.data?.map((common, a) => (
                                             <option key={a} value={common?.areaId}>{common?.area}</option>
                                         ))}
                                     </Form.Select>
-                                    {errors.areaId && <span>This field is required</span>}
+                                    {/* {errors.areaId && <span>This field is required</span>} */}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Your Name <strong className="text-red">*</strong></p>
-                                    <Form.Control type="text" {...register("first_name", { required: true })} placeholder="Enter Your Name" />
-                                    {errors.first_name && <span>This field is required</span>}
+                                    <Form.Control type="text" {...register("first_name")} placeholder="Enter Your Name" />
+                                    {/* {errors.first_name && <span>This field is required</span>} */}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Mobile Number <strong className="text-red">*</strong></p>
-                                    <Form.Control type="tel" minlength="10" maxlength="10" {...register("mobile", { required: true })} placeholder="Enter Your Phone Number" />
-                                    {errors.mobile && <span>This field is required</span>}
+                                    <Form.Control type="tel" minlength="10" maxlength="10" {...register("mobile")} placeholder="Enter Your Phone Number" />
+                                    {/* {errors.mobile && <span>This field is required</span>} */}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Email ID</p>
