@@ -147,13 +147,11 @@ const HomeVisitForm = (props) => {
     const { data: cityList } = useCity();
     //  Submit Form
 
-    console.log(test)
-
     const { mutate: addVisit, isLoading: btnloading } = useHomeVisit();
     const submitHandler = (e) => {
         const formData = new FormData();
-        formData.append("packageId", (id ? id : e.packageId))
-        formData.append("title", test?.testName)
+        formData.append("packageId", (id ? id : name?.map((item) => item?.id)))
+        formData.append("title", test?.map((item) => item?.id))
         formData.append("first_name", e.first_name)
         formData.append("email", e.email)
         formData.append("mobile", e.mobile)
@@ -208,7 +206,6 @@ const HomeVisitForm = (props) => {
                                                     <Select
                                                         {...selectProps}
                                                         {...register("packageId")} mode="multiple" placeholder={load ? "Please Wait....." : "Search by Package Name"} filterOption={(input, option) => option?.children?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangePackage} showSearch>
-                                                        <option>-- Select Package --</option>
                                                         {packageData && packageData.map((common, a) => (
                                                             <option key={a} value={common?.id}>{common?.packageName}</option>
                                                         ))}
@@ -281,7 +278,7 @@ const HomeVisitForm = (props) => {
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">City <strong className="text-red">*</strong></p>
-                                    <Form.Select aria-label="cityId" {...register("city", { required: true })}>
+                                    <Form.Select {...register("cityId", { required: true })}>
                                         <option>-- Select City --</option>
                                         {cityList?.city && cityList?.city?.map((common, a) => (
                                             <option key={a} value={common?.cityId}>{common?.city}</option>
@@ -291,7 +288,7 @@ const HomeVisitForm = (props) => {
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Locality / Area <strong className="text-red">*</strong></p>
-                                    <Form.Select aria-label="area" {...register("areaId", { required: true })}>
+                                    <Form.Select {...register("areaId", { required: true })}>
                                         <option>-- Select Locality / Area --</option>
                                         {areaList?.data && areaList?.data?.map((common, a) => (
                                             <option key={a} value={common?.areaId}>{common?.area}</option>
