@@ -134,7 +134,10 @@ const HomeVisitForm = (props) => {
         (acc, cur) => Number(acc) + Number(cur),
         0) ?? 0;
 
-    const total = packagetotal + testTotal;
+    const total = packagetotal + testTotal + Number(amount);
+
+
+
 
     const selectProps = {
         mode: 'multiple',
