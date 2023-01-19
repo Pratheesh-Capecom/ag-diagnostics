@@ -169,7 +169,7 @@ const HomeVisitForm = (props) => {
                     message.success(item?.Message)
                     reset();
                     setTimeout(() => {
-                        history.push("/packages")
+                        history.push("thank-you-home-visit")
                     }, 1000);
                 }
                 else {
