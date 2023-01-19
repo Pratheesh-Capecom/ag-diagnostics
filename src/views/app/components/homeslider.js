@@ -23,7 +23,7 @@ const Homeslider = () => {
           </div>
         ) : bannerData?.map((common, a) => (
           <Carousel.Item key={a}>
-            <a href={common?.Url} target="_blank" rel="noreferrer">
+            <a href={common?.Url} rel="noreferrer">
               <img className="d-block w-100 banner-img" src={common?.DesktopImage} alt="" />
             </a>
           </Carousel.Item>
@@ -37,7 +37,7 @@ const Homeslider = () => {
           </div>
         ) : bannerData?.map((common, a) => (
           <Carousel.Item key={a}>
-            <a href={common?.Url} target="_blank" rel="noreferrer">
+            <a href={common?.Url} rel="noreferrer">
               <img className="d-block w-100 " src={common?.MobileImage} alt="" />
             </a>
           </Carousel.Item>
