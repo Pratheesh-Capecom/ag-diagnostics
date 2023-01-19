@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import PackageDetailsIcon from "assets/images/package-details-icon.png";
+// import PackageDetailsIcon from "assets/images/package-details-icon.png";
 import SampleTube from "assets/images/sample-tube.png";
 import Calendar from "assets/images/calendar.png";
 import SampleType from "assets/images/sample-type.png";
@@ -87,7 +87,7 @@ const PackageDetails = () => {
                 <Col xs={12} sm={12} md={12} lg={10}>
                   <div className="package-details-heading">
                     <img
-                      src={PackageDetailsIcon}
+                      src={packData?.icon}
                       alt=""
                       className="img-fluid"
                     />
