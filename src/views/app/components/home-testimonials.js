@@ -25,10 +25,9 @@ const Testimonials = () => {
 
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    centerMode: true,
+    slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
       {
@@ -38,7 +37,7 @@ const Testimonials = () => {
         },
       },
       {
-        breakpoint: 1090,
+        breakpoint: 960,
         settings: {
           slidesToShow: 2,
         },
