@@ -10,7 +10,7 @@ import AgeIcon from "assets/images/age.png";
 import HomeCollections from "assets/images/home-collections.png";
 import TestRequirement from "assets/images/testrequirement.png";
 import Report from "assets/images/report.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -21,13 +21,8 @@ import { useEnquiry, usePackageId } from "hooks/packages";
 import { message } from "antd"
 
 const PackageDetails = () => {
+  const { discountFee, fee, packageId } = useParams();
   let history = useHistory();
-
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var discountFee = url.searchParams.get("discountFee");
-  var fee = url.searchParams.get("fee");
-  var packageId = url.searchParams.get("packageId");
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const { mutate: enquiry, isLoading: loading } = useEnquiry();
@@ -166,7 +161,7 @@ const PackageDetails = () => {
                   Enquire Now
                 </Button>
                 <Link
-                  to={`/home-visit?packagename=${packData?.packageName}&id=${packData?.id}&amount=${packData?.fees}&hide=hide`}
+                  to={`/home-visit/${packData?.packageName}/${packData?.id}/${packData?.fees}`}
                   className="btn2 d-block"
                 >
                   Book Home Collection

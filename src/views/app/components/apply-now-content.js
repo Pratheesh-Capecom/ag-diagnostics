@@ -13,16 +13,12 @@ import { FaPaperPlane } from 'react-icons/fa';
 import { useJobEdit, useApplyNow } from "hooks/currentOpening";
 import { message } from "antd";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 const ApplyNowContent = () => {
-
+    const { id } = useParams();
     let history = useHistory();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-
-    var url_string = window.location.href;
-    var url = new URL(url_string);
-    var id = url.searchParams.get("job_id");
 
     const [applyData, setApplyData] = useState([])
     const { data: jobList } = useJobEdit(id)

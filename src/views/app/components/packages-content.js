@@ -53,7 +53,7 @@ const PackagesContent = (props) => {
           <Row>
             {packageData?.map((common, a) => (
               <Col xs={12} sm={12} md={6} lg={4} key={a}>
-                <Link to={`/package-details?discountFee=${common?.discountFees}&fee=${common?.fees}&packageId=${common?.id}&hide=hide`} className="package-slide">
+                <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="package-slide">
                   <div className="icon-img">
                     <img src={common?.icon} alt="" />
                   </div>
@@ -66,7 +66,7 @@ const PackagesContent = (props) => {
                   </p>
                   <div className="pckge_price">
                     <span>{common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span> ₹{common?.fees}/-
-                    <Link to={`/package-details?discountFee=${common?.discountFees}&fee=${common?.fees}&packageId=${common?.id}&hide=hide`} className="viewbtn">
+                    <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="viewbtn">
                       <BsArrowRightShort className="text-white" />
                     </Link>
                   </div>

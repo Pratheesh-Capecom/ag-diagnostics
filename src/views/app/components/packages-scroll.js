@@ -93,7 +93,7 @@ const Packagesscroll = (props) => {
                       </p>
                       <div className="pckge_price">
                         <span>{common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span> ₹{common?.fees}/-
-                        <Link to={`/package-details?discountFee=${common?.discountFees}&fee=${common?.fees}&packageId=${common?.id}&hide=hide`} className="viewbtn">
+                        <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="viewbtn">
                           <BsArrowRightShort className="text-white" />
                         </Link>
                       </div>

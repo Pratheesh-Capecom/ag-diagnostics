@@ -4,9 +4,10 @@ import HomeVisitContent from "views/app/components/home-visit-content";
 import HomeVisitForm from "views/app/components/home-visit-form";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import { useParams } from "react-router-dom";
 
 const HomeVisit = () => {
-
+  const { id } = useParams();
   const { data: city } = useCity();
   const [cityData, setCityData] = useState([]);
   const [defaultCity, setDefaultCity] = useState(localStorage.getItem("city_id") || "490"); //Default pune
@@ -34,10 +35,6 @@ const HomeVisit = () => {
     }
   }, [city]);
 
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var hide = url.searchParams.get("hide");
-
   return (
     <>
       <Menubar
@@ -46,7 +43,7 @@ const HomeVisit = () => {
         cityChangeHandler={cityChangeHandler}
         cityModal={cityModal}
         modalHandler={modalHandler}
-        hide={hide}
+        hide={id}
       />
       <HomeVisitBanner />
       <HomeVisitContent />

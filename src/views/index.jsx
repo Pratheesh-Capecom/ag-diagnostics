@@ -1,6 +1,6 @@
 import React from "react";
 import AppLayout from "layouts/app-layout";
-import { Switch, Route } from "react-router-dom";
+import { Switch, HashRouter as Route } from "react-router-dom";
 
 export const Views = (props) => {
   const { location } = props;

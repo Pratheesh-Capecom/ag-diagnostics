@@ -34,9 +34,6 @@ const PackageDetails = () => {
     }
   }, [city]);
 
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var hide = url.searchParams.get("hide");
 
   return (
     <>
@@ -46,7 +43,7 @@ const PackageDetails = () => {
         cityChangeHandler={cityChangeHandler}
         cityModal={cityModal}
         modalHandler={modalHandler}
-        hide={hide}
+        hide={"hide"}
       />
       <InnerBanner />
       <PackageDetailsContent />

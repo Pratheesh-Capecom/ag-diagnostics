@@ -10,20 +10,15 @@ import { useHomeVisitPackageDropDown, useHomeVisit, useHomeAreaList } from "hook
 import { useCity } from "hooks/home";
 import { useService } from "hooks/service";
 import { Select, message } from "antd";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import Accordion from "react-bootstrap/Accordion";
 
 const { Option } = Select;
 
 const HomeVisitForm = (props) => {
+    const { id, packagename, amount } = useParams();
     const { defaultCity } = props;
-
-    var url_string = window.location.href;
-    var url = new URL(url_string);
-    var id = url.searchParams.get("id");
-    var packagename = url.searchParams.get("packagename");
-    var amount = url.searchParams.get("amount");
 
     let history = useHistory();
     const { register, handleSubmit, reset } = useForm();

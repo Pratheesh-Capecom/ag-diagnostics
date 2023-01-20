@@ -91,7 +91,7 @@ const CurrentOpeningsContent = () => {
                             <>
                                 {openingsData?.map((common, a) => (
                                     <Col xs={12} sm={12} md={6} lg={6} xl={4} key={a}>
-                                        <Link to={`/apply-now?job_id=${common?.id}`}>
+                                        <Link to={`/apply-now/${common?.id}`}>
                                             <div className="package-slide" >
                                                 <h5 className="text-purple">{common?.job_title}<span><GrLocation />
                                                     &nbsp; {common?.city || "-"},{common?.state || "-"}
