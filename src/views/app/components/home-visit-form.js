@@ -129,7 +129,7 @@ const HomeVisitForm = (props) => {
         (acc, cur) => Number(acc) + Number(cur),
         0) ?? 0;
 
-    const total = packagetotal + testTotal + Number(amount);
+    const total = packagetotal + testTotal + Number(amount ?? 0);
 
 
 
