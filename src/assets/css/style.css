@@ -1119,8 +1119,8 @@ section.home-slider-bg .carousel .carousel-indicators button.active {
   position: absolute;
 }
 
-.img-round {
-  border-radius: 50%;
+.img-round, .img-div .img-round {
+  border-radius: 50% !important;
 }
 
 .center-img {
@@ -2700,6 +2700,11 @@ section.teams {
 @media (max-width: 767px) {
   section {
     padding: 50px 0px;
+  }
+
+  .services-table{
+    width: 100%;
+    overflow: auto;
   }
 
   section.home-slider-bg .carousel .carousel-item .carousel-caption {
