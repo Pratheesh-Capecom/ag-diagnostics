@@ -2575,6 +2575,28 @@ section.teams {
   font-size: 14px;
 }
 
+.services-search{
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  max-width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding:5px 50px 5px 15px;
+  border-radius: 50px;
+  margin-bottom: 15px;
+}
+.services-search input[type=search]{
+  border: none;
+  font-size: 15px;
+}
+.services-search svg{
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  font-size: 20px;
+  color: var(--color-orange);
+}
+
 @media (min-width: 1400px) {
   .container {
     max-width: 1200px;
