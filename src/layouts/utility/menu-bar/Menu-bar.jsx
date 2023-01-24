@@ -46,7 +46,6 @@ export default function Menubar(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultCity]);
 
-
   return (
     <>
       <section className="menu-bar">
@@ -135,7 +134,7 @@ export default function Menubar(props) {
             <form onSubmit={handleSubmit(cityChangeHandler)} className="form-location">
               <select {...register("cityId")} onChange={getData}>
                 {cityData && cityData.map((common, a) => (
-                  <option key={a} selected={defaultCity === common?.cityId ? false : true} value={common?.cityId}>{common?.city}</option>
+                  <option key={a} selected={Number(defaultCity) === Number(common?.cityId) ? true : false} value={common?.cityId}>{common?.city}</option>
                 ))}
               </select>
               <p className="text-center pad-top-20">
