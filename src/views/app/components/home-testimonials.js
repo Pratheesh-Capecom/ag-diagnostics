@@ -24,14 +24,14 @@ const Testimonials = () => {
   }, [testimonialData]);
 
   const settings = {
-    dots: false,
-    infinite: false,
+    dots: true,
+    infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 1100,
+        breakpoint: 1400,
         settings: {
           slidesToShow: 3,
         },
@@ -59,7 +59,7 @@ const Testimonials = () => {
 
   return (
     <section className="bg-light-orange">
-      <Container fluid>
+      <Container>
         <Row>
           <Col>
             <h2 className="text-center">Testimonials</h2>
@@ -67,7 +67,7 @@ const Testimonials = () => {
           </Col>
         </Row>
         <Row className="justify-content-center">
-          <Col xs={12} sm={12} md={12} lg={10}>
+          <Col xs={12} sm={12} md={12} lg={12}>
             {loading ? <div className="common-loading"><Loader /></div> : testData === undefined || testData === null || testData?.length === 0 ? (
               <div className="common-loading">
                 <h3 className="no-data">No Data Found</h3>
