@@ -19,7 +19,7 @@ export default function Menubar(props) {
   const { register, handleSubmit } = useForm();
 
   const getData = (e) => {
-    let data = cityData.filter(stu => stu.cityId === e.target.value)
+    let data = cityData.filter(stu => Number(stu.cityId) === Number(e.target.value))
     localStorage.setItem("city_name", data?.[0]?.city)
   }
 
@@ -45,6 +45,7 @@ export default function Menubar(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultCity]);
+
 
   return (
     <>
@@ -134,7 +135,7 @@ export default function Menubar(props) {
             <form onSubmit={handleSubmit(cityChangeHandler)} className="form-location">
               <select {...register("cityId")} onChange={getData}>
                 {cityData && cityData.map((common, a) => (
-                  <option key={a} selected={defaultCity === common?.cityId ? true : false} value={common?.cityId}>{common?.city}</option>
+                  <option key={a} selected={defaultCity === common?.cityId ? false : true} value={common?.cityId}>{common?.city}</option>
                 ))}
               </select>
               <p className="text-center pad-top-20">
