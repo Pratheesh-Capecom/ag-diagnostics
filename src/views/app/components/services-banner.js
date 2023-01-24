@@ -10,7 +10,7 @@ const ServicesBanner = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col>
-                        <h3 className="text-start text-white">Services</h3>
+                        <h3 className="text-start text-white">Directory of Services</h3>
                     </Col>
                 </Row>
             </Container>
