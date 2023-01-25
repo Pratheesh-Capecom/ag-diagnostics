@@ -221,7 +221,7 @@ const HomeVisitForm = (props) => {
                                                     :
                                                     <Select
                                                         {...selectProps}
-                                                        {...register("packageId")} mode="multiple" placeholder={load ? "Please Wait....." : "Search by Package Name"} filterOption={(input, option) => option?.children?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangePackage} showSearch>
+                                                        {...register("packageId")} mode="multiple" placeholder={load ? "Please Wait....." : "Search by Package Name"} filterOption={(input, option) => option?.children?.toLowerCase()?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangePackage} showSearch>
                                                         {packageData && packageData.map((common, a) => (
                                                             <option key={a} value={common?.id}>{common?.packageName}</option>
                                                         ))}
@@ -231,7 +231,7 @@ const HomeVisitForm = (props) => {
                                                 <p className="mb-0 text-dark">Search by Test Title</p>
                                                 <Select
                                                     {...selectProps}
-                                                    {...register("title")} mode="multiple" placeholder={loading ? "Please Wait....." : "Search by Test Title"} filterOption={(input, option) => option?.children?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangeTest} showSearch>
+                                                    {...register("title")} mode="multiple" placeholder={loading ? "Please Wait....." : "Search by Test Title"} filterOption={(input, option) => option?.children?.toLowerCase()?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangeTest} showSearch>
                                                     {testData && testData?.map((common, a) => (
                                                         <Option key={a} value={common?.id}>{common?.testName}</Option>
                                                     ))}

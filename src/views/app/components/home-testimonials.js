@@ -85,7 +85,7 @@ const Testimonials = () => {
                         <span className="quotes-icon">
                           <img src={testimonialQuote} alt="" />
                         </span>
-                        <h3>Prajakta Shiledar​</h3>
+                        <h3>{common?.given_by}​</h3>
                       </div>
                     </div>
                   </div>

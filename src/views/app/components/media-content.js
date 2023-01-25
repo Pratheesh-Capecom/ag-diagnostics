@@ -31,8 +31,7 @@ const MediaContent = () => {
               <div className="package-slide small-size">
                 <a
                   rel="noreferrer"
-                  href={common?.pdf}
-                  target="_blank"
+                  href={common?.story_url}
                   className="booklet-download"
                 >
                   {common?.pdf ? <img src={common?.pdf} alt="" className="img-fluid" /> : <img src={NewsImage1} alt="" className="img-fluid" />}
