@@ -216,12 +216,13 @@ const HomeVisitForm = (props) => {
                                         <Row>
                                             <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                                 <p className="mb-0 text-dark">Select Package</p>
+                                                {/*  <SelectfilterOption={(input, option) => option?.children?.toLowerCase()?.includes(input)} */}
                                                 {id ?
                                                     <Form.Control value={packagename} {...register("packageId")} />
                                                     :
                                                     <Select
                                                         {...selectProps}
-                                                        {...register("packageId")} mode="multiple" placeholder={load ? "Please Wait....." : "Search by Package Name"} filterOption={(input, option) => option?.children?.toLowerCase()?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangePackage} showSearch>
+                                                        {...register("packageId")} mode="multiple" placeholder={load ? "Please Wait....." : "Search by Package Name"} optionFilterProp="children" getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangePackage} showSearch>
                                                         {packageData && packageData.map((common, a) => (
                                                             <option key={a} value={common?.id}>{common?.packageName}</option>
                                                         ))}
@@ -231,7 +232,7 @@ const HomeVisitForm = (props) => {
                                                 <p className="mb-0 text-dark">Search by Test Title</p>
                                                 <Select
                                                     {...selectProps}
-                                                    {...register("title")} mode="multiple" placeholder={loading ? "Please Wait....." : "Search by Test Title"} filterOption={(input, option) => option?.children?.toLowerCase()?.includes(input)} getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangeTest} showSearch>
+                                                    {...register("title")} mode="multiple" placeholder={loading ? "Please Wait....." : "Search by Test Title"} optionFilterProp="children" getPopupContainer={trigger => trigger.parentNode} disabled={loading} loading={loading} onChange={onChangeTest} showSearch>
                                                     {testData && testData?.map((common, a) => (
                                                         <Option key={a} value={common?.id}>{common?.testName}</Option>
                                                     ))}
