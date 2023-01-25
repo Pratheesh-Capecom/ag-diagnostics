@@ -9,7 +9,7 @@ const FounderBanner = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col>
-                        <h3 className="text-start text-white">About <b>Founder</b></h3>
+                        <h3 className="text-start text-white">Our <b>Inspiration</b></h3>
                     </Col>
                 </Row>
             </Container>

@@ -2597,6 +2597,16 @@ section.teams {
   color: var(--color-orange);
 }
 
+.main-lab-address{
+  text-align: center;
+}
+.main-lab-address small{
+  color: var(--color-black);
+  font-size: 20px;
+  line-height: 40px;
+  padding: 10px;
+}
+
 @media (min-width: 1400px) {
   .container {
     max-width: 1200px;

@@ -64,7 +64,7 @@ export default function Menubar(props) {
                         A.G Diagnostics
                       </NavDropdown.Item>
                       <NavDropdown.Item to="/about-us/about-founder" as={Link}>
-                        About Founder
+                        Our Inspiration
                       </NavDropdown.Item>
                       <NavDropdown.Item to="/about-us/our-team" as={Link}>
                         Our Team

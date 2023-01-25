@@ -82,8 +82,15 @@ const FindALabContent = () => {
                     </Row>
                 </Container>
             </section>
-            <section className="bg-light-orange pt-0">
+            <section className="bg-light-orange pt-5">
                 <Container>
+                    <Row>
+                        <Col>
+                            <div className="main-lab-address">
+                                <h3 className="mb-0 text-orange">Main Laboratory:</h3> &nbsp; <small>"Nayantara", Opp. TVS showroom, Bhandarkar Road, Pune - 411 004</small>
+                            </div>
+                        </Col>
+                    </Row>
                     {loading ? <div className="common-loading"><Loader /></div> : findData === undefined || findData === null || findData?.length === 0 ? (
                         <div className="common-loading">
                             <h3 className="no">No Data Found</h3>

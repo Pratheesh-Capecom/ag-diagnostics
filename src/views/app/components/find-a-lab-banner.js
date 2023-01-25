@@ -9,7 +9,7 @@ const FindALabBanner = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col>
-                        <h3 className="text-start text-white">Fina a <b>Lab</b></h3>
+                        <h3 className="text-start text-white">Find a <b>Lab</b></h3>
                     </Col>
                 </Row>
             </Container>

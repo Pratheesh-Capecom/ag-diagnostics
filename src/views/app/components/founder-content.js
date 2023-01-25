@@ -17,7 +17,6 @@ const FounderContent = () => {
               </div>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6}>
-              <h3 className="text-start mb-4">Our Inspiration</h3>
               <h5 className="text-dark">
                 In the year 1978,{" "}
                 <strong className="text-orange">Dr Ajit Golwilkar</strong>{" "}
