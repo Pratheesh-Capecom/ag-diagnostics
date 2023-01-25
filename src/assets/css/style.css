@@ -2599,6 +2599,10 @@ section.teams {
 
 .main-lab-address{
   text-align: center;
+  padding-bottom: 20px;
+}
+.main-lab-address h3{
+  font-size: 26px;
 }
 .main-lab-address small{
   color: var(--color-black);
