@@ -32,8 +32,8 @@ const homeVisit = async (formdata) => {
   return data;
 };
 
-const homeAreaList = async () => {
-  const { data } = await client.get(`home-visit-area`);
+const homeAreaList = async (formdata) => {
+  const { data } = await client.post(`home-visit-area`, formdata);
   return data;
 };
 

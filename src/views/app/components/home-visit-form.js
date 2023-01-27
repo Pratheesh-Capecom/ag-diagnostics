@@ -141,7 +141,6 @@ const HomeVisitForm = (props) => {
     };
 
 
-    const { data: areaList } = useHomeAreaList();
     const { data: cityList } = useCity();
     //  Submit Form
 
@@ -153,7 +152,7 @@ const HomeVisitForm = (props) => {
         else if (e.cityId === "-- Select City --") {
             message.error('City is Required')
         }
-        else if (e.areaId === "-- Select Locality / Area --") {
+        else if (e.areaId === undefined) {
             message.error('Locality/ Area is Required')
         }
         else if (e.first_name === "") {
@@ -195,6 +194,41 @@ const HomeVisitForm = (props) => {
         }
 
     }
+
+
+
+
+    const [cityId, setCityId] = useState(null);
+
+    const areaIdChange = (e) => {
+        setCityId(e.target.value)
+    }
+
+
+
+    //  Area  Listing
+
+    const { mutate: areaData, isLoading: loadArea } = useHomeAreaList();
+    const [area, setArea] = useState(null);
+
+    const onFetchArea = (searchParams) => {
+        const nformData = JSON.stringify(searchParams);
+        areaData(nformData, {
+            onSuccess: (data) => {
+                setArea(data?.data)
+            }
+        });
+    }
+
+    useEffect(() => {
+        if (cityId) {
+            const params = {
+                "cityId": cityId,
+            }
+            onFetchArea(params);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [cityId]);
 
 
     return (
@@ -295,19 +329,19 @@ const HomeVisitForm = (props) => {
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">City <strong className="text-red">*</strong></p>
-                                    <Form.Select {...register("cityId")}>
+                                    <Form.Select {...register("cityId")} onChange={areaIdChange}>
                                         <option>-- Select City --</option>
                                         {cityList?.city && cityList?.city?.map((common, a) => (
-                                            <option key={a} value={common?.cityId}>{common?.city}</option>
+                                            <option key={a} value={common?.cityId} >{common?.city}</option>
                                         ))}
                                     </Form.Select>
                                     {/* {errors.cityId && <span>This field is required</span>} */}
                                 </Col>
                                 <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                     <p className="mb-0 text-dark">Locality / Area <strong className="text-red">*</strong></p>
-                                    <Form.Select {...register("areaId")}>
+                                    <Form.Select {...register("areaId")} disabled={cityId !== null ? false : true} loading={cityId !== null ? false : true} placeholder={loadArea ? "Please Wait....." : "Select Locality / Area"}>
                                         <option>-- Select Locality / Area --</option>
-                                        {areaList?.data && areaList?.data?.map((common, a) => (
+                                        {area && area?.map((common, a) => (
                                             <option key={a} value={common?.areaId}>{common?.area}</option>
                                         ))}
                                     </Form.Select>
@@ -345,7 +379,7 @@ const HomeVisitForm = (props) => {
                     </Col>
                 </Row>
             </Container>
-        </section>
+        </section >
     );
 }
 
