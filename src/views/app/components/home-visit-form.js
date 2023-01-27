@@ -152,7 +152,7 @@ const HomeVisitForm = (props) => {
         else if (e.cityId === "-- Select City --") {
             message.error('City is Required')
         }
-        else if (e.areaId === undefined) {
+        else if (e.areaId === undefined || e.areaId === "-- Select Locality / Area --") {
             message.error('Locality/ Area is Required')
         }
         else if (e.first_name === "") {
