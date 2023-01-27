@@ -28,6 +28,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
     "react-slick": "^0.29.0",
+    "react-sticky-table": "^5.1.11",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

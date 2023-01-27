@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import { useService } from "hooks/service";
 import Loader from "./loader";
 import { RiSearchLine } from "react-icons/ri";
+import {StickyTable, Row, Cell} from 'react-sticky-table';
+
 const ServicesContent = (props) => {
     const [query, setQuery] = useState("")
     const { defaultCity } = props;
@@ -48,40 +49,57 @@ const ServicesContent = (props) => {
                 </div>
             ) : (
                 <section>
-                    <Container>
-                        <Row className="justify-content-center">
-                            <Col xs={12} sm={12} md={12} lg={10}>
+                    <Container fluid>
+                        <Row className="justify-content-center d-flex">
+                            <Col xs={12} sm={12} md={12} lg={12} xl={11} className="text-center">
                                 <div className="services-table">
                                 <div className="services-search"><input type="search" name={query} onChange={handleChange} placeholder="Search Test Name"/> <RiSearchLine /></div>
-                                    <Table striped>
-                                        <thead>
-                                            <tr>
-                                                <th>SL #</th>
-                                                <th>Test Code</th>
-                                                <th>Test Name</th>
-                                                <th width="100">₹ Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {
+                                <div style={{width: '100%', height: '600px'}}>
+                                <StickyTable  stickyHeaderCount={1}>
+                                    <Row className="table-header">
+                                    <Cell>Test Code</Cell>
+                                    <Cell>Test Name</Cell>
+                                    <Cell>Details</Cell>
+                                    <Cell>Sample</Cell>
+                                    <Cell>Container</Cell>
+                                    <Cell>QTY</Cell>
+                                    <Cell>Storage</Cell>
+                                    <Cell>Method</Cell>
+                                    <Cell>Comments</Cell>
+                                    <Cell className="text-right">₹ Price</Cell>
+                                    </Row>
+                                    {
                                                 query ? query?.map((common, a) => (
-                                                    <tr key={a}>
-                                                        <td>{common?.id}</td>
-                                                        <td>{common?.testCode}</td>
-                                                        <td>{common?.testName}</td>
-                                                        <td>₹ {common?.fees}</td>
-                                                    </tr>
+                                                    <Row key={a}>
+                                                        <Cell>{common?.testCode}</Cell>
+                                                        <Cell>{common?.testName}</Cell>
+														<Cell>{common?.details}</Cell>
+														<Cell>{common?.sample}</Cell>
+														<Cell>{common?.container}</Cell>
+														<Cell>{common?.qty}</Cell>
+														<Cell>{common?.storage}</Cell>
+														<Cell>{common?.method}</Cell>
+														<Cell>{common?.comments}</Cell>
+                                                        <Cell>₹ {common?.fees}</Cell>
+                                                    </Row>
                                                 )) : tableData?.map((common, a) => (
-                                                    <tr key={a}>
-                                                        <td>{common?.id}</td>
-                                                        <td>{common?.testCode}</td>
-                                                        <td>{common?.testName}</td>
-                                                        <td>₹ {common?.fees}</td>
-                                                    </tr>
+                                                    <Row key={a}>
+                                                        <Cell>{common?.testCode}</Cell>
+                                                        <Cell>{common?.testName}</Cell>
+														<Cell>{common?.details}</Cell>
+														<Cell>{common?.sample}</Cell>
+														<Cell>{common?.container}</Cell>
+														<Cell>{common?.qty}</Cell>
+														<Cell>{common?.storage}</Cell>
+														<Cell>{common?.method}</Cell>
+														<Cell>{common?.comments}</Cell>
+                                                        <Cell>₹ {common?.fees}</Cell>
+                                                    </Row>
                                                 ))
                                             }
-                                        </tbody>
-                                    </Table>
+                                </StickyTable>
+                                </div>
+								
                                 </div>
                             </Col>
                         </Row>
