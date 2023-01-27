@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-import Table from 'react-bootstrap/Table';
 import { useService } from "hooks/service";
 import Loader from "./loader";
 import { RiSearchLine } from "react-icons/ri";
