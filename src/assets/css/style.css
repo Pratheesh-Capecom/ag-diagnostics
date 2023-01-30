@@ -277,22 +277,30 @@ a:hover {
   }
 }
 
-.bUouMr{
-  white-space: normal;
-}
-.bUouMr.sticky-table-cell{
+.sticky-table-cell{
   font-size: 14px;
   padding: 5px 10px;
   vertical-align: middle;
   color: var(--color-black);
+  white-space: normal;
+  text-align: left;
 }
-.table-header .bUouMr.sticky-table-cell{
+.table-header .sticky-table-cell{
   white-space: nowrap;
   background: var(--color-purple);
   color: var(--color-white);
   white-space: nowrap;
   padding: 10px;
   font-weight: 500;
+}
+
+.sticky-table-table, .sticky-table{
+  width: 100%;
+}
+
+.sticky-table-cell:last-child{
+  width: 100px;
+  text-align: right;
 }
 
 .services-table {
