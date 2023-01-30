@@ -87,7 +87,7 @@ const FindALabContent = () => {
                     <Row>
                         <Col>
                             <div className="main-lab-address">
-                                <h3 className="mb-0 text-orange">Main Laboratory :</h3> &nbsp; <small><strong>A.G Diagnostics</strong> - "Nayantara", Opp. TVS showroom, Bhandarkar Road, Pune - 411 004</small>
+                                <h3 className="mb-0 text-orange">Main Laboratory</h3> &nbsp; <small><strong>A.G Diagnostics Pvt. Ltd.</strong> <br/> "Nayantara", Opp. TVS showroom, Bhandarkar Road, Pune - 411 004</small>
                             </div>
                         </Col>
                     </Row>
