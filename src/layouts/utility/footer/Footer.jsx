@@ -130,9 +130,6 @@ class Footer extends Component {
                       <Link to="/find-a-lab">Find A Lab</Link>
                     </li>
                     <li>
-                      <Link to="/">Download Reports</Link>
-                    </li>
-                    <li>
                       <Link to="/covid-pcr">COVID-19 PCR</Link>
                     </li>
                     <li>
@@ -207,12 +204,6 @@ class Footer extends Component {
             <Link to="/covid-pcr">
               <img src={CovidIcon} alt="" />
               <span>Covid 19 PCR</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <BiDownload />
-              <span>Download Report</span>
             </Link>
           </li>
         </ul>
