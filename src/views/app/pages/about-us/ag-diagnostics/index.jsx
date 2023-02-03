@@ -5,6 +5,7 @@ import HomeWhyUs from "views/app/components/home-why-us";
 import OurValues from "views/app/components/our-values";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const AboutUs = () => {
 
@@ -37,6 +38,10 @@ const AboutUs = () => {
 
     return (
         <>
+            <MetaTags>
+                <title>Dr. Ajit Golwilkar Diagnostics Centre</title>
+                <meta name="description" content="Dr.Ajit Golwilkar Diagnostics Pathology Lab Provides Home visits for blood collection, Preventive health checkups & also provides Quality pathology laboratory reports. Enquire Now!" />
+            </MetaTags>
             <Menubar
                 defaultCity={defaultCity}
                 cityData={cityData}

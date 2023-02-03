@@ -10,6 +10,7 @@ import FindCenter from "views/app/components/find-center";
 import Testimonials from "views/app/components/home-testimonials";
 import { useCity } from "hooks/home";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
+import MetaTags from 'react-meta-tags';
 
 
 export default function Home() {
@@ -47,6 +48,10 @@ export default function Home() {
 
   return (
     <>
+      <MetaTags>
+            <title>Best Diagnostic Centre in India - Golwilkar | A.G Diagnostics</title>
+            <meta name="description" content="A.G Diagnostics is the best diagnostic center and pathology laboratory in India. We offer quality laboratory services in India for over four decades. Book your test now!" />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

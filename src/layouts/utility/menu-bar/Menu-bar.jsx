@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 // import packageIcon1 from "assets/images/packages/icon1.png";
-import { FiDownload, FiMapPin } from "react-icons/fi";
+import { FiMapPin } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -105,9 +105,6 @@ export default function Menubar(props) {
                     </Nav.Link>
                     <Nav.Link to="/brochures" as={Link}>
                       Brochures
-                    </Nav.Link>
-                    <Nav.Link to="/" as={Link}>
-                      <FiDownload /> Reports
                     </Nav.Link>
                     {hide ? null :
                       <Button onClick={() => modalHandler(true)} className="location">

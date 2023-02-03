@@ -11,6 +11,10 @@ import { BiTestTube, BiDownload } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./style.css";
 
+const getCurrentYear = () => {
+  return new Date().getFullYear();
+};
+
 const openInNewTab = (url) => {
   window.open(url, "_blank", "noopener,noreferrer");
 };
@@ -172,7 +176,7 @@ class Footer extends Component {
             <Row>
               <Col className="footer-copyright pb-3">
                 <div className="text-white footer-bottom-text text-center">
-                  Copyright &copy; 2022. A.G Diagnostics Pvt. Ltd. | All Rights
+                  Copyright &copy; {getCurrentYear()}. A.G Diagnostics Pvt. Ltd. | All Rights
                   Reserved. Design By{" "}
                   <Link
                     to="https://www.pixel-studios.com/"
