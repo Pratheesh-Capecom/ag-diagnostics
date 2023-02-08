@@ -7,7 +7,7 @@ import BloodTestIcon from "assets/images/blood-test-icon.png";
 import CovidIcon from "assets/images/covid-icon.png";
 import * as Icon from "react-bootstrap-icons";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import { BiTestTube, BiDownload } from "react-icons/bi";
+import { BiTestTube } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./style.css";
 
