@@ -2911,6 +2911,9 @@ section.teams {
     width: 30px;
     font-size: 24px;
   }
+  span.filter-by-text{
+    display: none;
+  }
 }
 
 @media (max-width: 575px) {

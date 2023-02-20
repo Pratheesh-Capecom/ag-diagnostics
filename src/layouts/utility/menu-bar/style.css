@@ -316,6 +316,7 @@ section.menu-bar .col button.location svg {
   section.menu-bar button.locationMobile{
     position: fixed;
     top: 20px;
+    font-size: 14px;
   }
 
   .navbar .navbar-collapse {

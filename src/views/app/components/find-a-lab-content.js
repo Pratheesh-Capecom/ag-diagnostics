@@ -66,7 +66,7 @@ const FindALabContent = () => {
                     <Row className="justify-content-between">
                         <Col xs={12} sm={12} md={6} lg={6} xl={5} className="pad-bot-20">
                             <div className="d-flex align-items-center justify-content-between">
-                                <span className="text-nowrap text-white">Filter by: &nbsp;</span>
+                                <span className="text-nowrap text-white filter-by-text">Filter by: &nbsp;</span>
                                 <Form.Select aria-label="select package" className="border-0" onChange={cityChangeHandler} >
                                     <option>-- Select Location --</option>
                                     {cityData && cityData.map((common, a) => (

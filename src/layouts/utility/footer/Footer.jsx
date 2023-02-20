@@ -19,6 +19,7 @@ const openInNewTab = (url) => {
   window.open(url, "_blank", "noopener,noreferrer");
 };
 
+
 class Footer extends Component {
   render() {
     return (
