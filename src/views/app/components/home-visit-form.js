@@ -367,7 +367,8 @@ const HomeVisitForm = (props) => {
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12} className="pb-4">
                                     <p className="mb-0 text-dark">Remarks</p>
-                                    <Form.Control as="textarea" {...register("remark")} rows={3} />
+                                    <Form.Control className="mb-2" as="textarea" {...register("remark")} rows={3} />
+                                    <p className="mb-0"><small className="text-danger">*Home Visit charges will be additional.</small></p>
                                 </Col>
                                 <Col xs={12} sm={12} md={12} lg={12}>
                                     <p className="text-center">

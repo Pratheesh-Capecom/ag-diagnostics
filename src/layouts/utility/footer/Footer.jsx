@@ -62,12 +62,12 @@ class Footer extends Component {
                 </p>
                 <ul className="footer-socials">
                   <li>
-                    <Link to="/">
+                    <Link onClick={() => openInNewTab("https://www.facebook.com/BeSureBeWell")}>
                       <FaFacebookF />
                     </Link>
                   </li>
                   <li>
-                    <Link to="/">
+                    <Link onClick={() => openInNewTab("https://www.instagram.com/agdiagnostics/")}>
                       <Icon.Instagram />
                     </Link>
                   </li>
@@ -82,7 +82,7 @@ class Footer extends Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/">
+                    <Link onClick={() => openInNewTab("https://www.linkedin.com/company/a-g-diagnostics-pvt-ltd-pune/")}>
                       <FaLinkedinIn />
                     </Link>
                   </li>
@@ -174,14 +174,7 @@ class Footer extends Component {
               <Col className="footer-copyright pb-3">
                 <div className="text-white footer-bottom-text text-center">
                   Copyright &copy; {getCurrentYear()}. A.G Diagnostics Pvt. Ltd. | All Rights
-                  Reserved. Design By{" "}
-                  <Link
-                    to="https://www.pixel-studios.com/"
-                    target="_blank"
-                    className="text-white"
-                  >
-                    Pixel Studios
-                  </Link>
+                  Reserved. 
                 </div>
               </Col>
             </Row>
