@@ -5,6 +5,8 @@ import HomeVisitForm from "views/app/components/home-visit-form";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
 import { useParams } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const HomeVisit = () => {
   const { id } = useParams();
@@ -46,8 +48,14 @@ const HomeVisit = () => {
         hide={id}
       />
       <HomeVisitBanner />
-      <HomeVisitContent />
-      <HomeVisitForm defaultCity={defaultCity} />
+      <Row className="flex-column-reverse flex-md-row">
+        <Col xs={12} sm={12} md={12} lg={12}>
+          <HomeVisitContent />
+        </Col>
+        <Col xs={12} sm={12} md={12} lg={12}>
+          <HomeVisitForm defaultCity={defaultCity} />
+        </Col>        
+      </Row>
     </>
   );
 }

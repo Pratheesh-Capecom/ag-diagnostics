@@ -3,11 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
-import packageIcon1 from "assets/images/packages/icon1.png";
-import { BsArrowRightShort } from "react-icons/bs";
-import { Link } from "react-router-dom";
 import { usePackages } from "hooks/packages";
-import Loader from "./loader";
 
 const CovidPcrContent = (props) => {
 
@@ -220,52 +216,7 @@ const CovidPcrContent = (props) => {
             </Col>
           </Row>
         </Container>
-      </section>
-      <section className="bg-light-orange">
-        <Container>
-          <Row>
-            <Col>
-              <h3 className="text-start">COVID-19 Monitoring Packages</h3>
-            </Col>
-          </Row>
-          {loading ? <div className="common-loading"><Loader /></div> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
-            <div className="common-loading">
-              <h3 className="no-data">No Data Found</h3>
-            </div>
-          ) : (
-            <Row>
-              <>
-                {packageData?.map((common, a) => (
-                  <Col xs={12} sm={12} md={6} lg={4} key={a}>
-                    <div className="package-slide">
-                      <div className="icon-img">
-                        <img src={packageIcon1} alt="" />
-                      </div>
-                      <h3 className="pb-0">{common?.packageName}</h3>
-                      <h6 className="mar-bot-20 fw-normal">
-                        {common?.testLists}
-                      </h6>
-                      <div className="pckge_price mar-bot-20 pad-top-20">
-                        Special Price: ₹{common?.fees}/- &nbsp; <span>MRP: {common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span>
-                      </div>
-                      <Link to="/package-details/:discountfee/:fee" className="orange-btn">
-                        Book Now <BsArrowRightShort className="text-white" />
-                      </Link>
-                    </div>
-                  </Col>
-                ))}
-              </>
-              <Col xs={12} sm={12} md={12} lg={12}>
-                <p className="text-center pad-top-30">
-                  <Link to="/find-a-lab" className="btn1">
-                    View Locations <BsArrowRightShort />
-                  </Link>
-                </p>
-              </Col>
-            </Row>
-          )}
-        </Container>
-      </section>
+      </section>      
     </>
   );
 }

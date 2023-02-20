@@ -65,6 +65,13 @@ section.menu-bar .col button.location {
   border: none !important;
 }
 
+section.menu-bar button.locationMobile{
+  text-align: left;
+  background: transparent !important;
+  border: none !important;
+  display: none;
+}
+
 section.menu-bar .col button.location svg {
   font-size: 24px;
   margin-top: -4px;
@@ -204,10 +211,16 @@ section.menu-bar .col button.location svg {
     padding-right: 0px;
   }
 
+  section.menu-bar button.locationMobile{
+    display: block;    
+    position: absolute;
+    top: 3px;
+    right: 50px;
+    z-index: 999;
+  }
+
   section.menu-bar .col button.location {
-    right: inherit;
-    left: 0;
-    padding: 10px;
+    display: none;
   }
 
   .navbar {
@@ -300,12 +313,9 @@ section.menu-bar .col button.location svg {
     max-height: 300px;
     overflow-y: auto;
   }
-
-  section.menu-bar .col button.location {
-    right: 50px;
-    left: inherit;
-    padding: 10px;
-    top: -50px;
+  section.menu-bar button.locationMobile{
+    position: fixed;
+    top: 20px;
   }
 
   .navbar .navbar-collapse {
@@ -313,7 +323,7 @@ section.menu-bar .col button.location svg {
     right: -110%;
     top: 74px;
     padding-bottom: 70px;
-    width: 90%;
+    width: 80%;
     height: 100vh !important;
     overflow-y: auto;
     z-index: 999;
@@ -328,7 +338,7 @@ section.menu-bar .col button.location svg {
   }
 
   .navbar .navbar-nav .nav-link {
-    padding: 5px 10px;
+    padding: 5px 15px;
   }
 
   section.menu-bar {

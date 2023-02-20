@@ -3,11 +3,11 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import step1 from "assets/images/step1.png";
-import stepimage1 from "assets/images/step-img1.jpg";
+import stepimage1 from "assets/images/step-img1.png";
 import step2 from "assets/images/step2.png";
-import stepimage2 from "assets/images/step-img2.jpg";
+import stepimage2 from "assets/images/step-img2.png";
 import step3 from "assets/images/step3.png";
-import stepimage3 from "assets/images/step-img3.jpg";
+import stepimage3 from "assets/images/step-img3.png";
 import { Link } from "react-router-dom";
 
 const SimpleSteps = () => {

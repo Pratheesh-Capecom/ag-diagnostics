@@ -70,17 +70,7 @@ class Footer extends Component {
                     <Link onClick={() => openInNewTab("https://www.instagram.com/agdiagnostics/")}>
                       <Icon.Instagram />
                     </Link>
-                  </li>
-                  <li>
-                    <Link to="/">
-                      <Icon.Twitter />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/">
-                      <Icon.Youtube />
-                    </Link>
-                  </li>
+                  </li>                  
                   <li>
                     <Link onClick={() => openInNewTab("https://www.linkedin.com/company/a-g-diagnostics-pvt-ltd-pune/")}>
                       <FaLinkedinIn />

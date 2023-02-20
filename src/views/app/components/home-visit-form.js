@@ -281,7 +281,7 @@ const HomeVisitForm = (props) => {
                                                                 <tr>
                                                                     <th>Name</th>
                                                                     <th>Type</th>
-                                                                    <th>Price</th>
+                                                                    <th className="text-right">Price</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -289,25 +289,25 @@ const HomeVisitForm = (props) => {
                                                                     <tr key={i}>
                                                                         <td>{item?.packageName}</td>
                                                                         <td>Package</td>
-                                                                        <td>{item?.fees}</td>
+                                                                        <td className="text-right">{item?.fees}</td>
                                                                     </tr>
                                                                 ))}
                                                                 {test?.map((item, i) => (
                                                                     <tr key={i}>
                                                                         <td>{item?.testName}</td>
                                                                         <td>Test</td>
-                                                                        <td>{item?.fees}</td>
+                                                                        <td className="text-right">{item?.fees}</td>
                                                                     </tr>
                                                                 ))}
 
                                                                 {id ? <tr>
                                                                     <td>{packagename}</td>
                                                                     <td>Package</td>
-                                                                    <td>{amount}</td>
+                                                                    <td className="text-right">{amount}</td>
                                                                 </tr> : null}
                                                                 <tr>
                                                                     <td className="text-end" colSpan={2}><h5 className="mb-0"><strong className="text-dark">Total</strong></h5></td>
-                                                                    <td><h5 className="mb-0"><strong className="text-dark">{total && `₹ ${total}`} </strong></h5></td>
+                                                                    <td><h5 className="mb-0 text-right"><strong className="text-dark">{total && `₹ ${total}`} </strong></h5></td>
                                                                 </tr>
                                                             </tbody>
                                                         </Table>

@@ -49,6 +49,9 @@ export default function Menubar(props) {
   return (
     <>
       <section className="menu-bar">
+        <Button onClick={() => modalHandler(true)} className="locationMobile">
+          <FiMapPin /> {localStorage.getItem("city_name") || "Pune"}
+        </Button>
         <Container className="p-0">
           <Row className="g-0 align-items-center">
             <Col>
