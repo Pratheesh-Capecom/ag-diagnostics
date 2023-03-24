@@ -15,7 +15,7 @@ export const AppViews = () => {
         <Route exact path="/home-visit/:packagename/:id/:amount" component={lazy(() => import(`./pages/home-visit`))} />
         <Route exact path="/services" component={lazy(() => import(`./pages/services`))} />
         <Route exact path="/specialities" component={lazy(() => import(`./pages/specialities`))} />
-        <Route exact path="/packages" component={lazy(() => import(`./pages/packages`))} />
+        <Route exact path="/:cityName/packages" component={lazy(() => import(`./pages/packages`))} />
         <Route exact path="/find-a-lab" component={lazy(() => import(`./pages/find-a-lab`))} />
         <Route exact path="/brochures" component={lazy(() => import(`./pages/brochures`))} />
         <Route exact path="/privacy-policy" component={lazy(() => import(`./pages/privacy-policy`))} />
@@ -24,7 +24,7 @@ export const AppViews = () => {
         <Route exact path="/careers" component={lazy(() => import(`./pages/careers`))} />
         <Route exact path="/current-openings" component={lazy(() => import(`./pages/current-openings`))} />
         <Route exact path="/apply-now/:id" component={lazy(() => import(`./pages/apply-now`))} />
-        <Route exact path="/package-details/:discountFee/:fee/:packageId" component={lazy(() => import(`./pages/package-details`))} />
+        <Route exact path="/:cityName/package-details/:packageName" component={lazy(() => import(`./pages/package-details`))} />
         <Route exact path="/covid-pcr" component={lazy(() => import(`./pages/covid-pcr`))} />
         <Route exact path="/media" component={lazy(() => import(`./pages/media`))} />
         <Route exact path="/news" component={lazy(() => import(`./pages/news`))} />

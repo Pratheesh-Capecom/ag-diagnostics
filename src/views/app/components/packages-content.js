@@ -20,17 +20,17 @@ const PackagesContent = (props) => {
     const nformData = JSON.stringify(searchParams);
     packages(nformData, {
       onSuccess: (data) => {
-        setPackageData(data?.packages)
-      }
+        setPackageData(data?.packages);
+      },
     });
-  }
+  };
 
   useEffect(() => {
     if (defaultCity) {
       const params = {
-        "cityId": defaultCity,
-        "package_name": "AG-care",
-      }
+        cityId: defaultCity,
+        package_name: "AG-care",
+      };
       onFetchPackages(params);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,7 +45,13 @@ const PackagesContent = (props) => {
             <h3 className="text-center">Preventive Health Packages</h3>
           </Col>
         </Row>
-        {loading ? <div className="common-loading"><Loader /></div> : packageData === undefined || packageData === null || packageData?.length === 0 ? (
+        {loading ? (
+          <div className="common-loading">
+            <Loader />
+          </div>
+        ) : packageData === undefined ||
+          packageData === null ||
+          packageData?.length === 0 ? (
           <div className="common-loading">
             <h3 className="no-data">No Data Found</h3>
           </div>
@@ -53,20 +59,49 @@ const PackagesContent = (props) => {
           <Row>
             {packageData?.map((common, a) => (
               <Col xs={12} sm={12} md={6} lg={4} key={a}>
-                <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="package-slide">
+                <Link
+                  to={`/${common.cityName}/package-details/${common.slug}`}
+                  className="package-slide"
+                  onClick={() => {
+                    localStorage.setItem("slug", common.slug);
+                    localStorage.setItem("city_name", common.cityName);
+                    localStorage.setItem("cityId", common.cityId);
+                    localStorage.setItem("fee", common.fees);
+                    localStorage.setItem("discountFee", common.discountFees);
+                    localStorage.setItem("packageId", common.id);
+                  }}
+                >
                   <div className="icon-img">
                     <img src={common?.icon} alt="" />
                   </div>
                   <h3>{common?.packageName}</h3>
                   <div className="inc-test">
-                    <img src={flask} alt="" /> Includes {common?.test_count} tests
+                    <img src={flask} alt="" /> Includes {common?.test_count}{" "}
+                    tests
                   </div>
-                  <p>
-                    {common?.testLists}
-                  </p>
+                  <p>{common?.testLists}</p>
                   <div className="pckge_price">
-                    <span>{common?.discountFees === "0" ? null : (`₹${common?.discountFees}/-`)}</span> ₹{common?.fees}/-
-                    <Link to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} className="viewbtn">
+                    <span>
+                      {common?.discountFees === "0"
+                        ? null
+                        : `₹${common?.discountFees}/-`}
+                    </span>{" "}
+                    ₹{common?.fees}/-
+                    <Link
+                      to={`/${common.cityName}/package-details/${common.slug}`}
+                      className="viewbtn"
+                      onClick={() => {
+                        localStorage.setItem("slug", common.slug);
+                        localStorage.setItem("city_name", common.cityName);
+                        localStorage.setItem("cityId", common.cityId);
+                        localStorage.setItem("fee", common.fees);
+                        localStorage.setItem(
+                          "discountFee",
+                          common.discountFees
+                        );
+                        localStorage.setItem("packageId", common.id);
+                      }}
+                    >
                       <BsArrowRightShort className="text-white" />
                     </Link>
                   </div>
@@ -76,9 +111,8 @@ const PackagesContent = (props) => {
           </Row>
         )}
       </Container>
-    </section >
+    </section>
   );
-}
-
+};
 
 export default PackagesContent;

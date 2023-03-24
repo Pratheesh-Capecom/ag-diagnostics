@@ -5,7 +5,10 @@ import Col from "react-bootstrap/Col";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 // import packageIcon1 from "assets/images/packages/icon1.png";
 import { FiMapPin } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import {
+  Link,
+  // useHistory
+} from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { FaPaperPlane } from "react-icons/fa";
@@ -14,14 +17,24 @@ import { usePackages } from "hooks/packages";
 import "./style.css";
 
 export default function Menubar(props) {
-
-  const { defaultCity, cityData, cityChangeHandler, cityModal, modalHandler, hide } = props;
+  let cityName = localStorage.getItem("city_name");
+  // let history = useHistory();
+  const {
+    defaultCity,
+    cityData,
+    cityChangeHandler,
+    cityModal,
+    modalHandler,
+    hide,
+  } = props;
   const { register, handleSubmit } = useForm();
 
   const getData = (e) => {
-    let data = cityData.filter(stu => Number(stu.cityId) === Number(e.target.value))
-    localStorage.setItem("city_name", data?.[0]?.city)
-  }
+    let data = cityData.filter(
+      (stu) => Number(stu.cityId) === Number(e.target.value)
+    );
+    localStorage.setItem("city_name", data?.[0]?.city);
+  };
 
   const [packageData, setPackageData] = useState(null);
   const { mutate: packages } = usePackages();
@@ -30,21 +43,28 @@ export default function Menubar(props) {
     const nformData = JSON.stringify(searchParams);
     packages(nformData, {
       onSuccess: (data) => {
-        setPackageData(data?.packages)
-      }
+        setPackageData(data?.packages);
+      },
     });
-  }
+  };
 
   useEffect(() => {
     if (defaultCity) {
       const params = {
-        "cityId": defaultCity,
-        "package_name": "AG-care",
-      }
+        cityId: defaultCity,
+        package_name: "AG-care",
+      };
       onFetchPackages(params);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultCity]);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     history.push(`/${cityName}/packages}`);
+  //   }, 1000);
+  // }, [cityName]);
 
   return (
     <>
@@ -81,13 +101,37 @@ export default function Menubar(props) {
                       renderMenuOnMount={true}
                       className="mega-menu"
                     >
-                      {packageData?.filter((item, idx) => idx < 20).map((common, a) => (
-                        <NavDropdown.Item to={`/package-details/${common?.discountFees}/${common?.fees}/${common?.id}`} as={Link} key={a}>
-                          <img src={common?.icon} alt="" />
-                          {common?.packageName}
-                        </NavDropdown.Item>
-                      ))}
-                      <NavDropdown.Item to="/packages" as={Link} className="line">
+                      {packageData
+                        ?.filter((item, idx) => idx < 20)
+                        .map((common, a) => (
+                          <NavDropdown.Item
+                            to={`/${common.cityName}/package-details/${common.slug}`}
+                            as={Link}
+                            key={a}
+                            onClick={() => {
+                              localStorage.setItem("slug", common.slug);
+                              localStorage.setItem(
+                                "city_name",
+                                common.cityName
+                              );
+                              localStorage.setItem("cityId", common.cityId);
+                              localStorage.setItem("fee", common.fees);
+                              localStorage.setItem(
+                                "discountFee",
+                                common.discountFees
+                              );
+                              localStorage.setItem("packageId", common.id);
+                            }}
+                          >
+                            <img src={common?.icon} alt="" />
+                            {common?.packageName}
+                          </NavDropdown.Item>
+                        ))}
+                      <NavDropdown.Item
+                        to={`/${cityName}/packages`}
+                        as={Link}
+                        className="line"
+                      >
                         View more
                       </NavDropdown.Item>
                     </NavDropdown>
@@ -109,10 +153,15 @@ export default function Menubar(props) {
                     <Nav.Link to="/brochures" as={Link}>
                       Brochures
                     </Nav.Link>
-                    {hide ? null :
-                      <Button onClick={() => modalHandler(true)} className="location">
-                        <FiMapPin /> {localStorage.getItem("city_name") || "Pune"}
-                      </Button>}
+                    {hide ? null : (
+                      <Button
+                        onClick={() => modalHandler(true)}
+                        className="location"
+                      >
+                        <FiMapPin />{" "}
+                        {localStorage.getItem("city_name") || "Pune"}
+                      </Button>
+                    )}
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>
@@ -131,11 +180,25 @@ export default function Menubar(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form onSubmit={handleSubmit(cityChangeHandler)} className="form-location">
+            <form
+              onSubmit={handleSubmit(cityChangeHandler)}
+              className="form-location"
+            >
               <select {...register("cityId")} onChange={getData}>
-                {cityData && cityData.map((common, a) => (
-                  <option key={a} selected={Number(defaultCity) === Number(common?.cityId) ? true : false} value={common?.cityId}>{common?.city}</option>
-                ))}
+                {cityData &&
+                  cityData.map((common, a) => (
+                    <option
+                      key={a}
+                      selected={
+                        Number(defaultCity) === Number(common?.cityId)
+                          ? true
+                          : false
+                      }
+                      value={common?.cityId}
+                    >
+                      {common?.city}
+                    </option>
+                  ))}
               </select>
               <p className="text-center pad-top-20">
                 <Button className="btn1 mb-0" type="submit">

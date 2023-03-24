@@ -10,7 +10,7 @@ import AgeIcon from "assets/images/age.png";
 import HomeCollections from "assets/images/home-collections.png";
 import TestRequirement from "assets/images/testrequirement.png";
 import Report from "assets/images/report.png";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -21,9 +21,11 @@ import { useEnquiry, usePackageId } from "hooks/packages";
 import { message } from "antd"
 
 const PackageDetails = () => {
-  const { discountFee, fee, packageId } = useParams();
+  let cityName = localStorage.getItem("city_name");
+  let  packageId = localStorage.getItem("packageId")
+  let discountFee = localStorage.getItem("discountFee");
+  let fee = localStorage.getItem("fee");
   let history = useHistory();
-
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const { mutate: enquiry, isLoading: loading } = useEnquiry();
   const { data: pack } = usePackageId(packageId);
@@ -51,7 +53,7 @@ const PackageDetails = () => {
           setIsEnabled(previousState => !previousState);
           reset();
           setTimeout(() => {
-            history.push("/packages")
+            history.push(`/${cityName}/packages`)
           }, 1000);
         }
         else {

@@ -3,9 +3,10 @@ import PackagesBanner from "views/app/components/packages-banner";
 import PackgesContent from "views/app/components/packages-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import { useHistory } from "react-router-dom";
 
 const Packages = () => {
-
+const history = useHistory()
   const { data: city } = useCity();
   const [cityData, setCityData] = useState([]);
   const [defaultCity, setDefaultCity] = useState(localStorage.getItem("city_id") || "490"); //Default pune
@@ -19,6 +20,9 @@ const Packages = () => {
     setDefaultCity(values?.cityId)
     modalHandler(false)
     localStorage.setItem("city_id", values?.cityId)
+    setTimeout(() => {
+      history.push(`/${localStorage.getItem("city_name")}/packages`);
+    }, 1000);
   }
 
   useEffect(() => {

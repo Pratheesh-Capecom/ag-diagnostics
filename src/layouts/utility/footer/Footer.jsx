@@ -22,6 +22,7 @@ const openInNewTab = (url) => {
 
 class Footer extends Component {
   render() {
+    var cityName = localStorage.getItem("city_name");
     return (
       <>
         <footer>
@@ -63,17 +64,31 @@ class Footer extends Component {
                 </p>
                 <ul className="footer-socials">
                   <li>
-                    <Link onClick={() => openInNewTab("https://www.facebook.com/BeSureBeWell")}>
+                    <Link
+                      onClick={() =>
+                        openInNewTab("https://www.facebook.com/BeSureBeWell")
+                      }
+                    >
                       <FaFacebookF />
                     </Link>
                   </li>
                   <li>
-                    <Link onClick={() => openInNewTab("https://www.instagram.com/agdiagnostics/")}>
+                    <Link
+                      onClick={() =>
+                        openInNewTab("https://www.instagram.com/agdiagnostics/")
+                      }
+                    >
                       <Icon.Instagram />
                     </Link>
-                  </li>                  
+                  </li>
                   <li>
-                    <Link onClick={() => openInNewTab("https://www.linkedin.com/company/a-g-diagnostics-pvt-ltd-pune/")}>
+                    <Link
+                      onClick={() =>
+                        openInNewTab(
+                          "https://www.linkedin.com/company/a-g-diagnostics-pvt-ltd-pune/"
+                        )
+                      }
+                    >
                       <FaLinkedinIn />
                     </Link>
                   </li>
@@ -96,7 +111,9 @@ class Footer extends Component {
                       <Link to="/services">Services</Link>
                     </li>
                     <li>
-                      <Link to="/technical-capabilities">Technical Capabilities</Link>
+                      <Link to="/technical-capabilities">
+                        Technical Capabilities
+                      </Link>
                     </li>
                     <li>
                       <Link to="/careers">Careers</Link>
@@ -112,7 +129,7 @@ class Footer extends Component {
                 <div className="footer-column">
                   <ul>
                     <li>
-                      <Link to="/packages">Packages</Link>
+                      <Link to={`/${cityName}/packages`}>Packages</Link>
                     </li>
                     <li>
                       <Link to="/home-visit">Book Home Visit</Link>
@@ -164,8 +181,8 @@ class Footer extends Component {
             <Row>
               <Col className="footer-copyright pb-3">
                 <div className="text-white footer-bottom-text text-center">
-                  Copyright &copy; {getCurrentYear()}. A.G Diagnostics Pvt. Ltd. | All Rights
-                  Reserved. 
+                  Copyright &copy; {getCurrentYear()}. A.G Diagnostics Pvt. Ltd.
+                  | All Rights Reserved.
                 </div>
               </Col>
             </Row>
@@ -173,7 +190,7 @@ class Footer extends Component {
         </section>
         <ul className="right-fixed">
           <li>
-            <Link to="/packages">
+            <Link to={`/${cityName}/packages`}>
               <BiTestTube />
               <span>Packages</span>
             </Link>
