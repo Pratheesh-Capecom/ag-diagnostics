@@ -60,7 +60,7 @@ const PackagesContent = (props) => {
             {packageData?.map((common, a) => (
               <Col xs={12} sm={12} md={6} lg={4} key={a}>
                 <Link
-                  to={`/${common.cityName}/package-details/${common.slug}`}
+                  to={`/${common.cityName.toLowerCase()}/package-details/${common.slug}`}
                   className="package-slide"
                   onClick={() => {
                     localStorage.setItem("slug", common.slug);
@@ -88,7 +88,7 @@ const PackagesContent = (props) => {
                     </span>{" "}
                     ₹{common?.fees}/-
                     <Link
-                      to={`/${common.cityName}/package-details/${common.slug}`}
+                      to={`/${common.cityName.toLowerCase()}/package-details/${common.slug}`}
                       className="viewbtn"
                       onClick={() => {
                         localStorage.setItem("slug", common.slug);

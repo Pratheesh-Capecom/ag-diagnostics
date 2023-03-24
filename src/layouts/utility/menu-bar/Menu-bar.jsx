@@ -105,7 +105,7 @@ export default function Menubar(props) {
                         ?.filter((item, idx) => idx < 20)
                         .map((common, a) => (
                           <NavDropdown.Item
-                            to={`/${common.cityName}/package-details/${common.slug}`}
+                            to={`/${common.cityName.toLowerCase()}/package-details/${common.slug}`}
                             as={Link}
                             key={a}
                             onClick={() => {
@@ -128,7 +128,7 @@ export default function Menubar(props) {
                           </NavDropdown.Item>
                         ))}
                       <NavDropdown.Item
-                        to={`/${cityName}/packages`}
+                        to={`/${cityName.toLowerCase()}/packages`}
                         as={Link}
                         className="line"
                       >

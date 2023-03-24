@@ -21,7 +21,7 @@ const history = useHistory()
     modalHandler(false)
     localStorage.setItem("city_id", values?.cityId)
     setTimeout(() => {
-      history.push(`/${localStorage.getItem("city_name")}/packages`);
+      history.push(`/${(localStorage.getItem("city_name")).toLowerCase()}/packages`);
     }, 1000);
   }
 

@@ -53,7 +53,7 @@ const PackageDetails = () => {
           setIsEnabled(previousState => !previousState);
           reset();
           setTimeout(() => {
-            history.push(`/${cityName}/packages`)
+            history.push(`/${cityName.toLowerCase()}/packages`)
           }, 1000);
         }
         else {

@@ -104,7 +104,7 @@ const Packagesscroll = (props) => {
                         </span>{" "}
                         ₹{common?.fees}/-
                         <Link
-                          to={`/${common.cityName}/package-details/${common.slug}`}
+                          to={`/${common.cityName.toLowerCase()}/package-details/${common.slug}`}
                           className="viewbtn"
                           onClick={() => {
                             localStorage.setItem("slug", common.slug);
@@ -128,7 +128,7 @@ const Packagesscroll = (props) => {
             packageData === null ||
             packageData?.length === 0 ? null : (
               <p className="text-center">
-                <Link to={`/${cityName}/packages`} className="purple-btn">
+                <Link to={`/${cityName.toLowerCase()}/packages`} className="purple-btn">
                   View All Packages
                 </Link>
               </p>

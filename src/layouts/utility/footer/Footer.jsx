@@ -129,7 +129,7 @@ class Footer extends Component {
                 <div className="footer-column">
                   <ul>
                     <li>
-                      <Link to={`/${cityName}/packages`}>Packages</Link>
+                      <Link to={`/${cityName.toLowerCase()}/packages`}>Packages</Link>
                     </li>
                     <li>
                       <Link to="/home-visit">Book Home Visit</Link>
@@ -190,7 +190,7 @@ class Footer extends Component {
         </section>
         <ul className="right-fixed">
           <li>
-            <Link to={`/${cityName}/packages`}>
+            <Link to={`/${cityName.toLowerCase()}/packages`}>
               <BiTestTube />
               <span>Packages</span>
             </Link>
