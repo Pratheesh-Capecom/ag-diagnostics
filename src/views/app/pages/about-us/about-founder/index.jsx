@@ -4,6 +4,7 @@ import FounderContent from "views/app/components/founder-content";
 import ExpertiseScroll from "views/app/components/expertise-scroll";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const AboutFounder = () => {
 
@@ -36,6 +37,10 @@ const AboutFounder = () => {
 
     return (
         <>
+            <MetaTags>
+                <title>About A.G Diagnostics Centre Founder Dr Ajit Golwilkar</title>
+                <meta name="description" content="A G Diagnostics, formerly known as Golwilkar Laboratories, provides world-class pathology services in Pune. Founded in 1978 by Dr Ajit Golwilkar" />
+            </MetaTags>
             <Menubar
                 defaultCity={defaultCity}
                 cityData={cityData}

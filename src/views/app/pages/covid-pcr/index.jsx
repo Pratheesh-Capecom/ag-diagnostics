@@ -3,6 +3,7 @@ import CovidPcrBanner from "views/app/components/covid-pcr-banner";
 import CovidPcrContent from "views/app/components/covid-pcr-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const CovidPcr = () => {
 
@@ -35,6 +36,10 @@ const CovidPcr = () => {
 
   return (
     <>
+      <MetaTags>
+        <title>Covid 19 RT PCR, Monitoring, Antibody Test in Pune - A G Diagnostics</title>
+        <meta name="description" content="A G Diagnostics offers Covid 19 RT-PCR Test, Covid 19 Monitoring tests, SARS-Cov-2 IgG Antibody Test, and Anti-SARS-CoV-2 Spike Protein (S1/S2) IgG Test." />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

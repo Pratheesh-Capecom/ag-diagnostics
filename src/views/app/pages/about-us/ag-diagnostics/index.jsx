@@ -39,8 +39,8 @@ const AboutUs = () => {
     return (
         <>
             <MetaTags>
-                <title>Dr. Ajit Golwilkar Diagnostics Centre</title>
-                <meta name="description" content="Dr.Ajit Golwilkar Diagnostics Pathology Lab Provides Home visits for blood collection, Preventive health checkups & also provides Quality pathology laboratory reports. Enquire Now!" />
+                <title>About Our Pathology and Diagnostic Centre | A G Diagnostics</title>
+                <meta name="description" content="A G Diagnostics is the most reputed lab in Pune and Ahmednagar with over 50 collection centres staffed with expert pathologists, phlebotomists & technicians." />
             </MetaTags>
             <Menubar
                 defaultCity={defaultCity}

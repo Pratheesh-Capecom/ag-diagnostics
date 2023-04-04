@@ -3,6 +3,7 @@ import CsrBanner from "views/app/components/csr-policy-banner";
 import CsrContent from "views/app/components/csr-policy-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const CsrPolicy = () => {
 
@@ -35,6 +36,10 @@ const CsrPolicy = () => {
 
     return (
         <>
+            <MetaTags>
+                <title>Corporate Social Responsibility (CSR) - A G Diagnostics</title>
+                <meta name="description" content="A G Diagnostics Private Limited is committed to conducting sustainable and ethical business practices through its Corporate Social Responsibility (CSR) activities." />
+            </MetaTags>
             <Menubar
                 defaultCity={defaultCity}
                 cityData={cityData}

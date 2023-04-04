@@ -7,6 +7,7 @@ import { useCity } from "hooks/home";
 import { useParams } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import MetaTags from 'react-meta-tags';
 
 const HomeVisit = () => {
   const { id } = useParams();
@@ -39,6 +40,10 @@ const HomeVisit = () => {
 
   return (
     <>
+      <MetaTags>
+          <title>Home Visit For Blood Test in Pune - A G Diagnostics</title>
+          <meta name="description" content="A G Diagnostics offers blood test home collection in pune for your comfort and gets reports within 24 hours trusted by Doctors and Hospitals. Book a Blood test online." />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

@@ -27,12 +27,8 @@ const HomeVisitContent = () => {
             <Col xs={12} sm={12} md={4} lg={4}>
               <div className="img-div text-center f-text-sm-left">
                 <div className="sm-center-img">
-                  <img
-                    src={step1}
-                    className="number-img animate-lef-rig"
-                    alt=""
-                  />
-                  <img src={stepimage2} className="img-round" alt="" />
+                  <img src={step1} className="number-img animate-lef-rig" alt=""/>
+                  <img src={stepimage2} className="img-round" alt="Blood Test Home Collection - A G Diagnostics" />
                 </div>
               </div>
               <div className="text-div text-center">
@@ -46,12 +42,8 @@ const HomeVisitContent = () => {
             <Col xs={12} sm={12} md={4} lg={4}>
               <div className="img-div text-center order-sm-1 d-sm-block d-block d-md-none">
                 <div className="center-img">
-                  <img
-                    src={step2}
-                    className="number-img animate-top-bot"
-                    alt=""
-                  />
-                  <img src={stepimage1} className="img-round" alt="" />
+                  <img src={step2} className="number-img animate-top-bot" alt=""/>
+                  <img src={stepimage1} className="img-round" alt="Book Online For Home Sample Collection - A G Diagnostics" />
                 </div>
               </div>
               <div className="text-div text-center pad-top-70">
@@ -63,24 +55,16 @@ const HomeVisitContent = () => {
               </div>
               <div className="img-div text-center order-sm-2 d-none d-md-block">
                 <div className="sm-center-img">
-                  <img
-                    src={step2}
-                    className="number-img animate-top-bot"
-                    alt=""
-                  />
-                  <img src={stepimage1} className="img-round" alt="" />
+                  <img src={step2} className="number-img animate-top-bot" alt=""/>
+                  <img src={stepimage1} className="img-round" alt="Book Online For Home Sample Collection - A G Diagnostics" />
                 </div>
               </div>
             </Col>
             <Col xs={12} sm={12} md={4} lg={4}>
               <div className="img-div text-center">
                 <div className="sm-center-img">
-                  <img
-                    src={step3}
-                    className="number-img animate-rotate"
-                    alt=""
-                  />
-                  <img src={stepimage3} className="img-round" alt="" />
+                  <img src={step3} className="number-img animate-rotate" alt="" />
+                  <img src={stepimage3} className="img-round" alt="Fast and Accurate Test Reports - A G Diagnostics" />
                 </div>
               </div>
               <div className="text-div text-center">

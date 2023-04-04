@@ -3,7 +3,7 @@ import TeamBanner from "views/app/components/team-banner";
 import TeamContent from "views/app/components/team-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
-
+import MetaTags from 'react-meta-tags';
 
 const OurTeam = () => {
 
@@ -36,6 +36,10 @@ const OurTeam = () => {
 
     return (
         <>
+            <MetaTags>
+                <title>Meet Our Dr Ajit Golwilkar Lab Team - A G Diagnostics</title>
+                <meta name="description" content="A G Diagnostics: 20+ years of tech team experience for efficient and ethical services. Stay ahead with our innovative practices and cutting-edge technology." />
+            </MetaTags>
             <Menubar
                 defaultCity={defaultCity}
                 cityData={cityData}

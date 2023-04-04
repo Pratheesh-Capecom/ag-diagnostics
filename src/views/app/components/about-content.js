@@ -40,7 +40,7 @@ const AboutContent = () => {
             </Col>
             <Col xs={12} sm={12} md={12} lg={6}>
               <div className="about-image">
-                <img src={aboutImage2} alt="" className="img-fluid" />
+                <img src={aboutImage2} alt="About A G Diagnostics, a Pathology Lab and Diagnostic Centre" className="img-fluid" />
               </div>
             </Col>
           </Row>

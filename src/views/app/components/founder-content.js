@@ -13,7 +13,7 @@ const FounderContent = () => {
           <Row className="justify-content-between">
             <Col xs={12} sm={12} md={12} lg={5}>
               <div className="about-image sticky-img">
-                <img src={aboutImage1} alt="" className="img-fluid" />
+                <img src={aboutImage1} alt="Dr Ajit Golwilkar" className="img-fluid" />
               </div>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6}>

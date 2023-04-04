@@ -3,6 +3,7 @@ import BrochuresBanner from "views/app/components/brochure-banner";
 import BrochureContent from "views/app/components/brochure-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const Brochures = () => {
 
@@ -35,6 +36,10 @@ const Brochures = () => {
 
   return (
     <>
+      <MetaTags>
+            <title>Download Brochures - A G Diagnostics</title>
+            <meta name="description" content="Download our package booklets and technical leaflets for comprehensive details on diagnostic and pathology lab tests. Get informed today." />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

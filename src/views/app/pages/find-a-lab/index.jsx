@@ -3,6 +3,7 @@ import FindALabBanner from "views/app/components/find-a-lab-banner";
 import FindALabContent from "views/app/components/find-a-lab-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const FindALab = () => {
 
@@ -35,6 +36,10 @@ const FindALab = () => {
 
   return (
     <>
+      <MetaTags>
+          <title>Diagnostic Centre and Best Quality Pathology Lab Near Me - A G Diagnostics</title>
+          <meta name="description" content="We have more than 50 sample collection centers in Pune and Ahmednagar. Check out a nearby Diagnostic Centre for Blood Tests and Full Body Checkups." />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

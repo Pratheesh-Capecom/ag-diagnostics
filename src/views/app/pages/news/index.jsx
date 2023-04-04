@@ -3,6 +3,7 @@ import NewsBanner from "views/app/components/news-banner";
 import NewsContent from "views/app/components/news-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const News = () => {
 
@@ -35,6 +36,10 @@ const News = () => {
 
   return (
     <>
+      <MetaTags>
+        <title>News | Diagnostic Centre | A G Diagnostics</title>
+        <meta name="description" content="Discover the latest news and updates from A G Diagnostics, a top-quality pathology lab. Join our community of patients, partners, and clients to share stories." />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

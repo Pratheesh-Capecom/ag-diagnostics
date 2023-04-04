@@ -17,11 +17,7 @@ const CareersContent = () => {
               <div className="career-bg">
                 <Row className="justify-content-end">
                   <Col xs={12} sm={12} md={12} lg={6}>
-                    <img
-                      src={CareersImage}
-                      alt=""
-                      className="img-fluid d-block d-lg-none"
-                    />
+                    <img src={CareersImage} alt="Careers - A G Diagnostics" className="img-fluid d-block d-lg-none" />
                   </Col>
                   <Col xs={12} sm={12} md={12} lg={6}>
                     <div className="career-content">

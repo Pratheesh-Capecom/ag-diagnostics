@@ -49,8 +49,8 @@ export default function Home() {
   return (
     <>
       <MetaTags>
-            <title>Best Diagnostic Centre in India - Golwilkar | A.G Diagnostics</title>
-            <meta name="description" content="A.G Diagnostics is the best diagnostic center and pathology laboratory in India. We offer quality laboratory services in India for over four decades. Book your test now!" />
+            <title>Best Diagnostic Centre in Pune | Dr Ajit Golwilkar Lab | A G Diagnostics</title>
+            <meta name="description" content="A G Diagnostics: Providing quality pathology laboratory services for over 40 years in Pune and Ahmednagar. Book your test in our nearest Diagnostic Centre now!" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}
