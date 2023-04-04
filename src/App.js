@@ -8,7 +8,7 @@ import "../src/assets/css/style.css";
 function App() {
 
   let history = useHistory();
-
+  localStorage.setItem("city_name", 'Ahmednagar');
   return (
     <Suspense fallback={""}>
       <Router history={history}>

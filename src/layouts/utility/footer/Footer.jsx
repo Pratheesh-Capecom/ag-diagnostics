@@ -160,7 +160,7 @@ class Footer extends Component {
                       <Link to="/brochures">Technical Leaflets</Link>
                     </li>
                     <li>
-                      <Link to="/csr-policy">CSR Policy</Link>
+                      <Link to="/about-us/csr-policy">CSR Policy</Link>
                     </li>
                   </ul>
                 </div>
