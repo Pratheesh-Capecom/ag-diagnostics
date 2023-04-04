@@ -35,7 +35,7 @@ export const AppViews = () => {
         <Route exact path="/thank-you-career" component={lazy(() => import(`./pages/thank-you-career`))} />
         <Route exact path="/error404" component={lazy(() => import(`./pages/error-404`))} />
         <Route exact path="/thank-you-home-visit" component={lazy(() => import(`./pages/thank-you-home-visit`))} />
-        <Redirect to="/" />
+        <Redirect to="/error404" />
       </Switch>
     </Suspense>
   );
