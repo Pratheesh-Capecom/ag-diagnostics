@@ -2,7 +2,7 @@
   "name": "ag_diagnostics",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://agdiagnostics.com",
+  "homepage": "https://beta.agdiagnostics.com",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@react-google-maps/api": "^2.12.1",

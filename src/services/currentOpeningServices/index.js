@@ -6,7 +6,7 @@ const MILISECONDS = 1000;
 const TIMEOUT = SECONDS * MILISECONDS;
 
 const client = axios.create({
-  baseURL: "https://admin.agdiagnostics.com/api/",
+  baseURL: "https://beta.agdiagnostics.com/admin/api/",
   timeout: TIMEOUT,
   headers: {
     "content-type": "application/json",
