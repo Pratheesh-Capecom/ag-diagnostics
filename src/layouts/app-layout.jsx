@@ -10,7 +10,7 @@ export const AppLayout = () => {
     <div className="ag-app">
       <Header />
       <Switch>
-        <Route path="" component={AppViews} />
+        <Route path="/" component={AppViews} />
       </Switch>
       <Footer />
     </div>

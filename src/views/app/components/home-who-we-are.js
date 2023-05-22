@@ -29,7 +29,7 @@ const homeWhoWeAre = () => {
               had been to deliver results in the shortest possible time yet,
               at an affordable price.
             </p>
-            <Link to="/about-us" className="purple-btn">
+            <Link to="/about-us/ag-diagnostics" className="purple-btn">
               Read More
             </Link>
           </Col>
