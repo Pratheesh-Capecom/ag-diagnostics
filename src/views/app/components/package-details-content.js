@@ -163,7 +163,7 @@ const PackageDetails = () => {
                   Enquire Now
                 </Button>
                 <Link
-                  to={`/home-visit/${packData?.packageName}/${packData?.id}/${packData?.fees}`}
+                  to={`/home-visit/${packData?.slug}/${packData?.id}`}
                   className="btn2 d-block"
                 >
                   Book Home Collection
