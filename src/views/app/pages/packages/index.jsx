@@ -4,7 +4,7 @@ import PackgesContent from "views/app/components/packages-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
 import { useHistory } from "react-router-dom";
-import MetaTags from 'react-meta-tags';
+import { Helmet } from "react-helmet";
 
 const Packages = () => {
 const history = useHistory()
@@ -40,10 +40,10 @@ const history = useHistory()
 
   return (
     <>
-      <MetaTags>
+      <Helmet>
         <title>Health Checkup Packages | Full Body Checkup In Pune - A G Diagnostics</title>
         <meta name="description" content="A G Diagnostics offers comprehensive preventive health checkup in Pune for preventive care. Choose from a variety of Full body check-up options today" />
-      </MetaTags>
+      </Helmet>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}
