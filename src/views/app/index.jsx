@@ -12,7 +12,7 @@ export const AppViews = () => {
         <Route exact path="/about-us/awards" component={lazy(() => import(`./pages/about-us/awards`))} />
         <Route exact path="/about-us/csr-policy" component={lazy(() => import(`./pages/about-us/csr-policy`))} />
         <Route exact path="/home-visit" component={lazy(() => import(`./pages/home-visit`))} />
-        <Route exact path="/home-visit/:packagename" component={lazy(() => import(`./pages/home-visit`))} />
+        <Route exact path="/home-visit/:cityName/:packagename" component={lazy(() => import(`./pages/home-visit`))} />
         <Route exact path="/services" component={lazy(() => import(`./pages/services`))} />
         <Route exact path="/specialities" component={lazy(() => import(`./pages/specialities`))} />
         <Route exact path="/:cityName/packages" component={lazy(() => import(`./pages/packages`))} />

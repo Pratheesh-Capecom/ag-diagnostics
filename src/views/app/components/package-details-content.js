@@ -82,7 +82,7 @@ const PackageDetails = () => {
   return (
     <>
       <Helmet>
-        <title>{packData && packData.packageName}</title>
+        <title>{packData && packData.meta_title}</title>
         <meta
           name="description"
           content={packData && packData.meta_description}
@@ -166,7 +166,7 @@ const PackageDetails = () => {
                   Enquire Now
                 </Button>
                 <Link
-                  to={`/home-visit/${packData?.slug}`}
+                  to={`/home-visit/${`${packData.cityName}`.toLowerCase()}/${packData?.slug}`}
                   className="btn2 d-block"
                 >
                   Book Home Collection
