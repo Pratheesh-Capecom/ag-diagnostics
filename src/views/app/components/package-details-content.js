@@ -82,7 +82,7 @@ const PackageDetails = () => {
   return (
     <>
       <Helmet>
-        <title>{packData && packData.meta_title}</title>
+        <title>{packData && packData.packageName}</title>
         <meta
           name="description"
           content={packData && packData.meta_description}
