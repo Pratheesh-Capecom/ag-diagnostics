@@ -4,7 +4,6 @@ import InnerBanner from "views/app/components/inner-banner";
 import PackageDetailsContent from "views/app/components/package-details-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
-import { Helmet } from "react-helmet";
 
 const PackageDetails = () => {
   const { data: city } = useCity();
@@ -38,15 +37,6 @@ const PackageDetails = () => {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Health Checkup Packages | Full Body Checkup In Pune - A G Diagnostics
-        </title>
-        <meta
-          name="description"
-          content="A G Diagnostics offers comprehensive preventive health checkup in Pune for preventive care. Choose from a variety of Full body check-up options today"
-        />
-      </Helmet>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

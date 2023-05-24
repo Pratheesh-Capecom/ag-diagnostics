@@ -18,25 +18,31 @@ import { FaPaperPlane } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useEnquiry, usePackageId } from "hooks/packages";
-import { message } from "antd"
+import { message } from "antd";
+import { Helmet } from "react-helmet";
 
 const PackageDetails = () => {
   let cityName = localStorage.getItem("city_name");
-  let  packageId = localStorage.getItem("packageId")
+  let packageId = localStorage.getItem("packageId");
   let discountFee = localStorage.getItem("discountFee");
   let fee = localStorage.getItem("fee");
   let history = useHistory();
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
   const { mutate: enquiry, isLoading: loading } = useEnquiry();
   const { data: pack } = usePackageId(packageId);
 
   const [isEnabled, setIsEnabled] = useState(false);
   const [packData, setPackData] = useState([]);
-
+  console.log(packData);
   const toggleSwitch = () => {
-    setIsEnabled(previousState => !previousState);
+    setIsEnabled((previousState) => !previousState);
     reset();
-  }
+  };
 
   const submitHandler = (e) => {
     const submitData = { ...e };
@@ -45,37 +51,43 @@ const PackageDetails = () => {
     submitData.email = e.email;
     submitData.mobile = e.mobile;
     submitData.message = e.message;
-    let formData = JSON.stringify(submitData)
+    let formData = JSON.stringify(submitData);
     enquiry(formData, {
       onSuccess: (item) => {
         if (item?.Status === 200) {
           message.success(item?.Message);
-          setIsEnabled(previousState => !previousState);
+          setIsEnabled((previousState) => !previousState);
           reset();
           setTimeout(() => {
-            history.push(`/${cityName.toLowerCase()}/packages`)
+            history.push(`/${cityName.toLowerCase()}/packages`);
           }, 1000);
-        }
-        else {
+        } else {
           message.error(item?.Message);
-          setIsEnabled(previousState => !previousState);
+          setIsEnabled((previousState) => !previousState);
           reset();
         }
       },
       onError: (error) => {
-        console.log(error)
-      }
+        console.log(error);
+      },
     });
-  }
+  };
 
   useEffect(() => {
     if (pack) {
-      setPackData(pack?.package_detail)
+      setPackData(pack?.package_detail);
     }
   }, [pack]);
 
   return (
     <>
+      <Helmet>
+        <title>{packData && packData.meta_title}</title>
+        <meta
+          name="description"
+          content={packData && packData.meta_description}
+        />
+      </Helmet>
       <section className="package-details position-relative">
         <Container>
           <Row>
@@ -83,11 +95,7 @@ const PackageDetails = () => {
               <Row className="align-items-center">
                 <Col xs={12} sm={12} md={12} lg={10}>
                   <div className="package-details-heading">
-                    <img
-                      src={packData?.icon}
-                      alt=""
-                      className="img-fluid"
-                    />
+                    <img src={packData?.icon} alt="" className="img-fluid" />
                     <h3>{packData?.packageName}</h3>
                   </div>
                   <h4>Test information</h4>
@@ -95,9 +103,7 @@ const PackageDetails = () => {
                     <img src={SampleTube} alt="" className="img-fluid" />
                     <div className="pckge_details">
                       <h5>Total tests included</h5>
-                      <p>
-                        {packData?.testLists}
-                      </p>
+                      <p>{packData?.testLists}</p>
                     </div>
                   </div>
                   <div className="pckge_include">
@@ -134,9 +140,11 @@ const PackageDetails = () => {
                     <div className="pckge_details">
                       <h5>Pre-test requirements</h5>
                       <ul className="list-style1">
-                        {packData?.preRequisties ? <li className="ms-0">
-                          {packData?.preRequisties}
-                        </li> : "-"}
+                        {packData?.preRequisties ? (
+                          <li className="ms-0">{packData?.preRequisties}</li>
+                        ) : (
+                          "-"
+                        )}
                       </ul>
                     </div>
                   </div>
@@ -144,9 +152,7 @@ const PackageDetails = () => {
                     <img src={Report} alt="" className="img-fluid" />
                     <div className="pckge_details">
                       <h5>Report availability</h5>
-                      <p>
-                        {packData?.reportAvailability}
-                      </p>
+                      <p>{packData?.reportAvailability}</p>
                     </div>
                   </div>
                 </Col>
@@ -156,10 +162,7 @@ const PackageDetails = () => {
               <div className="pckge_price_details text-center">
                 {discountFee === "0" ? null : <h5>&#8377;{discountFee}/-</h5>}
                 <h3>&#8377;{fee}/-</h3>
-                <Button
-                  onClick={toggleSwitch}
-                  className="btn1 d-block w-100"
-                >
+                <Button onClick={toggleSwitch} className="btn1 d-block w-100">
                   Enquire Now
                 </Button>
                 <Link
@@ -175,9 +178,7 @@ const PackageDetails = () => {
       </section>
       <section
         className={
-          isEnabled
-            ? "package-details-form active"
-            : "package-details-form"
+          isEnabled ? "package-details-form active" : "package-details-form"
         }
       >
         <Container>
@@ -189,7 +190,10 @@ const PackageDetails = () => {
               <h3 className="text-purple text-start mar-bot-20">
                 Enquire Now!
               </h3>
-              <form onSubmit={handleSubmit(submitHandler)} className="contact-form">
+              <form
+                onSubmit={handleSubmit(submitHandler)}
+                className="contact-form"
+              >
                 <Form.Control
                   type="text"
                   value={packData?.packageName}
@@ -236,13 +240,15 @@ const PackageDetails = () => {
                 />
                 {errors.name && <span>This field is required</span>}
                 <p className="text-center pad-top-20">
-                  {loading ?
+                  {loading ? (
                     <Button className="btn1 mb-0" disabled>
                       <FaPaperPlane /> &nbsp; SUBMIT
-                    </Button> :
+                    </Button>
+                  ) : (
                     <Button className="btn1 mb-0" type="submit">
                       <FaPaperPlane /> &nbsp; SUBMIT
-                    </Button>}
+                    </Button>
+                  )}
                 </p>
               </form>
             </Col>
@@ -251,6 +257,6 @@ const PackageDetails = () => {
       </section>
     </>
   );
-}
+};
 
 export default PackageDetails;
