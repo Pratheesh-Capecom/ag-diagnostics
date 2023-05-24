@@ -251,7 +251,7 @@ const HomeVisitForm = (props) => {
                                             <Col xs={12} sm={12} md={6} lg={6} className="pb-4">
                                                 <p className="mb-0 text-dark">Select Package</p>
                                                 {/*  <SelectfilterOption={(input, option) => option?.children?.toLowerCase()?.includes(input)} */}
-                                                {packagename ?
+                                                {id ?
                                                     <Form.Control value={packagename} {...register("packageId")} />
                                                     :
                                                     <Select
