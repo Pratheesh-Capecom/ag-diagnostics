@@ -39,6 +39,7 @@ const OurTeam = () => {
             <MetaTags>
                 <title>Meet Our Dr Ajit Golwilkar Lab Team - A G Diagnostics</title>
                 <meta name="description" content="A G Diagnostics: 20+ years of tech team experience for efficient and ethical services. Stay ahead with our innovative practices and cutting-edge technology." />
+                <link rel="canonical" href="https://www.agdiagnostics.com/about-us/our-team" />
             </MetaTags>
             <Menubar
                 defaultCity={defaultCity}

@@ -39,6 +39,7 @@ const Media = () => {
       <MetaTags>
         <title>Media Coverage | A G Diagnostics</title>
         <meta name="description" content="A G Diagnostics, the most reputed lab in Pune and Ahmednagar with extensive media coverage in publications, press, and news articles." />
+        <link rel="canonical" href="https://www.agdiagnostics.com/media" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

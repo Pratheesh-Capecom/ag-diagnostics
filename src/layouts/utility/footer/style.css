@@ -48,6 +48,10 @@ footer p.icons {
   position: relative;
 }
 
+footer p.icons a{
+  color: #fff;
+}
+
 footer p.icons svg {
   position: absolute;
   left: 0;
@@ -132,6 +136,10 @@ footer h5 {
 .footer-call-no p b {
   font-size: 20px;
   font-weight: 500;
+}
+
+.footer-call-no p b a{
+  color: #fff;
 }
 
 .footer-bottom {

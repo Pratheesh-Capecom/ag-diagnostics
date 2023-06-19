@@ -3,6 +3,7 @@ import TermsConditionsBanner from "views/app/components/terms-conditions-banner"
 import TermsConditionsContent from "views/app/components/terms-conditions-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const PrivacyPolicy = () => {
   const { data: city } = useCity();
@@ -34,6 +35,11 @@ const PrivacyPolicy = () => {
 
   return (
     <>
+      <MetaTags>
+            <title>Terms and Conditions | A G Diagnostics</title>
+            <meta name="description" content="" />
+            <link rel="canonical" href="https://www.agdiagnostics.com/terms-conditions" />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

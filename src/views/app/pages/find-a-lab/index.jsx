@@ -37,8 +37,9 @@ const FindALab = () => {
   return (
     <>
       <MetaTags>
-          <title>Diagnostic Centre and Best Quality Pathology Lab Near Me - A G Diagnostics</title>
+          <title>Find our Nearby Best Quality Pathology Lab in Pune & Ahmednagar - A.G Diagnostics</title>
           <meta name="description" content="We have more than 50 sample collection centers in Pune and Ahmednagar. Check out a nearby Diagnostic Centre for Blood Tests and Full Body Checkups." />
+          <link rel="canonical" href="https://www.agdiagnostics.com/find-a-lab" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

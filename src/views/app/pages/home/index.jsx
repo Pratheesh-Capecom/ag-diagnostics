@@ -51,6 +51,7 @@ export default function Home() {
       <MetaTags>
             <title>Best Diagnostic Centre in Pune | Dr Ajit Golwilkar Lab | A G Diagnostics</title>
             <meta name="description" content="A G Diagnostics: Providing quality pathology laboratory services for over 40 years in Pune and Ahmednagar. Book your test in our nearest Diagnostic Centre now!" />
+            <link rel="canonical" href="https://www.agdiagnostics.com/" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

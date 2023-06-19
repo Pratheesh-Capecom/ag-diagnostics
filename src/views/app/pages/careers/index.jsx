@@ -39,6 +39,7 @@ const Careers = () => {
       <MetaTags>
             <title>Jobs | Careers | A G Diagnostics</title>
             <meta name="description" content="Join A G Diagnostics for a rewarding career with diverse learning, research, and development opportunities. Grow your career with us today." />
+            <link rel="canonical" href="https://www.agdiagnostics.com/careers" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

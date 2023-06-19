@@ -39,6 +39,7 @@ const CovidPcr = () => {
       <MetaTags>
         <title>Covid 19 RT PCR, Monitoring, Antibody Test in Pune - A G Diagnostics</title>
         <meta name="description" content="A G Diagnostics offers Covid 19 RT-PCR Test, Covid 19 Monitoring tests, SARS-Cov-2 IgG Antibody Test, and Anti-SARS-CoV-2 Spike Protein (S1/S2) IgG Test." />
+        <link rel="canonical" href="https://www.agdiagnostics.com/covid-pcr" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

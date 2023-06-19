@@ -3,6 +3,7 @@ import PrivacyBanner from "views/app/components/privacy-policy-banner";
 import PrivacyContent from "views/app/components/privacy-policy-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 const PrivacyPolicy = () => {
 
@@ -35,6 +36,11 @@ const PrivacyPolicy = () => {
 
   return (
     <>
+      <MetaTags>
+        <title>Privacy Policy | A G Diagnostics</title>
+        <meta name="description" content="" />
+        <link rel="canonical" href="https://www.agdiagnostics.com/privacy-policy" />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

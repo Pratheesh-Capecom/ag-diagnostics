@@ -39,6 +39,7 @@ const Brochures = () => {
       <MetaTags>
             <title>Download Brochures - A G Diagnostics</title>
             <meta name="description" content="Download our package booklets and technical leaflets for comprehensive details on diagnostic and pathology lab tests. Get informed today." />
+            <link rel="canonical" href="https://www.agdiagnostics.com/brochures" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

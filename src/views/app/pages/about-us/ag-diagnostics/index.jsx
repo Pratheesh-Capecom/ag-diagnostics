@@ -41,6 +41,7 @@ const AboutUs = () => {
             <MetaTags>
                 <title>About Our Pathology and Diagnostic Centre | A G Diagnostics</title>
                 <meta name="description" content="A G Diagnostics is the most reputed lab in Pune and Ahmednagar with over 50 collection centres staffed with expert pathologists, phlebotomists & technicians." />
+                <link rel="canonical" href="https://www.agdiagnostics.com/about-us/ag-diagnostics" />
             </MetaTags>
             <Menubar
                 defaultCity={defaultCity}

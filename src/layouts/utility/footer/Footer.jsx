@@ -49,7 +49,10 @@ class Footer extends Component {
                 </p>
                 <p className="icons">
                   <Icon.Telephone />
-                  020 6763 6763
+                  <Link
+                      rel="noopener noreferrer"
+                      onClick={() => openInNewTab("tel:02067636763")}
+                    >020 6763 6763</Link>
                 </p>
                 <p className="icons">
                   <Icon.Envelope />
@@ -172,7 +175,10 @@ class Footer extends Component {
             <p>
               For Home Collection, call us at
               <br />
-              <b>020 6763 6763</b>
+              <b><Link
+                      rel="noopener noreferrer"
+                      onClick={() => openInNewTab("tel:02067636763")}
+                    >020 6763 6763</Link></b>
             </p>
           </div>
         </footer>

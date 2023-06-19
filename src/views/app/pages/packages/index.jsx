@@ -43,6 +43,7 @@ const history = useHistory()
       <Helmet>
         <title>Health Checkup Packages | Full Body Checkup In Pune - A G Diagnostics</title>
         <meta name="description" content="A G Diagnostics offers comprehensive preventive health checkup in Pune for preventive care. Choose from a variety of Full body check-up options today" />
+        <link rel="canonical" href="https://www.agdiagnostics.com/pune/packages" />
       </Helmet>
       <Menubar
         defaultCity={defaultCity}

@@ -39,6 +39,7 @@ const CsrPolicy = () => {
             <MetaTags>
                 <title>Corporate Social Responsibility (CSR) - A G Diagnostics</title>
                 <meta name="description" content="A G Diagnostics Private Limited is committed to conducting sustainable and ethical business practices through its Corporate Social Responsibility (CSR) activities." />
+                <link rel="canonical" href="https://www.agdiagnostics.com/about-us/csr-policy" />
             </MetaTags>
             <Menubar
                 defaultCity={defaultCity}

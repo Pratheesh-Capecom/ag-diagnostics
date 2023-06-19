@@ -40,6 +40,7 @@ const TechnicalCapabilities = () => {
       <MetaTags>
           <title>Technical Capabilities - A G Diagnostics </title>
           <meta name="description" content="A G Diagnostics offers cutting-edge technology in Microbiology & Molecular Biology, Hematology, Clinical Pathology, Quality Assurance, and more." />
+          <link rel="canonical" href="https://www.agdiagnostics.com/technical-capabilities" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

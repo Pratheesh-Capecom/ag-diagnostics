@@ -40,6 +40,7 @@ const AboutFounder = () => {
             <MetaTags>
                 <title>About A.G Diagnostics Centre Founder Dr Ajit Golwilkar</title>
                 <meta name="description" content="A G Diagnostics, formerly known as Golwilkar Laboratories, provides world-class pathology services in Pune. Founded in 1978 by Dr Ajit Golwilkar" />
+                <link rel="canonical" href="https://www.agdiagnostics.com/about-us/about-founder" />
             </MetaTags>
             <Menubar
                 defaultCity={defaultCity}

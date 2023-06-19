@@ -39,6 +39,7 @@ const Services = () => {
       <MetaTags>
             <title>Directory Of Services - A G Diagnostics</title>
             <meta name="description" content="A G Diagnostics provide wide variety of diagnostic and pathology test. Visit our website to learn more about each test, its method, and its purpose." />
+            <link rel="canonical" href="https://www.agdiagnostics.com/services" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

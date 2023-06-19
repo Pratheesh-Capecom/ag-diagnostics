@@ -37,8 +37,9 @@ const ContactUs = () => {
   return (
     <>
       <MetaTags>
-            <title>Contact Us | Best Quality Pathology Lab in Pune - A G Diagnostics</title>
+            <title>Contact Us - A G Diagnostics</title>
             <meta name="description" content="Get in touch with A G Diagnostics for all your inquiries including address, phone number and timings. Contact us via email or find us to provide feedback." />
+            <link rel="canonical" href="https://www.agdiagnostics.com/contact-us" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

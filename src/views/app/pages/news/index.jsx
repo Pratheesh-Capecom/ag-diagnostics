@@ -39,6 +39,7 @@ const News = () => {
       <MetaTags>
         <title>News | Diagnostic Centre | A G Diagnostics</title>
         <meta name="description" content="Discover the latest news and updates from A G Diagnostics, a top-quality pathology lab. Join our community of patients, partners, and clients to share stories." />
+        <link rel="canonical" href="https://www.agdiagnostics.com/news" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

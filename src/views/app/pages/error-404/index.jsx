@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ErrorContent from "views/app/components/404-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import MetaTags from 'react-meta-tags';
 
 
 const Error404 = () => {
@@ -35,6 +36,10 @@ const Error404 = () => {
 
   return (
     <>
+      <MetaTags>
+            <title>404 Page - A.G Diagnostics</title>
+            <meta name="description" content="404 Page - A.G Diagnostics" />
+      </MetaTags>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}

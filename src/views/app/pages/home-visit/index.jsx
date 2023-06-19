@@ -46,8 +46,8 @@ const HomeVisit = () => {
         <title>Home Visit For Blood Test in Pune - A G Diagnostics</title>
         <meta
           name="description"
-          content="A G Diagnostics offers blood test home collection in pune for your comfort and gets reports within 24 hours trusted by Doctors and Hospitals. Book a Blood test online."
-        />
+          content="A G Diagnostics offers blood test home collection in pune for your comfort and gets reports within 24 hours trusted by Doctors and Hospitals. Book a Blood test online."/>
+          <link rel="canonical" href="https://www.agdiagnostics.com/home-visit" />
       </MetaTags>
       <Menubar
         defaultCity={defaultCity}

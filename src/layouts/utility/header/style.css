@@ -48,7 +48,7 @@ header .top-header .top-phone p {
   padding-right: 10px;
 }
 
-header .top-header .top-phone p strong {
+header .top-header .top-phone p strong  a{
   display: block;
   font-size: 18px;
   color: #692d97;

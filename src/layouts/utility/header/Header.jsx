@@ -8,6 +8,10 @@ import homeicon from "assets/images/homeicon.png";
 import { Link } from "react-router-dom";
 import "./style.css";
 
+const openInNewTab = (url) => {
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 class Main extends Component {
   render() {
     return (
@@ -38,7 +42,10 @@ class Main extends Component {
                   <div className="top-phone">
                     <p>
                       For Home Visit, call us at
-                      <strong>020 6763 6763</strong>
+                      <strong><Link
+                      rel="noopener noreferrer"
+                      onClick={() => openInNewTab("tel:02067636763")}
+                    >020 6763 6763</Link></strong>
                     </p>
                     <img src={homeicon} alt="" className="img-fluid" />
                   </div>
