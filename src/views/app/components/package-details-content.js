@@ -38,7 +38,7 @@ const PackageDetails = () => {
 
   const [isEnabled, setIsEnabled] = useState(false);
   const [packData, setPackData] = useState([]);
-  console.log(packData);
+  // console.log(packData);
   const toggleSwitch = () => {
     setIsEnabled((previousState) => !previousState);
     reset();
@@ -79,14 +79,17 @@ const PackageDetails = () => {
     }
   }, [pack]);
 
+  useEffect(() => {
+    document.title = packData?.meta_title || "AG Care";
+    document.querySelector('meta[name="description"]').content =
+      packData?.meta_description;
+  }, [packData]);
+
   return (
     <>
       <Helmet>
-        <title>{packData && packData.meta_title}</title>
-        <meta
-          name="description"
-          content={packData && packData.meta_description}
-        />
+        <title>{packData?.meta_title || "AG Care"}</title>
+        <meta name="description" content={packData?.meta_description} />
       </Helmet>
       <section className="package-details position-relative">
         <Container>
@@ -166,7 +169,9 @@ const PackageDetails = () => {
                   Enquire Now
                 </Button>
                 <Link
-                  to={`/home-visit/${`${packData.cityName}`.toLowerCase()}/${packData?.slug}`}
+                  to={`/home-visit/${`${packData.cityName}`.toLowerCase()}/${
+                    packData?.slug
+                  }`}
                   className="btn2 d-block"
                 >
                   Book Home Collection
