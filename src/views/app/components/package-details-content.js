@@ -169,7 +169,7 @@ const PackageDetails = () => {
                   Enquire Now
                 </Button>
                 <Link
-                  to={`/home-visit/${`${packData.cityName}`.toLowerCase()}/${
+                  to={`/home-visit/${`${packData?.cityName}`.toLowerCase()}/${
                     packData?.slug
                   }`}
                   className="btn2 d-block"
