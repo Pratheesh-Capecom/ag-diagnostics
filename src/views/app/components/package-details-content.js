@@ -17,15 +17,13 @@ import Button from "react-bootstrap/Button";
 import { FaPaperPlane } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useEnquiry, usePackageId } from "hooks/packages";
+import { useEnquiry } from "hooks/packages";
 import { message } from "antd";
 import { Helmet } from "react-helmet";
 
-const PackageDetails = () => {
-  let cityName = localStorage.getItem("city_name");
-  let packageId = localStorage.getItem("packageId");
-  let discountFee = localStorage.getItem("discountFee");
-  let fee = localStorage.getItem("fee");
+const PackageDetails = ({ packageData }) => {
+  const { cityName, discountFees, fees, id } = packageData
+  const packData = packageData
   let history = useHistory();
   const {
     register,
@@ -34,10 +32,8 @@ const PackageDetails = () => {
     reset,
   } = useForm();
   const { mutate: enquiry, isLoading: loading } = useEnquiry();
-  const { data: pack } = usePackageId(packageId);
 
   const [isEnabled, setIsEnabled] = useState(false);
-  const [packData, setPackData] = useState([]);
   // console.log(packData);
   const toggleSwitch = () => {
     setIsEnabled((previousState) => !previousState);
@@ -46,7 +42,7 @@ const PackageDetails = () => {
 
   const submitHandler = (e) => {
     const submitData = { ...e };
-    submitData.packageId = packageId;
+    submitData.packageId = id;
     submitData.name = e.name;
     submitData.email = e.email;
     submitData.mobile = e.mobile;
@@ -73,11 +69,6 @@ const PackageDetails = () => {
     });
   };
 
-  useEffect(() => {
-    if (pack) {
-      setPackData(pack?.package_detail);
-    }
-  }, [pack]);
 
   useEffect(() => {
     document.title = packData?.meta_title || "AG Care";
@@ -163,15 +154,14 @@ const PackageDetails = () => {
             </Col>
             <Col xs={12} sm={12} md={12} lg={4}>
               <div className="pckge_price_details text-center">
-                {discountFee === "0" ? null : <h5>&#8377;{discountFee}/-</h5>}
-                <h3>&#8377;{fee}/-</h3>
+                {discountFees === "0" ? null : <h5>&#8377;{discountFees}/-</h5>}
+                <h3>&#8377;{fees}/-</h3>
                 <Button onClick={toggleSwitch} className="btn1 d-block w-100">
                   Enquire Now
                 </Button>
                 <Link
-                  to={`/home-visit/${`${packData?.cityName}`.toLowerCase()}/${
-                    packData?.slug
-                  }`}
+                  to={`/home-visit/${`${packData?.cityName}`.toLowerCase()}/${packData?.slug
+                    }`}
                   className="btn2 d-block"
                 >
                   Book Home Collection

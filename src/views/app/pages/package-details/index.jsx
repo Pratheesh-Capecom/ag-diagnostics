@@ -4,10 +4,15 @@ import InnerBanner from "views/app/components/inner-banner";
 import PackageDetailsContent from "views/app/components/package-details-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
+import axios from "axios";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
+import Loader from "views/app/components/loader";
 
 const PackageDetails = () => {
+  const { packageName } = useParams();
   const { data: city } = useCity();
   const [cityData, setCityData] = useState([]);
+  const [packageData, setPackageData] = useState(null);
   const [defaultCity, setDefaultCity] = useState(
     localStorage.getItem("city_id") || "490"
   ); //Default pune
@@ -35,6 +40,11 @@ const PackageDetails = () => {
     }
   }, [city]);
 
+  useEffect(() => {
+    axios.get(`https://admin.agdiagnostics.com/api/package-detail/${packageName}`).then(response => {
+      setPackageData(response.data?.package_detail)
+    })
+  }, [packageName])
   return (
     <>
       <Menubar
@@ -46,10 +56,10 @@ const PackageDetails = () => {
         hide={"hide"}
       />
       <InnerBanner />
-      <PackageDetailsContent />
+      {packageData === null ? <center><Loader /></center> : <PackageDetailsContent packageData={packageData} />}
       <PackagesScroll defaultCity={defaultCity} />
     </>
-  );
+  ); 
 };
 
 export default PackageDetails;
