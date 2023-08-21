@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import PackagesScroll from "views/app/components/packages-scroll";
-import InnerBanner from "views/app/components/inner-banner";
-import PackageDetailsContent from "views/app/components/package-details-content";
-import Menubar from "layouts/utility/menu-bar/Menu-bar";
+import { useState, useEffect } from "react";
 import { useCity } from "hooks/home";
-import axios from "axios";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { Helmet } from 'react-helmet';
+
+import axios from "axios";
 import Loader from "views/app/components/loader";
+import Menubar from "layouts/utility/menu-bar/Menu-bar";
+import InnerBanner from "views/app/components/inner-banner";
+import PackagesScroll from "views/app/components/packages-scroll";
+import PackageDetailsContent from "views/app/components/package-details-content";
 
 const PackageDetails = () => {
   const { packageName } = useParams();
@@ -46,7 +48,10 @@ const PackageDetails = () => {
     })
   }, [packageName])
   return (
-    <>
+    <div>
+      <Helmet>
+        <meta name="description" content="lohbfsfbdsf dksf " />
+      </Helmet>
       <Menubar
         defaultCity={defaultCity}
         cityData={cityData}
@@ -58,8 +63,8 @@ const PackageDetails = () => {
       <InnerBanner />
       {packageData === null ? <center><Loader /></center> : <PackageDetailsContent packageData={packageData} />}
       <PackagesScroll defaultCity={defaultCity} />
-    </>
-  ); 
+    </div>
+  );
 };
 
 export default PackageDetails;

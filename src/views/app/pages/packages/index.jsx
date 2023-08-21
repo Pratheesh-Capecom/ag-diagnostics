@@ -4,7 +4,8 @@ import PackgesContent from "views/app/components/packages-content";
 import Menubar from "layouts/utility/menu-bar/Menu-bar";
 import { useCity } from "hooks/home";
 import { useHistory } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
+
 
 const Packages = () => {
   const history = useHistory();

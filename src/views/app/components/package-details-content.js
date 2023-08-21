@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -19,11 +19,8 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useEnquiry } from "hooks/packages";
 import { message } from "antd";
-import { Helmet } from "react-helmet";
-
 const PackageDetails = ({ packageData }) => {
   const { cityName, discountFees, fees, id } = packageData
-  const packData = packageData
   let history = useHistory();
   const {
     register,
@@ -34,7 +31,7 @@ const PackageDetails = ({ packageData }) => {
   const { mutate: enquiry, isLoading: loading } = useEnquiry();
 
   const [isEnabled, setIsEnabled] = useState(false);
-  // console.log(packData);
+  // console.log(packageData);
   const toggleSwitch = () => {
     setIsEnabled((previousState) => !previousState);
     reset();
@@ -69,19 +66,15 @@ const PackageDetails = ({ packageData }) => {
     });
   };
 
-
   useEffect(() => {
-    document.title = packData?.meta_title || "AG Care";
-    document.querySelector('meta[name="description"]').content =
-      packData?.meta_description;
-  }, [packData]);
-
+    var metaTag = document.querySelector('meta[name="description"]');
+    document.title = packageData.meta_title ?? packageData.packageName
+    if(metaTag) {
+      metaTag.setAttribute("content", packageData.meta_description ?? packageData.packageName);
+    }
+  },[packageData])
   return (
     <>
-      <Helmet>
-        <title>{packData?.meta_title || "AG Care"}</title>
-        <meta name="description" content={packData?.meta_description} />
-      </Helmet>
       <section className="package-details position-relative">
         <Container>
           <Row>
@@ -89,36 +82,36 @@ const PackageDetails = ({ packageData }) => {
               <Row className="align-items-center">
                 <Col xs={12} sm={12} md={12} lg={10}>
                   <div className="package-details-heading">
-                    <img src={packData?.icon} alt="" className="img-fluid" />
-                    <h3>{packData?.packageName}</h3>
+                    <img src={packageData?.icon} alt="" className="img-fluid" />
+                    <h3>{packageData?.packageName}</h3>
                   </div>
                   <h4>Test information</h4>
                   <div className="pckge_include">
                     <img src={SampleTube} alt="" className="img-fluid" />
                     <div className="pckge_details">
                       <h5>Total tests included</h5>
-                      <p>{packData?.testLists}</p>
+                      <p>{packageData?.testLists}</p>
                     </div>
                   </div>
                   <div className="pckge_include">
                     <img src={Calendar} alt="" className="img-fluid" />
                     <div className="pckge_details">
                       <h5>Test Schedule</h5>
-                      <p>{packData?.testSchedule}</p>
+                      <p>{packageData?.testSchedule}</p>
                     </div>
                   </div>
                   <div className="pckge_include">
                     <img src={SampleType} alt="" className="img-fluid" />
                     <div className="pckge_details">
                       <h5>Sample type</h5>
-                      <p>{packData?.sampleType}</p>
+                      <p>{packageData?.sampleType}</p>
                     </div>
                   </div>
                   <div className="pckge_include">
                     <img src={AgeIcon} alt="" className="img-fluid" />
                     <div className="pckge_details">
                       <h5>Age restrictions</h5>
-                      <p>{packData?.ageRestrictions || "-"}</p>
+                      <p>{packageData?.ageRestrictions || "-"}</p>
                     </div>
                   </div>
                   <div className="pckge_include">
@@ -134,8 +127,8 @@ const PackageDetails = ({ packageData }) => {
                     <div className="pckge_details">
                       <h5>Pre-test requirements</h5>
                       <ul className="list-style1">
-                        {packData?.preRequisties ? (
-                          <li className="ms-0">{packData?.preRequisties}</li>
+                        {packageData?.preRequisties ? (
+                          <li className="ms-0">{packageData?.preRequisties}</li>
                         ) : (
                           "-"
                         )}
@@ -146,7 +139,7 @@ const PackageDetails = ({ packageData }) => {
                     <img src={Report} alt="" className="img-fluid" />
                     <div className="pckge_details">
                       <h5>Report availability</h5>
-                      <p>{packData?.reportAvailability}</p>
+                      <p>{packageData?.reportAvailability}</p>
                     </div>
                   </div>
                 </Col>
@@ -160,7 +153,7 @@ const PackageDetails = ({ packageData }) => {
                   Enquire Now
                 </Button>
                 <Link
-                  to={`/home-visit/${`${packData?.cityName}`.toLowerCase()}/${packData?.slug
+                  to={`/home-visit/${`${packageData?.cityName}`.toLowerCase()}/${packageData?.slug
                     }`}
                   className="btn2 d-block"
                 >
@@ -191,7 +184,7 @@ const PackageDetails = ({ packageData }) => {
               >
                 <Form.Control
                   type="text"
-                  value={packData?.packageName}
+                  value={packageData?.packageName}
                   className="mar-bot-20"
                   disabled
                 />
