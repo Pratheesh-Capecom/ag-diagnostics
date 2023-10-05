@@ -117,8 +117,13 @@ const FindALabContent = () => {
                                     </div>
                                 </Col>
                             ))}
-                        </Row>
+                        </Row>                        
                     )}
+                    <Row className="justify-content-center">
+                        <Col className="col-sm-12 col-md-12 col-lg-10">
+                            <p className="text-center text-dark mt-4 mb-0">Experience excellence in diagnostics with A.G Diagnostics, your trusted choice for healthcare services. Our state-of-the-art Pathology Labs in Pune are equipped with cutting-edge technology and staffed by experienced professionals dedicated to accurate results and compassionate care. As the Best Pathology Lab in Pune, we prioritize your health and well-being. Visit us at our convenient locations across the city to access top-quality diagnostic services. Your health is our priority, and we are committed to delivering the highest standards of diagnostic excellence. <strong>Trust A.G Diagnostics for all your diagnostic needs in Pune.</strong></p>
+                        </Col>
+                    </Row>
                 </Container>
             </section>
         </>
