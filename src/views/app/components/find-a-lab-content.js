@@ -10,6 +10,7 @@ import { TbMap2 } from 'react-icons/tb';
 import { useFindLab } from "hooks/findLab";
 import { useCity } from "hooks/home";
 import Loader from "./loader";
+import { TextLeft } from "react-bootstrap-icons";
 
 
 const FindALabContent = () => {
@@ -119,6 +120,37 @@ const FindALabContent = () => {
                             ))}
                         </Row>                        
                     )}
+                    <Row>
+                        <Col>
+                        <hr/>
+                            <div className="main-lab-address pt-4 pb-0">
+                                <h3 className="mb-0 text-orange">Associate Centre</h3>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row className="justify-content-center">
+                        <Col xs={12} sm={12} md={6} lg={6} xl={4}>
+                            <div className="package-slide">
+                                <h5 className="text-purple">
+                                PUNAWALE<span>Kate Wasti, Pune</span>
+                                </h5>
+                                <div className="location">
+                                <GrLocation />Doctor Hub Polyclinic, <br/>Shop No.1, Shukhada Apartment, <br/>Jambe Road, Kate Wasti, <br/>Pune - 411 033
+                                </div>
+                                <div className="phone">
+                                    <FiPhoneCall /> 70582224525
+                                </div>
+                                <a className="orange-btn" href={`https://maps.app.goo.gl/bC99RK4AC72QBQEb8`} target="_blank" rel="noreferrer">
+                                            <TbMap2 /> Get Direction
+                                        </a>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                        <hr/>
+                        </Col>
+                    </Row>
                     <Row className="justify-content-center">
                         <Col className="col-sm-12 col-md-12 col-lg-10">
                             <p className="text-center text-dark mt-4 mb-0">Experience excellence in diagnostics with A.G Diagnostics, your trusted choice for healthcare services. Our state-of-the-art Pathology Labs in Pune are equipped with cutting-edge technology and staffed by experienced professionals dedicated to accurate results and compassionate care. As the Best Pathology Lab in Pune, we prioritize your health and well-being. Visit us at our convenient locations across the city to access top-quality diagnostic services. Your health is our priority, and we are committed to delivering the highest standards of diagnostic excellence. <strong>Trust A.G Diagnostics for all your diagnostic needs in Pune.</strong></p>
