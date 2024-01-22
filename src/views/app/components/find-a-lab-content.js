@@ -124,11 +124,11 @@ const FindALabContent = () => {
                         <Col>
                         <hr/>
                             <div className="main-lab-address pt-4 pb-0">
-                                <h3 className="mb-0 text-orange">Associate Centre</h3>
+                                <h3 className="mb-0 text-orange text-left">Associate Collection Centre</h3>
                             </div>
                         </Col>
                     </Row>
-                    <Row className="justify-content-center">
+                    <Row>
                         <Col xs={12} sm={12} md={6} lg={6} xl={4}>
                             <div className="package-slide">
                                 <h5 className="text-purple">
