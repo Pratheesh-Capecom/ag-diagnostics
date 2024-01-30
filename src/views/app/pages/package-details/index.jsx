@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useCity } from "hooks/home";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { Helmet } from 'react-helmet';
+import {useState, useEffect} from "react";
+import {useCity} from "hooks/home";
+import {useParams} from "react-router-dom/cjs/react-router-dom";
+import {Helmet} from "react-helmet";
 
 import axios from "axios";
 import Loader from "views/app/components/loader";
@@ -11,15 +11,14 @@ import PackagesScroll from "views/app/components/packages-scroll";
 import PackageDetailsContent from "views/app/components/package-details-content";
 
 const PackageDetails = () => {
-  const { packageName } = useParams();
-  const { data: city } = useCity();
+  const {packageName} = useParams();
+  const {data: city} = useCity();
   const [cityData, setCityData] = useState([]);
   const [packageData, setPackageData] = useState(null);
   const [defaultCity, setDefaultCity] = useState(
     localStorage.getItem("city_id") || "490"
   ); //Default pune
   const [cityModal, setCityModal] = useState(false);
-
   const modalHandler = (status) => {
     setCityModal(status);
   };
@@ -41,16 +40,23 @@ const PackageDetails = () => {
       setCityData(city?.city);
     }
   }, [city]);
-
+  console.log(packageData, "packageData");
   useEffect(() => {
-    axios.get(`https://admin.agdiagnostics.com/api/package-detail/${packageName}`).then(response => {
-      setPackageData(response.data?.package_detail)
-    })
-  }, [packageName])
+    axios
+      .get(
+        `https://admin.agdiagnostics.com/api/package-detail/${packageName}?city_id=${defaultCity}`
+      )
+      .then((response) => {
+        setPackageData(response.data?.package_detail);
+      });
+  }, [packageName]);
   return (
     <div>
       <Helmet>
-        <meta name="description" content="lohbfsfbdsf dksf " />
+        <meta
+          name="description"
+          content={packageData?.meta_description ?? "lohbfsfbdsf dksf "}
+        />
       </Helmet>
       <Menubar
         defaultCity={defaultCity}
@@ -61,7 +67,13 @@ const PackageDetails = () => {
         hide={"hide"}
       />
       <InnerBanner />
-      {packageData === null ? <center><Loader /></center> : <PackageDetailsContent packageData={packageData} />}
+      {packageData === null ? (
+        <center>
+          <Loader />
+        </center>
+      ) : (
+        <PackageDetailsContent packageData={packageData} />
+      )}
       <PackagesScroll defaultCity={defaultCity} />
     </div>
   );
