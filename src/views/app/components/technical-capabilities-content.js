@@ -57,7 +57,7 @@ const TechnicalCapabilitiesContent = () => {
             <Col xs={12} sm={12} md={8} lg={6}>
               <h4 className="mb-2 pb-3">Hematology</h4>
               <h5 className="text-dark">
-                Our haematology & special haematology section offers
+                Our hematology & special hematology section offers
                 state-of-the-art testing for routine as well as specialized
                 tests.
               </h5>

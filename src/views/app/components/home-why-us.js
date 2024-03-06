@@ -47,7 +47,7 @@ const HomeWhyUs = () => {
                 </div>
                 <div className="why-choose-text">
                   <div className="inner-box">
-                    <p>50+ Collection Centres Across Pune</p>
+                    <p>55+ Collection Centres Across Pune</p>
                   </div>
                 </div>
               </li>
@@ -67,7 +67,7 @@ const HomeWhyUs = () => {
                 </div>
                 <div className="why-choose-text">
                   <div className="inner-box">
-                    <p>NABL Accredited as per ISO-15189:2012</p>
+                    <p>NABL Accredited as per ISO-15189:2022</p>
                   </div>
                 </div>
               </li>

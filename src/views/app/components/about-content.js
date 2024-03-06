@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import aboutImage2 from "assets/images/about-2.jpg";
-
+import { Link } from "react-router-dom";
 
 const AboutContent = () => {
   return (
@@ -19,7 +19,7 @@ const AboutContent = () => {
                 is a reputed, state-of-art clinical diagnostics laboratory,
                 spread over <strong>16,000 sq. ft.</strong> processing centre
                 at Bhandarkar Road, Pune with a network of over{" "}
-                <strong className="text-purple">50 collection centres</strong>{" "}
+                <Link to={`/find-a-lab`}><strong className="text-purple">55 collection centres</strong></Link>{" "}
                 across the city.
               </h5>
               <p className="text-dark">

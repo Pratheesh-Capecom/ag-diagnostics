@@ -7,6 +7,8 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { useBrochure } from "hooks/brochure";
 import Loader from "./loader";
+import CorpBroc from "assets/images/corporate-brochure.jpg";
+import CorpBrocPdf from "assets/images/Corporate-Brochure-Dec-23.pdf";
 
 export default function PackagesBookletContent() {
 
@@ -97,6 +99,20 @@ export default function PackagesBookletContent() {
                     </>
                   </Row>)}
 
+              </Tab>
+              <Tab eventKey="corporate_brochure" title="Corporate Brochure">
+                <Row className="justify-content-center">
+                  <Col xs={12} sm={6} md={6} lg={4} xl={3}>
+                    <div className="package-slide">
+                    <a href={CorpBrocPdf} className="booklet-download" target="_blank" rel="noreferrer"> 
+                    <img src={CorpBroc} alt="" className="img-fluid" />                            
+                              <span>
+                                <FiDownload />
+                              </span>
+                            </a>
+                    </div>
+                  </Col>
+                </Row>
               </Tab>
             </Tabs>
           </Col>
