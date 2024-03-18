@@ -1,4 +1,4 @@
-import  { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -69,10 +69,11 @@ const PackageDetails = ({ packageData }) => {
   useEffect(() => {
     var metaTag = document.querySelector('meta[name="description"]');
     document.title = packageData.meta_title ?? packageData.packageName
-    if(metaTag) {
+    if (metaTag) {
       metaTag.setAttribute("content", packageData.meta_description ?? packageData.packageName);
     }
-  },[packageData])
+  }, [packageData])
+
   return (
     <>
       <section className="package-details position-relative">

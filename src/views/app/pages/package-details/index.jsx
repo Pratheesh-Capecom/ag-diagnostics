@@ -1,7 +1,7 @@
-import {useState, useEffect} from "react";
-import {useCity} from "hooks/home";
-import {useParams} from "react-router-dom/cjs/react-router-dom";
-import {Helmet} from "react-helmet";
+import { useState, useEffect } from "react";
+import { useCity } from "hooks/home";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { Helmet } from "react-helmet";
 
 import axios from "axios";
 import Loader from "views/app/components/loader";
@@ -11,8 +11,8 @@ import PackagesScroll from "views/app/components/packages-scroll";
 import PackageDetailsContent from "views/app/components/package-details-content";
 
 const PackageDetails = () => {
-  const {packageName} = useParams();
-  const {data: city} = useCity();
+  const { packageName } = useParams();
+  const { data: city } = useCity();
   const [cityData, setCityData] = useState([]);
   const [packageData, setPackageData] = useState(null);
   const [defaultCity, setDefaultCity] = useState(
@@ -53,10 +53,11 @@ const PackageDetails = () => {
   return (
     <div>
       <Helmet>
-        <meta
+        {/* <meta
           name="description"
-          content={packageData?.meta_description ?? "lohbfsfbdsf dksf "}
-        />
+          content={packageData?.meta_description ?? packageData?.slug}
+        /> */}
+        <link rel="canonical" href={window.location.href} />
       </Helmet>
       <Menubar
         defaultCity={defaultCity}
