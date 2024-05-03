@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useCity } from "hooks/home";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { Helmet } from "react-helmet";
+import {useState, useEffect} from "react";
+import {useCity} from "hooks/home";
+import {useParams} from "react-router-dom/cjs/react-router-dom";
+import {Helmet} from "react-helmet";
 
 import axios from "axios";
 import Loader from "views/app/components/loader";
@@ -11,8 +11,8 @@ import PackagesScroll from "views/app/components/packages-scroll";
 import PackageDetailsContent from "views/app/components/package-details-content";
 
 const PackageDetails = () => {
-  const { packageName } = useParams();
-  const { data: city } = useCity();
+  const {packageName, cityName} = useParams();
+  const {data: city} = useCity();
   const [cityData, setCityData] = useState([]);
   const [packageData, setPackageData] = useState(null);
   const [defaultCity, setDefaultCity] = useState(
@@ -44,7 +44,7 @@ const PackageDetails = () => {
   useEffect(() => {
     axios
       .get(
-        `https://admin.agdiagnostics.com/api/package-detail/${packageName}?city_id=${defaultCity}`
+        `https://admin.agdiagnostics.com/api/package-detail/${packageName}?city_name=${cityName}`
       )
       .then((response) => {
         setPackageData(response.data?.package_detail);
