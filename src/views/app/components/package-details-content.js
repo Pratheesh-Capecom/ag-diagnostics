@@ -144,19 +144,19 @@ const PackageDetails = ({ packageData }) => {
                     </div>
                   </div>
 
-                  <div className="pckge_include">
-                    <img src={TestRequirement} alt="" className="img-fluid" />
-                    <div className="pckge_details">
-                      <h5>Description</h5>
-                      {packageData?.description ?
-                        <div dangerouslySetInnerHTML={{ __html: packageData?.description }} /> : "-"
-                      }
-                    </div>
-                  </div>
-
                 </Col>
               </Row>
+
+              <div className="mt-5 pe-80">
+                {packageData?.description &&
+                  <div dangerouslySetInnerHTML={{ __html: packageData?.description }} />
+                }
+              </div>
+
             </Col>
+
+
+
             <Col xs={12} sm={12} md={12} lg={4}>
               <div className="pckge_price_details text-center">
                 {discountFees === "0" ? null : <h5>&#8377;{discountFees}/-</h5>}

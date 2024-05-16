@@ -48,7 +48,7 @@ footer p.icons {
   position: relative;
 }
 
-footer p.icons a{
+footer p.icons a {
   color: #fff;
 }
 
@@ -138,7 +138,7 @@ footer h5 {
   font-weight: 500;
 }
 
-.footer-call-no p b a{
+.footer-call-no p b a {
   color: #fff;
 }
 
@@ -240,6 +240,11 @@ ul.right-fixed li:nth-child(3) {
 }
 
 @media (max-width: 991px) {
+
+  .pe-80 {
+    padding-right: 0px !important;
+  }
+
   footer h5 {
     margin-top: 50px;
   }

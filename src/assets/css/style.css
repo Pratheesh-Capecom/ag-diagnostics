@@ -192,6 +192,10 @@ a:hover {
   outline: none !important;
 }
 
+.pe-80 {
+  padding-right: 80px;
+}
+
 /* Back to top button */
 
 .back-to-top {
@@ -277,7 +281,7 @@ a:hover {
   }
 }
 
-.sticky-table-cell{
+.sticky-table-cell {
   font-size: 14px;
   padding: 5px 10px;
   vertical-align: middle;
@@ -285,7 +289,8 @@ a:hover {
   white-space: normal;
   text-align: left;
 }
-.table-header .sticky-table-cell{
+
+.table-header .sticky-table-cell {
   white-space: nowrap;
   background: var(--color-purple);
   color: var(--color-white);
@@ -294,11 +299,12 @@ a:hover {
   font-weight: 500;
 }
 
-.sticky-table-table, .sticky-table{
+.sticky-table-table,
+.sticky-table {
   width: 100%;
 }
 
-.sticky-table-cell:last-child{
+.sticky-table-cell:last-child {
   width: 100px;
   text-align: right;
 }
@@ -324,7 +330,9 @@ a:hover {
   vertical-align: middle;
 }
 
-.services-table table thead tr th.text-right, .services-table table tbody tr td.text-right, .text-right{
+.services-table table thead tr th.text-right,
+.services-table table tbody tr td.text-right,
+.text-right {
   text-align: right;
 }
 
@@ -1152,7 +1160,8 @@ section.home-slider-bg .carousel .carousel-indicators button.active {
   position: absolute;
 }
 
-.img-round, .img-div .img-round {
+.img-round,
+.img-div .img-round {
   border-radius: 50% !important;
 }
 
@@ -2608,21 +2617,23 @@ section.teams {
   font-size: 14px;
 }
 
-.services-search{
+.services-search {
   position: relative;
   margin-left: auto;
   display: flex;
   max-width: 400px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding:5px 50px 5px 15px;
+  padding: 5px 50px 5px 15px;
   border-radius: 50px;
   margin-bottom: 15px;
 }
-.services-search input[type=search]{
+
+.services-search input[type=search] {
   border: none;
   font-size: 15px;
 }
-.services-search svg{
+
+.services-search svg {
   position: absolute;
   right: 10px;
   top: 7px;
@@ -2630,19 +2641,21 @@ section.teams {
   color: var(--color-orange);
 }
 
-.main-lab-address{
+.main-lab-address {
   text-align: center;
   padding-bottom: 20px;
 }
-.main-lab-address h3{
+
+.main-lab-address h3 {
   font-size: 27px;
 }
 
-.main-lab-address h3.text-left{
+.main-lab-address h3.text-left {
   text-align: left;
   padding-left: 10px;
 }
-.main-lab-address small{
+
+.main-lab-address small {
   color: var(--color-black);
   font-size: 20px;
   line-height: 40px;
@@ -2779,22 +2792,23 @@ section.teams {
     padding: 50px 0px;
   }
 
-  .services-table{
+  .services-table {
     width: 100%;
     overflow: auto;
   }
 
-  .accordion-button{
+  .accordion-button {
     font-size: 18px;
   }
 
-  .services-table table thead tr th, .services-table table tbody tr td{
+  .services-table table thead tr th,
+  .services-table table tbody tr td {
     padding: 5px 10px;
     font-size: 13px;
     line-height: 20px;
   }
 
-  .services-table table.table tr td h5{
+  .services-table table.table tr td h5 {
     white-space: nowrap;
     font-size: 16px;
   }
@@ -2916,7 +2930,8 @@ section.teams {
     width: 30px;
     font-size: 24px;
   }
-  span.filter-by-text{
+
+  span.filter-by-text {
     display: none;
   }
 }
