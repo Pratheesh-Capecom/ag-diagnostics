@@ -140,9 +140,20 @@ const PackageDetails = ({ packageData }) => {
                     <img src={Report} alt="" className="img-fluid" />
                     <div className="pckge_details">
                       <h5>Report availability</h5>
-                      <p>{packageData?.reportAvailability}</p>
+                      <p className="mb-0">{packageData?.reportAvailability}</p>
                     </div>
                   </div>
+
+                  <div className="pckge_include">
+                    <img src={TestRequirement} alt="" className="img-fluid" />
+                    <div className="pckge_details">
+                      <h5>Description</h5>
+                      {packageData?.description ?
+                        <div dangerouslySetInnerHTML={{ __html: packageData?.description }} /> : "-"
+                      }
+                    </div>
+                  </div>
+
                 </Col>
               </Row>
             </Col>
