@@ -35,7 +35,7 @@ export default function TeamContent() {
                         {TeamData.map((teams, key) => {
                             return (
                                 <Col xs={12} sm={6} md={6} lg={4} key={key}>
-                                    <Link to="/" className="teams-card" onClick={() => toggleShow(teams.name)}>
+                                    <Link className="teams-card" onClick={() => toggleShow(teams.name)}>
                                         <img src={teams.image} alt="" className="img-fluid" />
                                         <h4>{teams.name}</h4>
                                         <h6>{teams.department}</h6>
