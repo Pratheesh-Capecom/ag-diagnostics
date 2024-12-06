@@ -119,6 +119,9 @@ class Footer extends Component {
                       </Link>
                     </li>
                     <li>
+                      <Link target="_blank" to="/blogs/">Blogs</Link>
+                    </li>
+                    <li>
                       <Link to="/careers">Careers</Link>
                     </li>
                     <li>
