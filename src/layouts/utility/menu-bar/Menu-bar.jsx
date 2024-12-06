@@ -147,6 +147,10 @@ export default function Menubar(props) {
                     <Nav.Link to="/find-a-lab" as={Link}>
                       Find a Lab
                     </Nav.Link>
+                   
+                    <Nav.Link target="_blank" to="/blogs/" as={Link}>
+                      Blogs
+                    </Nav.Link>
                     <Nav.Link to="/careers" as={Link}>
                       Careers
                     </Nav.Link>
