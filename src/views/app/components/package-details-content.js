@@ -52,7 +52,8 @@ const PackageDetails = ({ packageData }) => {
           setIsEnabled((previousState) => !previousState);
           reset();
           setTimeout(() => {
-            history.push(`/${cityName.toLowerCase()}/packages`);
+            // history.push(`/${cityName.toLowerCase()}/packages`);
+            history.push("/thankyou-pages-enquiry")
           }, 1000);
         } else {
           message.error(item?.Message);

@@ -13,6 +13,7 @@ const ThankYouContent = () => {
             <Col xs={12} sm={12} md={12} lg={10}>
               <h3 className="text-orange">Your form has been submitted successfully!</h3>
               <h5 className="text-center">We'll get in touch with you soon...</h5>
+              <p class="text-center"><a class="purple-btn" href="/">GoTo Home</a></p>
             </Col>
           </Row>
         </Container>
