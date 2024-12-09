@@ -132,7 +132,7 @@ const FindALabContent = () => {
                         <Col xs={12} sm={12} md={6} lg={6} xl={4}>
                             <div className="package-slide">
                                 <h5 className="text-purple">
-                                PUNAWALE<span>Kate Wasti, Pune</span>
+                                Punawale<span>Kate Wasti, Pune</span>
                                 </h5>
                                 <div className="location">
                                 <GrLocation />Doctor Hub Polyclinic, <br/>Shop No.1, Shukhada Apartment, <br/>Jambe Road, Kate Wasti, <br/>Pune - 411 033
