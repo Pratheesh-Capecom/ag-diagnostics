@@ -16,7 +16,7 @@ const HomeWhyUs = () => {
         <Row>
           <Col>
             <h2 className="text-center">Reasons to Choose AG as</h2>
-            <h3 className="text-center">Your Preferred Healthcare Partner</h3>
+            <h1 className="text-center title">Your Preferred Healthcare Partner</h1>
             <ul>
               <li>
                 <div className="why-choose-icons">
